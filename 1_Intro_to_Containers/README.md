@@ -25,7 +25,7 @@ Below, we can see one example of how this might look like for the application de
 
 PIC of Dockerfile
 
-Once we have all these components defined, we can finally run our container. Inside the container, we might run a web server on port 5000. We might want to run multiple applications, potentially even multiple of the same application though, thus we can't guarantee that port 5000 will be available on our host. Thus, we will map the port inside the container, to a unique external port.
+Once we have all these components defined, we can finally run our container. Inside the container, we might run a web server on port 5000. We might want to run multiple applications, potentially even multiple of the same application though, thus we can't guarantee that port 5000 will be available on our host. Thus, we will map the port inside the container, to a unique external port. Keep the challenge of managing ports in mind, as this is one of the reasons why containers are usually run with an orchestration system.
 
 PIC of build process
 
