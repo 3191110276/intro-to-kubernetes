@@ -30,3 +30,6 @@ Once we have all these components defined, we can finally run our container. Ins
 PIC of build process
 
 ## Container options
+The example above is based on Docker containers specifically, but Docker is not hte only option for containers. In fact, it has been losing in popularity recently. It is still the most popular container option, by far. While it is not possible to get completely accurate numbers, a large majority of containers are still based on Docker. The remaining parts of this training will be based on Docker, and most of the training applies equally to other container options.
+
+PIC of container options
