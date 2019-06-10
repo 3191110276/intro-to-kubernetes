@@ -12,7 +12,7 @@ There is one more method, which we will not discuss in this training: FaaS, shor
 ## Virtualization options
 One big difference between Contaienrs and Virtual Machines is how the virtualization is achieved. A Virtual Machine will run on top of a hypervisor layer. Each Virtual Machine will then have its own operation system. Having one operating system per Virtual Machine will require a lot of additional resources. Containers do away with the hypervisor layer, and only use a single operating system per host. Virtualization is then done inside the operating system. Each application can still have its own bins/libs though, while sharing a common operating system.
 
-PIC
+![Virtualization options](img/virtualization_options.png?raw=true "Virtualization options")
 
 ## Working with containers
 As mentioned before, containers include all required application components. To achieve this, containers are built out of different layers. Additional layers are then added on top of this base layer, until all needed components are packaged into the application. There are many publically available images for these base layers, but we can also build our own. Building our own base image would enable us to package all of our usual application components, which means that we do not have to specify them for each individual application.
