@@ -5,7 +5,7 @@ Containers have been a hot topic in the last few years. What are they though? Es
 ## Application deployment methods
 Compared to traditional application deployment methods, containers are also a lot faster. We can spin up a new container in seconds, which makes it possible to dynamically react to increased demand. Compare that to Virtual Machines, which can take minutes to start. The increased speed opens up many new options for administrators.
 
-PIC
+![Deployment methods overview](/img/deployment_methods.png?raw=true "Deployment methods overview")
 
 There is one more method, which we will not discuss in this training: FaaS, short for Function-as-a-Service. This deployment method allows us to run individual functions based on an incoming request. Each request would get its own function, which would typically be discarded after the request is finished. This makes it very easy to scale applications, but it also comes with its own downsides.
 
