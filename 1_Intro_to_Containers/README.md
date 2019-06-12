@@ -25,7 +25,7 @@ Below, we can see one example of how this might look like for the application de
 
 ![Dockerfile](img/dockerfile.png?raw=true "Dockerfile")
 
-You can have a look at the Dockerfile in the [/code](/code "/code") directory. To build the container from the file, execute the following command from the folder that contains the Dockerfile:
+You can have a look at the Dockerfile in the [/code](code/ "/code") directory. To build the container from the file, execute the following command from the folder that contains the Dockerfile:
 ~~~~
 docker build -t hello-cisco .
 ~~~~
