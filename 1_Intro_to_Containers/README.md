@@ -17,22 +17,29 @@ One big difference between Contaienrs and Virtual Machines is how the virtualiza
 ## Working with containers
 As mentioned before, containers include all required application components. To achieve this, containers are built out of different layers. Additional layers are then added on top of this base layer, until all needed components are packaged into the application. There are many publically available images for these base layers, but we can also build our own. Building our own base image would enable us to package all of our usual application components, which means that we do not have to specify them for each individual application.
 
-The layers of the container are then based on normal Linux commands, as well as some container-specific commands. As an example, we might first install Python, followed by installing pip (a Python package manager), which we then use to install all dependencies we use in our application. In a final step, we can then copy our own application code into the container.
+The layers of the container are then based on Linux commands, as well as some container-specific commands. As an example, we might first install Python, followed by upgrading pip (a Python package manager), which we then use to install all dependencies for our application. In a final step, we can then copy our own application code into the container.
 
 ![Docker build process](img/docker_build.png?raw=true "Docker build process")
 
-Below, we can see one example of how this might look like for the application described above. We start from a base image using the popular Alpine Linux, and then add new layers step by step.
+These application layers, and thus the individual build steps, are specified in a so-called Dockerfile (when using Docker). Below, we can see one example of how this might look like for the application described above. We start from a base image using the popular Alpine Linux, and then add new layers step by step.
 
 ![Dockerfile](img/dockerfile.png?raw=true "Dockerfile")
 
-You can have a look at the Dockerfile in the [/code](code/ "/code") directory. To build the container from the file, execute the following command from the folder that contains the Dockerfile:
+You can have a look at the Dockerfile in the [/code](code/ "/code") directory. To build a container image from the file, execute the following command inside the folder that contains the Dockerfile:
 ~~~~
 docker build -t hello-cisco .
 ~~~~
 
-Once we have all these components defined, we can finally run our container. Inside the container, we might run a web server on port 5000. We might want to run multiple applications, potentially even multiple of the same application though, thus we can't guarantee that port 5000 will be available on our host. Thus, we will map the port inside the container, to a unique external port. Keep the challenge of managing ports in mind, as this is one of the reasons why containers are usually run with an orchestration system.
+Now that the images is created, we can run it to get a working container. In our case, we are running a web server on port 5000 inside the container. We might want to run multiple applications, potentially even multiple of the same application though, thus we can't guarantee that port 5000 will be available on our host. This means that we will map the port inside the container to a unique external port. 
 
 ![Docker execution](img/docker_run.png?raw=true "Docker execution")
+
+To run the container, and to perform the mapping, we can use the following command:
+~~~~
+docker run -p 4674:5000 hello-cisco
+~~~~
+
+Keep the challenge of managing ports in mind, as this is one of the reasons why containers are usually run with an orchestration system.
 
 ## Container options
 The example above is based on Docker containers specifically, but Docker is not hte only option for containers. In fact, it has been losing in popularity recently. It is still the most popular container option, by far. While it is not possible to get completely accurate numbers, a large majority of containers are still based on Docker. The remaining parts of this training will be based on Docker, and most of the training applies equally to other container options.
