@@ -39,7 +39,7 @@ To run the container, and to perform the mapping, we can use the following comma
 docker run -p 4674:5000 hello-cisco
 ~~~~
 
-Keep the challenge of managing ports in mind, as this is one of the reasons why containers are usually run with an orchestration system.
+Now the container is up and running, and the webserver inside the container can serve requests on port 4674. You can access the web application on 0.0.0.0:4674/index.html. Keep the challenge of managing ports in mind, as this is one of the reasons why containers are usually run with an orchestration system.
 
 ## Container options
 The example above is based on Docker containers specifically, but Docker is not hte only option for containers. In fact, it has been losing in popularity recently. It is still the most popular container option, by far. While it is not possible to get completely accurate numbers, a large majority of containers are still based on Docker. The remaining parts of this training will be based on Docker, and most of the training applies equally to other container options.
