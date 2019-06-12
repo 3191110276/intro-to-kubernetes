@@ -33,3 +33,4 @@ Once we have all these components defined, we can finally run our container. Ins
 The example above is based on Docker containers specifically, but Docker is not hte only option for containers. In fact, it has been losing in popularity recently. It is still the most popular container option, by far. While it is not possible to get completely accurate numbers, a large majority of containers are still based on Docker. The remaining parts of this training will be based on Docker, and most of the training applies equally to other container options.
 
 ![Container options](img/container_options.png?raw=true "Container options")
+<sub>Source: 2018, [Docker usage report](https://sysdig.com/blog/2018-docker-usage-report/ "Docker usage report")</sub>
