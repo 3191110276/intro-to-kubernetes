@@ -34,7 +34,7 @@ Now that the images is created, we can run it to get a working container. In our
 
 ![Docker execution](img/docker_run.png?raw=true "Docker execution")
 
-To run the container, and to perform the mapping, we can use the following command:
+To start the container, and to perform the mapping, we can run the following command:
 ~~~~
 docker run -p 4674:5000 hello-cisco
 ~~~~
