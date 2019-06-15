@@ -26,4 +26,9 @@ This means that we don't have to deal with the intricacies of managing our conta
 
 ## Accessing a Kubernetes cluster
 As an end user, we will interact with the master to communicate what we would like to happen, and the master will take care of rolling out our intent to the cluster. We can communicate with the master in multiple ways.
+
+All actions we can do in Kubernetes will be executed against an API server running on the master. We could directly access this API, but in most cases, we are probably going to use a simpler way of managing the system. Each cluster will also provide a management dashboard, in which we can view the cluster, as well as our deployed components. This interface also allows us to deploy new components to our cluster. In most cases, we are going to interact with the cluster through the kubectl though, a command-line tool.
+
 ![Accessing a Kubernetes cluster](img/user_access.png?raw=true "Accessing a Kubernetes cluster")
+
+To enable the usage of the kubectl, we will need a kubeconfig file. Kubeconfig files specify details about our cluster. We can define multiple clusters in a single Kubeconfig file, and then switch between them through a simple command.
