@@ -15,4 +15,4 @@
 12. Package manager
 13. Logical separation of applications and users
 14. Kubernetes networking
-X. 
+X. Notes and acknowledgements
