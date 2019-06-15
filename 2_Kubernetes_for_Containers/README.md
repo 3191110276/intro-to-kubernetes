@@ -19,6 +19,7 @@ Kubernetes will support you with rolling out production applications at scale. C
 
 ## Kubernetes concepts
 As a system, Kubernetes consists of one or more masters and regular non-master nodes. Masters are tasked with coordinating the cluster, and making sure that the desired state is reached. In practice, this means that the master would intelligently place container workloads on different nodes. If a node should fail, the master will redeploy the containers on a different node.
+
 ![Kubernetes concepts](img/k8s_cluster.png?raw=true "Kubernetes concepts")
 
 This means that we don't have to deal with the intricacies of managing our containers.
