@@ -15,10 +15,14 @@ As mentioned before, Kubernetes is a system for orchestrating containers across 
 
 ![Kubernetes basics](img/kubernetes.png?raw=true "Kubernetes basics")
 
+Kubernetes will support you with rolling out production applications at scale. Complex tasks are abstracted and automated by functionalities of Kubernetes.
 
 ## Kubernetes concepts
+As a system, Kubernetes consists of one or more masters and regular non-master nodes. Masters are tasked with coordinating the cluster, and making sure that the desired state is reached. In practice, this means that the master would intelligently place container workloads on different nodes. If a node should fail, the master will redeploy the containers on a different node.
 ![Kubernetes concepts](img/k8s_cluster.png?raw=true "Kubernetes concepts")
 
+This means that we don't have to deal with the intricacies of managing our containers.
 
 ## Accessing a Kubernetes cluster
+As an end user, we will interact with the master to communicate what we would like to happen, and the master will take care of rolling out our intent to the cluster. We can communicate with the master in multiple ways.
 ![Accessing a Kubernetes cluster](img/user_access.png?raw=true "Accessing a Kubernetes cluster")
