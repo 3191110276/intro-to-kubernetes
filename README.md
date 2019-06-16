@@ -1,8 +1,8 @@
 # Introduction to Kubernetes
 
 0. Environment Setup
-1. What are Containers?
-2. Kubernetes for container orchestration
+1. [What are Containers?](/1_Intro_to_Containers)
+2. [Kubernetes for container orchestration](2_Kubernetes_for_Containers)
 3. Creating a basic application with Kubernetes
 4. Scaling container
 5. Building applications
