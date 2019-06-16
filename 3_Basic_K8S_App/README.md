@@ -25,7 +25,7 @@ Let's have a closer look at what we are trying to do here. In this example, we a
 
 As a side note: this container image will be pulled from Docker Hub, a public repository of container images. We are going to discuss the topic of hosting container images later on. For now, we don't need to dive deeper into where the image is coming from.
 
-Now that we have a finished definition, we need to apply it to our Kubernetes cluster, using the following command executed from within the /code folder:
+Now that we have a finished definition, we need to apply it to our Kubernetes cluster, using the following command executed from within the [/code](code/ "/code") folder:
 ```
 kubectl apply –f pod1.yml
 ```
