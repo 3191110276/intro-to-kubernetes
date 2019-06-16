@@ -7,6 +7,8 @@ In Kubernetes, the basic building blocks for our applications are called pods. P
 
 Aside from one or more containers, pods can also include shared storage in the form of volumes. All the components of a pod will also share a single IP address and port space. We are going to start with a basic example that includes only a single container.
 
+To deploy a pod to our Kubernetes cluster, we need to provide some information about the content of the pod, for example:
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -18,5 +20,18 @@ spec:
       image: mimaurer/hello-cisco:v1
       ports:
       - containerPort: 5000
-
 ```
+Let's have a closer look at what we are trying to do here. In this example, we are telling Kubernetes that we would like to create a new pod (kind: Pod). We are also providing a name for that pod in the metadata section. Finally, the definition of the pod content can be found in the spec section. We include a list of containers with only one entry for our hello-cisco container.
+
+As a side note: this container image will be pulled from Docker Hub, a public repository of container images. We are going to discuss the topic of hosting container images later on. For now, we don't need to dive deeper into where the image is coming from.
+
+Now that we have a finished definition, we need to apply it to our Kubernetes cluster, using the following command executed from within the /code folder:
+```
+kubectl apply –f pod1.yml
+```
+
+## Imperative vs declarative configuration
+**TODO**
+
+## Labels and Label Selectors
+**TODO**
