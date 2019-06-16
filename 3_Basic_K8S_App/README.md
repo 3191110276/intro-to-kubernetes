@@ -45,7 +45,7 @@ kubectl apply –f pod1.yml
 ## Labels and Label Selectors
 **TODO**
 
-![Labels](img/labels.png?raw=true "Labels")
+![Labels](img/label.png?raw=true "Labels")
 
 ![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
 
