@@ -25,7 +25,7 @@ These application layers, and thus the individual build steps, are specified in 
 
 ![Dockerfile](img/dockerfile.png?raw=true "Dockerfile")
 
-You can have a look at the Dockerfile in the [/code](code/ "/code") directory. To build a container image from the file, execute the following command inside the folder that contains the Dockerfile:
+You can have a look at the Dockerfile in the [/code](code/ "/code") folder. To build a container image from the file, execute the following command inside the folder that contains the Dockerfile:
 ~~~~
 docker build -t hello-cisco .
 ~~~~
