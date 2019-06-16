@@ -1,5 +1,5 @@
 # Kubernetes for container orchestration
-Now that we have a basic understanding, let's have a look at Kubernetes. We already identified one reason why we might need an additional layer of management on top of our container runtime. This chaper will look at why we need an orchestration system for our containers. After that, we will have a look at Kubernetes, the most popular container orchestration system.
+Now that we have a basic understanding, let's have a look at Kubernetes (short: K8s). We already identified one reason why we might need an additional layer of management on top of our container runtime. This chaper will look at why we need an orchestration system for our containers. After that, we will have a look at Kubernetes, the most popular container orchestration system.
 
 ## Why we need container orchestration
 In the previous chapter, we already noticed that managing ports for different containers is a lot of work, which could benefit from some automation. That is only one of the reasons why we might want to have a container orchestration system though. A much bigger problems of container runtimes is their inability to look beyond their own host.
