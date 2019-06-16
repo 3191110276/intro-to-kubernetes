@@ -30,8 +30,24 @@ Now that we have a finished definition, we need to apply it to our Kubernetes cl
 kubectl apply –f pod1.yml
 ```
 
+
+
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+
+![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
+
 ## Imperative vs declarative configuration
 **TODO**
 
+![Imperative vs declarative configuration](img/imperative_vs_declarative.png?raw=true "Imperative vs declarative configuration")
+
+
 ## Labels and Label Selectors
 **TODO**
+
+![Labels](img/labels.png?raw=true "Labels")
+
+![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
+
+
+![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
