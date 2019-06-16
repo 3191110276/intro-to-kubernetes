@@ -7,3 +7,16 @@ In Kubernetes, the basic building blocks for our applications are called pods. P
 
 Aside from one or more containers, pods can also include shared storage in the form of volumes. All the components of a pod will also share a single IP address and port space. We are going to start with a basic example that includes only a single container.
 
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+   name: hello-cisco
+spec:
+   containers:
+   - name: hello-cisco
+      image: mimaurer/hello-cisco:v1
+      ports:
+      - containerPort: 5000
+
+```
