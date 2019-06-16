@@ -39,3 +39,9 @@ All actions we can do in Kubernetes will be executed against an API server runni
 ![Accessing a Kubernetes cluster](img/user_access.png?raw=true "Accessing a Kubernetes cluster")
 
 To enable the usage of the kubectl, we will need a kubeconfig file. Kubeconfig files specify details about our cluster. We can define multiple clusters in a single Kubeconfig file, and then switch between them through a simple command.
+
+We can view information about the nodes in our cluster using the following kubectl command:
+
+```
+kubectl get nodes
+```
