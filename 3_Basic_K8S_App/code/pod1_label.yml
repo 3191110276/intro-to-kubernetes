@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: hello-cisco
+   labels:
+      app: getting-started
+      version: v1
+      env: prod
+spec:
+   containers:
+    - name: hello-cisco
+      image: mimaurer/hello-cisco:v1
+      ports:
+      - containerPort: 5000
