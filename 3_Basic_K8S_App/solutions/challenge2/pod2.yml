@@ -5,6 +5,6 @@ metadata:
 spec:
    containers:
    - name: hello-cisco
-      image: mimaurer/hello-cisco:v1
-      ports:
-      - containerPort: 5000
+     image: mimaurer/hello-cisco:v1
+     ports:
+     - containerPort: 5000
