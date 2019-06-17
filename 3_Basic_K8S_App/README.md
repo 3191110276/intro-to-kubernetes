@@ -97,16 +97,16 @@ spec:
 ```
 
 We can update our existing pod by applying the config via the following command from within the [/code](code/ "/code") folder:
+
 ```
 kubectl apply -f pod1_label.yml
 ```
 
+By doing this, we are modifying our existing hello-cisco pod. If we run a 'kubectl get pod' command, we can see that our pod is still up and running from before. We can see that the labels have been applied with the 'kubectl describe pod hello-cisco' command. Now that the pod has these labels, we can use them for filtering. We can run the 'kubectl get pod' command again, but now we specify a few labels that we are filtering for:
 
-
-
-
-
-
+```
+kubectl get pods -l app=getting-started,version=v1,env=prod
+```
 
 
 
