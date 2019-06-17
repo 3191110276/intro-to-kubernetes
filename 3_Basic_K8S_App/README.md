@@ -48,6 +48,8 @@ All of this information so far was focused on how Kubernetes sees the pod. If we
 kubectl exec hello-cisco ps aux
 ```
 
+Now, it's time for you to apply this yourself with the following two challenges.
+
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solution/challenge1/README.md "Click here for the solution")
 
