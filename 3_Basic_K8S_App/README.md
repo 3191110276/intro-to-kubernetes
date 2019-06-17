@@ -36,20 +36,17 @@ Now that we have created the pod, we can go ahead and check what Kubernetes is g
 kubectl get pods
 ```
 
-Right now, the list of pods should only include a single pod, the hello-cisco pod we just created.
-
-We can also get detailed information about this pod by using:
+Right now, the list of pods should only include a single pod, the hello-cisco pod we just created. We can see a bit more information about the pod, by specifiying the '-o wide' option. If we want to see the complete definition of the object in Kubernetes, we can use the '-o yaml' or '-o json' options. Another way to get detailed information about the pod would be by using:
 
 ```
 kubectl describe pods hello-cisco
 ```
 
-We could even jump directly into the pod, to verify some things:
+All of this information so far was focused on how Kubernetes sees the pod. If we want to figure out what is going on inside of our container, we can even run Linux commands directly in our container. For example, we could have a look at what processes are currently running:
 
 ```
 kubectl exec hello-cisco ps aux
 ```
-
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 
