@@ -76,6 +76,8 @@ Labels allow us to attach some additional information to a pod. As an example: o
 
 As we can see in the example, the pod is tagged with app=demoweb, to show what app this belongs to. We also have a tag for the version, in case we are running multiple versions at the same time. Finally, this example also includes a tag for the relevant contact. This would enable us to filter all pods managed by a certain user.
 
+Let's try to apply this to our hello-cisco pod that we deployed before. Labels are part of the metadata section in the defintion. Everything else would stay the same though.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -93,6 +95,18 @@ spec:
       - containerPort: 5000
 
 ```
+
+We can update our existing pod by applying the config via the following command from within the [/code](code/ "/code") folder:
+```
+kubectl apply -f pod1_label.yml
+```
+
+
+
+
+
+
+
 
 
 
