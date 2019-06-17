@@ -9,3 +9,5 @@ If we use the 'kubectl apply –f pod1.yml' again, there will be no changes to o
 ```
 pod/hello-cisco unchanged
 ```
+
+Kubernetes is aware that this is still the same configuration, and thus the same pod. Due to this, there is no need to create a new pod. This also means that if we are not sure if we created an object already, we can just apply it again.
