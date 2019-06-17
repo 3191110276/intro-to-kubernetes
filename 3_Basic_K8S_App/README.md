@@ -68,11 +68,48 @@ If we then put each version of our yaml file into a version control system, we c
 Thus, to summarize: whenever possible, use declarative configuration with Kubernetes. It will make your life a lot simpler, and enables more options!
 
 ## Labels and Label Selectors
-**TODO**
+
 
 ![Labels](img/label.png?raw=true "Labels")
 
-![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+   name: hello-cisco
+   labels:
+      app: getting-started
+      version: v1
+      env: prod
+spec:
+   containers:
+    - name: hello-cisco
+      image: mimaurer/hello-cisco:v1
+      ports:
+      - containerPort: 5000
 
+```
+
+
+
+![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
+[Click here for the solution](./solutions/challenge3 "Click here for the solution")
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+   name: hello-cisco
+   annotations:
+      ping: pong
+spec:
+   containers:
+   - name: hello-cisco
+      image: mimaurer/hello-cisco:v1
+      ports:
+      - containerPort: 5000
+
+```
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
+[Click here for the solution](./solutions/challenge4 "Click here for the solution")
