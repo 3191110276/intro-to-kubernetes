@@ -24,3 +24,5 @@ We can then apply this new pod using the following command from within the curre
 ```
 kubectl apply -f pod2.yml
 ```
+
+If we now run a 'kubectl get pods', we should see two pods running.
