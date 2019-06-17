@@ -1,3 +1,4 @@
 # Solution for Challenge 1
 
-**TODO**
+![Challenge 1](../../img/challenge1.png?raw=true "Challenge 1")
+
