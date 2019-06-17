@@ -68,9 +68,13 @@ If we then put each version of our yaml file into a version control system, we c
 Thus, to summarize: whenever possible, use declarative configuration with Kubernetes. It will make your life a lot simpler, and enables more options!
 
 ## Labels and Label Selectors
+Right now, we should only have two pods up and running. Imagine running Kubernetes for more complex environments though. Due to the leightweight nature of containers, we might end up running many thousands of containers on a single Kubernetes cluster. If we wanted to troubleshoot a certain application, we would need to have an easy way to find all relevant pods.
 
+Labels allow us to attach some additional information to a pod. As an example: one application might consist of many containers. We could tag all of them to show that they belong to the same application. 
 
 ![Labels](img/label.png?raw=true "Labels")
+
+As we can see in the example, the pod is tagged with app=demoweb, to show what app this belongs to. We also have a tag for the version, in case we are running multiple versions at the same time. Finally, this example also includes a tag for the relevant contact. This would enable us to filter all pods managed by a certain user.
 
 ```yaml
 apiVersion: v1
