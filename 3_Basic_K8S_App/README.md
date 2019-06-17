@@ -57,10 +57,15 @@ Now, it's time for you to apply this yourself with the following two challenges.
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
 ## Imperative vs declarative configuration
-**TODO**
+So far, we have been using the kubectl to apply yaml files to our Kubernetes cluster. These yaml files specify what we would like to see, and the Kubernetes cluster will take care of instantiating the necessary resources. It would also be possible to execute direct commands against, for example to create a pod. That is not the Kubernetes way though.
 
 ![Imperative vs declarative configuration](img/imperative_vs_declarative.png?raw=true "Imperative vs declarative configuration")
 
+Direct, imperative commands can be useful for some emergency our troubleshooting scenarios, but we should aim to deploy all of our applications via declarative yaml files. As we saw before, we can apply such a configuration multiple times, and nothing will change. We could also use the yaml files for updates though. We could change some parameters in the yaml file, and then apply it again to update our cluster.
+
+If we then put each version of our yaml file into a version control system, we could see a complete history of our application definitions. If there are any problems, we could easily roll back to an older version of our application, without having to think about what configurations we used two weeks ago.
+
+Thus, to summarize: whenever possible, use declarative configuration with Kubernetes. It will make your life a lot simpler, and enables more options!
 
 ## Labels and Label Selectors
 **TODO**
