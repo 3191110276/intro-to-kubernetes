@@ -139,3 +139,17 @@ Now you can go ahead and try this yourself in the challenge below.
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
+
+We are now done with this chapter, and we will not need our pods anymore for the next chapters, thus we can go ahead and delete them. First, let's verify all the pods that are currently running:
+
+```
+kubectl get pods
+```
+
+For each of these pods, we should now use a delete command, similar to this:
+
+```
+kubectl delete pod hello-cisco
+```
+
+Once you are done deleting all pods, you can use the 'kubectl get pods' command again, to verify that they are not present anymore.
