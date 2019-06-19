@@ -93,7 +93,6 @@ spec:
       image: mimaurer/hello-cisco:v1
       ports:
       - containerPort: 5000
-
 ```
 
 We can update our existing pod by applying the config via the following command from within the [/code](code/ "/code") folder:
