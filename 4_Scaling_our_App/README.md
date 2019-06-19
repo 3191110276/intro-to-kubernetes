@@ -6,15 +6,37 @@ This is someting that we likely do not want to take care of manually, as this mi
 
 Essentially, ReplicaSets wrap around a pod definition, and define how many copies of a pod definition we would like to see. The ReplicaSet then takes care of spinning up the desired amount of copies. If we increase or decrease the number of desired pods, the ReplicaSet will take care of creating new copies, or deleting surplus copies.
 
+It gets even better: the ReplicaSet constantly monitors the pods that belong to it. If a pod should vanish for any reason whatsoever, the ReplicaSet will take care of spinning up a new copy. For example, if a node fails during the middle of the night, the ReplicaSet will simply create a new copy of the pod on another node.
+
 ![K8S ReplicaSet](img/replicaset.png?raw=true "K8S ReplicaSet")
 
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: rs-hello-cisco
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         app: hello-cisco
+   template:
+      metadata:
+         labels:
+            app: hello-cisco
+      spec:
+         containers:
+         - name: hello-cisco
+           image: mimaurer/hello-cisco:v1
+           ports:
+           - containerPort: 5000
+```
 
 
 
 
 
 
-It gets even better: the ReplicaSet constantly monitors the pods that belong to it. If a pod should vanish for any reason whatsoever, the ReplicaSet will take care of spinning up a new copy. For example, if a node fails during the middle of the night, the ReplicaSet will simply create a new copy of the pod on another node.
 
 
 
