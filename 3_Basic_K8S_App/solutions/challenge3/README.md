@@ -40,7 +40,7 @@ spec:
      - containerPort: 5000
  ```
 
-Aside from the env label, both pod definitions are identical. Let's first apply the test label to our pod, using the following command from within the current folder of this solution:
+Aside from the env label, both pod definitions are identical. Let's first apply the 'test' label to our pod, using the following command from within the current folder of this solution:
 
 ```
 kubectl apply -f pod2_label1.yml
@@ -52,7 +52,7 @@ Our pod should now have the 'test' label applied to it, and we can try to query 
 kubectl get pods -l env=test
 ```
 
-Our pod shouold show up in this query for the test environment. We can also query for the prod environment, to make sure our pod does not show up:
+Our pod should show up in this query for the test environment. We can also query for the prod environment, to make sure our pod does not show up:
 
 ```
 kubectl get pods -l env=prod
