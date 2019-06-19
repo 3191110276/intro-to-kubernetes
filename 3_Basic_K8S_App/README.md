@@ -113,15 +113,9 @@ You can try this yourself in the next challenge.
 ![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
 [Click here for the solution](./solutions/challenge3 "Click here for the solution")
 
+While labels are a very powerful feature, which allows us to search for elements by key/value pairs, there are some situations where labels are not ideal, due to their restrictions. First off, label names are limited to 63 characters, and more importantly, label values are limited to 253 characters. There are also some restrictions regarding the allowed characters. This means that some values won't work as labels, for example a very long URL.
 
-
-
-
-
-
-
-
-
+To add such information to a pod, we can use annotations, which do not have the same restrictions. The main drawback of annotations is that they are not searchable though. In terms of configuration, they look quite similar to labels:
 
 ```yaml
 apiVersion: v1
@@ -138,6 +132,12 @@ spec:
       - containerPort: 5000
 
 ```
+We can change our existing pod with an annotation using this command:
+
+```
+kubectl apply -f pod1_annotation.yml
+```
+Now you can go ahead and try this yourself in the challenge below.
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
