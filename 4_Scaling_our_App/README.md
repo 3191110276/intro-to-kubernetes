@@ -71,19 +71,11 @@ Now that we went through the basics of ReplicaSets, it's time for you to have a 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
-
-
-
-
-
-
-
-
-
-
-
+In the challenge, we just saw how the ReplicaSet reacts to changes in the number of running pods. The underlying concept is referred to as the desired state. The desired state simply means the number of pods that we want to have running at the same time. If we change the number of replicas in our definition, the number of desired pods will change, and thus the ReplicaSet will apply changes to bring the current state in line with the desired state.
 
 ![Desired state](img/desired_state.png?raw=true "Desired state")
+
+Let's put our knowledge to the test with some more challenges.
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
@@ -91,7 +83,28 @@ Now that we went through the basics of ReplicaSets, it's time for you to have a 
 ![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
 [Click here for the solution](./solutions/challenge3 "Click here for the solution")
 
+You should have a basic understanding of ReplicaSets now. Our ReplicaSets have one major issue so far though: we always need to scale them based on the maximum demand. Let's think about this with an example. We might have an application that is used by our employees when they log into their workstation. Thus, the application would likely experience a lot of traffic in the morning, and around lunch time. During the rest of the day, we are likely going to receive relatively few requests. We would still have to provide enough pods to handle the spikes though.
+
+This means that for the majority of the time, we are running a lot more pods than would be needed. To accomodate for changes in demand, Kubernetes offers autoscaling capabilities. This can save us a lot of money, especially if we are running in a cloud environment.
+
+How do we create this feature in our Kubernetes environment? ReplicaSets already provide the scaling capabilities that we need, but they do not automatically scale based on demand. To achieve that, we will need an additional element, the so-called 'Horizontal Pod Autoscaler'. This element basically controls the amount of replicas a ReplicaSet should produce.
+
 ![Auto-scaling](img/autoscaler.png?raw=true "Auto-scaling")
+
+We can scale our pods based on different metrics, such as CPU or memory. For example, let's imagine that we would like our pods to use 100m CPU on average. If they are using 200m CPU on average, this would mean that we are double the desired metric. Thus, the Horizontal Pod Autoscaler would double the amount of copies that the ReplicaSet should produce.
+
+One small note regarding CPU and memory metrics in Kubernetes. CPUs resources are measured in cpu units, which would correspond to one Hyperthread on a bare metal server, though the exact measurement varies between environments. 100m would correspond to 0.1 cpu units. Memory is measured in bytes.
+
+This could be quite dangerous, both due to application errors, as well as due to possible attacks. If our autoscaling had no limit, Kubernetes would continue creating more and more pods. In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
+
+
+
+
+
+
+
+
+
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
