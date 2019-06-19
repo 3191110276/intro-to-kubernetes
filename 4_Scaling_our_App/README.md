@@ -120,9 +120,12 @@ spec:
            averageUtilization: 50
 ```
 
-As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics.
+As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics. In our case, we specified that we want to create a new copy if the average CPU utilization is larger than 50%.
 
-In our case, we specified that we want to create a new copy if the average CPU utilization is larger than 50
+Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
+
+
+
 
 
 
