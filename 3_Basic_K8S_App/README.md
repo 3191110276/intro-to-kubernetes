@@ -127,10 +127,9 @@ metadata:
 spec:
    containers:
    - name: hello-cisco
-      image: mimaurer/hello-cisco:v1
-      ports:
-      - containerPort: 5000
-
+     image: mimaurer/hello-cisco:v1
+     ports:
+     - containerPort: 5000
 ```
 We can change our existing pod with an annotation using this command:
 
