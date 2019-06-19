@@ -125,7 +125,7 @@ As you can see here, we have introduced a new element, aside from the Pod and th
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply –f autoscale.yml
+kubectl apply -f autoscale.yml
 ```
 
 
@@ -134,7 +134,7 @@ kubectl apply –f autoscale.yml
 
 
 
-
+add resource limits to the pod
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
