@@ -97,12 +97,7 @@ One small note regarding CPU and memory metrics in Kubernetes. CPUs resources ar
 
 This could be quite dangerous, both due to application errors, as well as due to possible attacks. If our autoscaling had no limit, Kubernetes would continue creating more and more pods. In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
 
-
-
-
-
-
-
+Now that we have talked about how autoscaling works, let's look at an example for our ReplicaSet:
 
 ```yaml
 apiVersion: autoscaling/v2beta2
@@ -118,14 +113,14 @@ spec:
    maxReplicas: 10
    metrics:
    - type: Resource
-      resource:
-         name: cpu
-         target:
-            type: Utilization
-            averageUtilization: 50
+     resource:
+        name: cpu
+        target:
+           type: Utilization
+           averageUtilization: 50
 ```
 
-
+As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet.
 
 
 
