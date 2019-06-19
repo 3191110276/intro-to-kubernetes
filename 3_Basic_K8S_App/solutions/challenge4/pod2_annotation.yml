@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: hello-cisco2
+   annotations:
+      challenge: OUR ANNOTATION WAS ADDED TO THE POD
+spec:
+   containers:
+   - name: hello-cisco
+     image: mimaurer/hello-cisco:v1
+     ports:
+     - containerPort: 5000 
