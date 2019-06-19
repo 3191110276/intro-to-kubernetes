@@ -4,6 +4,8 @@ In the previous chapter we already learned how we can create a simple applicatio
 
 This is someting that we likely do not want to take care of manually, as this might mean that we need to spin up 10 copies of a pod one by one. Luckily, Kubernetes offers a very powerful element for handling the creation of multiple pods, called ReplicaSet.
 
+## Scaling applications with ReplicaSets
+
 Essentially, ReplicaSets wrap around a pod definition, and define how many copies of a pod definition we would like to see. The ReplicaSet then takes care of spinning up the desired amount of copies. If we increase or decrease the number of desired pods, the ReplicaSet will take care of creating new copies, or deleting surplus copies.
 
 It gets even better: the ReplicaSet constantly monitors the pods that belong to it. If a pod should vanish for any reason whatsoever, the ReplicaSet will take care of spinning up a new copy. For example, if a node fails during the middle of the night, the ReplicaSet will simply create a new copy of the pod on another node.
@@ -71,6 +73,8 @@ Now that we went through the basics of ReplicaSets, it's time for you to have a 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
+## Desired State
+
 In the challenge, we just saw how the ReplicaSet reacts to changes in the number of running pods. The underlying concept is referred to as the desired state. The desired state simply means the number of pods that we want to have running at the same time. If we change the number of replicas in our definition, the number of desired pods will change, and thus the ReplicaSet will apply changes to bring the current state in line with the desired state.
 
 ![Desired state](img/desired_state.png?raw=true "Desired state")
@@ -82,6 +86,8 @@ Let's put our knowledge to the test with some more challenges.
 
 ![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
 [Click here for the solution](./solutions/challenge3 "Click here for the solution")
+
+## Auto-scaling applications
 
 You should have a basic understanding of ReplicaSets now. Our ReplicaSets have one major issue so far though: we always need to scale them based on the maximum demand. Let's think about this with an example. We might have an application that is used by our employees when they log into their workstation. Thus, the application would likely experience a lot of traffic in the morning, and around lunch time. During the rest of the day, we are likely going to receive relatively few requests. We would still have to provide enough pods to handle the spikes though.
 
