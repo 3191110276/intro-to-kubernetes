@@ -72,6 +72,17 @@ Now that we went through the basics of ReplicaSets, it's time for you to have a 
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
 
+
+
+
+
+
+
+
+
+
+
+
 ![Desired state](img/desired_state.png?raw=true "Desired state")
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
