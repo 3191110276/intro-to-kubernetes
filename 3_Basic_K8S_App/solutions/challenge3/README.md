@@ -37,4 +37,43 @@ spec:
    - name: hello-cisco
      image: mimaurer/hello-cisco:v1
      ports:
-     -
+     - containerPort: 5000
+ ```
+
+Aside from the env label, both pod definitions are identical. Let's first apply the test label to our pod, using the following command from within the current folder of this solution:
+
+```
+kubectl apply -f pod2_label1.yml
+```
+
+Our pod should now have the 'test' label applied to it, and we can try to query it:
+
+```
+kubectl get pods -l env=test
+```
+
+Our pod shouold show up in this query for the test environment. We can also query for the prod environment, to make sure our pod does not show up:
+
+```
+kubectl get pods -l env=prod
+```
+
+Our pod should not appear with this query. Keep in mind that the second pod we deployed might show up with these queries though, depending on how it is configured.
+
+Now, we can change the label of our pod to 'prod', using the following command from within the current folder of this solution:
+
+```
+kubectl apply -f pod2_label2.yml
+```
+
+We can query for 'test' again, but now our pod should no longer show up:
+
+```
+kubectl get pods -l env=test
+```
+
+If we query for the 'prod' environment, our pod should now appear:
+
+```
+kubectl get pods -l env=prod
+```
