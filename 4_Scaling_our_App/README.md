@@ -4,7 +4,7 @@
 
 
 
-![K8S ReplicaSets](img/replicasets.png?raw=true "K8S ReplicaSets")
+![K8S ReplicaSets](img/replicaset.png?raw=true "K8S ReplicaSets")
 
 Folders:
 code
