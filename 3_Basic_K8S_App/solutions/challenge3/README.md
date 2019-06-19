@@ -14,7 +14,7 @@ kind: Pod
 metadata:
    name: hello-cisco2
    labels:
-      env: prod
+      env: test
 spec:
    containers:
    - name: hello-cisco
