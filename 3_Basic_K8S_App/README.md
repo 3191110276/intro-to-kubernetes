@@ -131,7 +131,7 @@ spec:
      ports:
      - containerPort: 5000
 ```
-We can change our existing pod with an annotation using this command:
+We can change our existing pod with an annotation using this command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f pod1_annotation.yml
