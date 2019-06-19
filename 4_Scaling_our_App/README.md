@@ -10,6 +10,8 @@ It gets even better: the ReplicaSet constantly monitors the pods that belong to 
 
 ![K8S ReplicaSet](img/replicaset.png?raw=true "K8S ReplicaSet")
 
+Let's have a look at the definition of the ReplicaSet. As you can see, the 'kind' property in the yaml file is now changed to 'ReplicaSet', and the spec section now contains the definition of the ReplicaSet. The definition of the pod itself is now located in 'spec/template'. You will notice that the pod definition itself has not changed though. We are still providing the same information, but we have now encapsulated all of that in the ReplicaSet element.
+
 ```yaml
 apiVersion: apps/v1
 kind: ReplicaSet
@@ -32,9 +34,17 @@ spec:
            - containerPort: 5000
 ```
 
+Let's have a closer look at the ReplicaSet before applying this yaml file to our cluster. You will notice that the 'spec' section contains two new values: 'replicas' and 'selector'. The 'replicas' property simply represents the amount of copies that should be created.
 
+The 'selector' property is a bit more complex. Here we define what kind of label the ReplicaSet should be looking for on the pods. The labels in the 'spec/selector' property need to match the labels in 'spec/template/metadata'. If there are not enough pods with a matching label, the ReplicaSet will create new copies. If there are too many pods with a matching label, the ReplicaSet will delete some of them.
 
+This feature of the ReplicaSet has some consequences that we should be ware of. A ReplicaSet can adopt existing pods, if they have the correct label. If we remove the specific label from a pod, the ReplicaSet can no longer find the pod, and it will create a new copy.
 
+Let's have a look at all of this in practice by creating our first ReplicaSet by running the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f rs.yml
+```
 
 
 
