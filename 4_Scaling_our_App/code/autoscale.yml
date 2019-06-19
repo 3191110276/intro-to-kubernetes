@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+   name: scaling-hello-cisco
+spec:
+   scaleTargetRef:
+      apiVersion: apps/v1
+      kind: ReplicaSet
+      name: rs-hello-cisco
+   minReplicas: 1
+   maxReplicas: 10
+   metrics:
+   - type: Resource
+     resource:
+        name: cpu
+        target:
+           type: Utilization
+           averageUtilization: 50
