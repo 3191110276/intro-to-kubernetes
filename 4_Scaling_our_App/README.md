@@ -104,6 +104,32 @@ This could be quite dangerous, both due to application errors, as well as due to
 
 
 
+```yaml
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+   name: scaling-hello-cisco
+spec:
+   scaleTargetRef:
+      apiVersion: apps/v1
+      kind: ReplicaSet
+      name: rs-hello-cisco
+   minReplicas: 1
+   maxReplicas: 10
+   metrics:
+   - type: Resource
+      resource:
+         name: cpu
+         target:
+            type: Utilization
+            averageUtilization: 50
+```
+
+
+
+
+
+
 
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
