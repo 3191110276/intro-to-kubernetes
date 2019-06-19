@@ -12,7 +12,7 @@ kind: Pod
 metadata:
    name: hello-cisco2
    annotations:
-      ping: pong
+      challenge: OUR ANNOTATION WAS ADDED TO THE POD
 spec:
    containers:
    - name: hello-cisco
@@ -30,7 +30,7 @@ kubectl apply -f pod2_annotation.yml
 How can we verify this? We can't search for the annotation, but the annotation will be visibile if we look at the pod details. You can use the following command to verify that the label has been applied:
 
 ```
-kubectl get pods -o yaml
+kubectl get pods hello-cisco2 -o yaml
 ```
 
 The '-o yaml' option, will show us all the pod details available, including the annotation. Once you have verfied that the annotation exists, we can remote it again:
@@ -57,5 +57,5 @@ kubectl apply -f pod2.yml
 If you look at the pod details again, the annotation should be gone again:
 
 ```
-kubectl get pods -o yaml
+kubectl get pods hello-cisco2 -o yaml
 ```
