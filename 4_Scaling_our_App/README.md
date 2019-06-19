@@ -50,11 +50,9 @@ kubectl apply -f rs.yml
 
 
 
+kubectl get rs/rs-hello-cisco
 
+kubectl get pods –-show-labels
 
-
-
-
-Folders:
-code
-solutions
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
