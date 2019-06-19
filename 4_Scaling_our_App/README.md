@@ -56,3 +56,20 @@ kubectl get pods –-show-labels
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
+
+
+![Desired state](img/desired_state.png?raw=true "Desired state")
+
+![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
+[Click here for the solution](./solutions/challenge2 "Click here for the solution")
+
+![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
+[Click here for the solution](./solutions/challenge3 "Click here for the solution")
+
+![Auto-scaling](img/autoscaler.png?raw=true "Auto-scaling")
+
+![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
+[Click here for the solution](./solutions/challenge4 "Click here for the solution")
+
+![Challenge 5](img/challenge5.png?raw=true "Challenge 5")
+[Click here for the solution](./solutions/challenge5 "Click here for the solution")
