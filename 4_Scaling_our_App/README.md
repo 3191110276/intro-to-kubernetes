@@ -46,13 +46,27 @@ Let's have a look at all of this in practice by creating our first ReplicaSet by
 kubectl apply -f rs.yml
 ```
 
+Let's have a look at the ReplicaSet we just created:
 
+```
+kubectl get ReplicaSet
+```
 
+This command provides us the list of all ReplicaSets that are currently created. We can also see information about how many pods there should be created (desired), as well as how many pods there are right now (current). If we had many ReplicaSets, we could also look for the specific ReplicaSet we want through the following command:
 
-
+```
 kubectl get rs/rs-hello-cisco
+```
 
-kubectl get pods –-show-labels
+ReplicaSet is shortened to 'rs', and we then add the name of the ReplicaSet to query for the specific element. One more thing: we mentioned before that the ReplicaSet selects the pods based on the label. So, let's have a look at the pods, as well as the labels that are applied to them:
+
+```
+kubectl get pods --show-labels
+```
+
+We can see that the name of the pod has been derived from the name of the ReplicaSet. Additionally, we can also see the label that has been applied to the pod, and we can thus confirm that it matches the label in our ReplicaSet definition.
+
+Now that we went through the basics of ReplicaSets, it's time for you to have a look at this yourself in the following challenge.
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
