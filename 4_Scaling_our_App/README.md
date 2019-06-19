@@ -147,3 +147,5 @@ add resource limits to the pod
 
 ![Challenge 5](img/challenge5.png?raw=true "Challenge 5")
 [Click here for the solution](./solutions/challenge5 "Click here for the solution")
+
+## Cleaning up
