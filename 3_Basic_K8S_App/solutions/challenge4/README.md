@@ -33,7 +33,7 @@ How can we verify this? We can't search for the annotation, but the annotation w
 kubectl get pods hello-cisco2 -o yaml
 ```
 
-The '-o yaml' option, will show us all the pod details available, including the annotation. Once you have verfied that the annotation exists, we can remote it again:
+The '-o yaml' option, will show us all the pod details available, including the annotation. There could also be some existing annotations, but you can ignore those for now. Once you have verfied that the annotation exists, we can remote it again:
 
 ```yaml
 apiVersion: v1
