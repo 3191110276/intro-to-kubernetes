@@ -124,6 +124,10 @@ As you can see here, we have introduced a new element, aside from the Pod and th
 
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
 
+```
+kubectl apply –f autoscale.yml
+```
+
 
 
 
