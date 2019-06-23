@@ -89,3 +89,4 @@ Let's put our knowledge to the test with some more challenges.
 
 
 ## Cleaning up
+If you completed the final challenge, everything we created during this chapter should already be removed. We will not need any of the Pods or ReplicaSets for the next chapters.
