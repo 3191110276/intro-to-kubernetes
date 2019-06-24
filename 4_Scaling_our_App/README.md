@@ -89,4 +89,4 @@ Let's put our knowledge to the test with some more challenges.
 
 
 ## Cleaning up
-If you completed the final challenge, everything we created during this chapter should already be removed. We will not need any of the Pods or ReplicaSets for the next chapters.
+If you completed the final challenge, the ReplicaSet should already be removed. In challenge 2, we might have created an additional pod, which might still exist. We will not need any of the Pods or ReplicaSets for the next chapters. Let's remove it, by first looking for it (kubectl get pods), and then removing it by name (kubectl delete pod *pod_name*).
