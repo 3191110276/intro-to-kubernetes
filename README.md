@@ -4,7 +4,7 @@
 1. [What are Containers?](/1_Intro_to_Containers)
 2. [Kubernetes for container orchestration](2_Kubernetes_for_Containers)
 3. [Creating a basic application with Kubernetes](3_Basic_K8S_App)
-4. Scaling our application
+4. [Scaling our application](/4_Scaling_our_App)
 5. Exposing our application
 6. Basic application upgrades
 7. Putting it all together
