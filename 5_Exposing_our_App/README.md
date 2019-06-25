@@ -4,6 +4,9 @@ So far we have learned how to roll out an application container using Kubernetes
 
 The solution to this problem is called a 'Service' in Kubernetes. A Service is a Kubernetes component, which enables us to expose one or more pods to other applications in the cluster, or to entities external to the cluster, such as users.
 
+![Kubernetes Service](img/service.png?raw=true "Kubernetes Service")
+
+```yaml
 metadata:
     name: svc-hello-cisco
     labels:
@@ -17,3 +20,7 @@ spec:
     selector:
         app: hello-cisco
 ```
+
+
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
