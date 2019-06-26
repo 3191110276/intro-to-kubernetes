@@ -8,9 +8,9 @@ The solution to this problem is called a 'Service' in Kubernetes. A Service is a
 
 The service then allows us to access the logical set of pods using a single interface. Even if the pods behind the service are replaced by new pods, the service will stay consistent. This means that pod failures or application upgrades will not interfere with our Service. While pods might change frequently, services will often stay consistent over a long time. Thus, if we want one application to communicate with another application, we should be using a Service for that. There are three types of Services:
 * ClusterIP (default) - allows internal access by exposing the Service on an internal IP to the cluster
-* NodePort - allows external access by exposing the Service on the same port for each Node in the cluster using NAT
-* LoadBalancer - allows external access by assigning a fixed external Ip to the Service
-* ExternalName
+* NodePort - allows external access by exposing the Service on the same port for each Node in the cluster, and then routing the request to an automatically created ClusterIP
+* LoadBalancer - allows external access by assigning a fixed external IP of a LoadBalancer to the Service, while also automtically creating NodePort and ClusterIP in the backend to which the LoadBalancer will route
+* ExternalName: maps the service to the contents of the externalName field by returning a CNAME records with its value
 
 Now, let's try to access our own application. To do that, we would need to expose it externally, for example using a NodePort:
 
@@ -29,9 +29,17 @@ spec:
         app: hello-cisco
 ```
 
-This Service will expose port 5000 from our application on port 30001 of our nodes. Pods are, again, selected based on a label. We could use the same label that we also use for the ReplicaSet, but it might also be different, depending on our needs. If we want to expose multiple versions of an application, the Service might be a superset of multiple ReplicaSets of different application versions.
+This Service will expose port 5000 from our application on port 30001 of our nodes. In this case we selected the port manually, but we could also let Kubernetes choose a port from the service node port range (default: 30000 - 32767).
 
+Pods are, again, selected based on a label. We could use the same label that we also use for the ReplicaSet, but it might also be different, depending on our needs. If we want to expose multiple versions of an application, the Service might be a superset of multiple ReplicaSets of different application versions.
 
+Now, let's go ahead and try this out in our Kubernetes cluster. We can use the following command to roll out the Service:
+
+```
+
+```
+
+If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
