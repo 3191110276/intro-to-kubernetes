@@ -26,7 +26,7 @@ spec:
         app: hello-cisco
 ```
 
-Now, let's create a LoadBalancer Service using the following configuration:
+As this only provides cluster-internal access, we won't be able to reach the application anymore. Now, let's create a LoadBalancer Service using the following configuration:
 
 ```yaml
 apiVersion: v1
