@@ -33,13 +33,25 @@ This Service will expose port 5000 from our application on port 30001 of our nod
 
 Pods are, again, selected based on a label. We could use the same label that we also use for the ReplicaSet, but it might also be different, depending on our needs. If we want to expose multiple versions of an application, the Service might be a superset of multiple ReplicaSets of different application versions.
 
-Now, let's go ahead and try this out in our Kubernetes cluster. We can use the following command to roll out the Service:
+Now, let's go ahead and try this out in our Kubernetes cluster. We can use the following command to roll out the Service from within the [/code](code/ "/code") folder:
 
 ```
-
+kubectl apply -f service.yml
 ```
 
-If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with
+If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with 3 dashes (---). Let's have a look at the Kubernetes components we just created.
+
+
+* Check Service
+* Check ReplicaSet
+* Get IP of Node for external access (does it matter which one?)
+* Try external access
+* Challenge
+
+
+
+
+
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
