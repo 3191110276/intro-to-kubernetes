@@ -6,7 +6,10 @@ The solution to this problem is called a 'Service' in Kubernetes. A Service is a
 
 ![Kubernetes Service](img/service.png?raw=true "Kubernetes Service")
 
-The service then allows us to access the logical set of pods using a single interface. Even if the pods behind the service are replaced by new pods, the service will stay consistent. This means that pod failures or application upgrades will not interfere with our Service. While pods might change frequently, services will often stay consistent over a long time.
+The service then allows us to access the logical set of pods using a single interface. Even if the pods behind the service are replaced by new pods, the service will stay consistent. This means that pod failures or application upgrades will not interfere with our Service. While pods might change frequently, services will often stay consistent over a long time. Thus, if we want one application to communicate with another application, we should be using a Service for that. There are three types of Services:
+* ClusterIP (default)
+* NodePort
+* LoadBalancer
 
 ```yaml
 metadata:
