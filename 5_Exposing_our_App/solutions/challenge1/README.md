@@ -18,7 +18,11 @@ metadata:
         app: hello-cisco
 spec:
     type: ClusterIP
-    selector:
+    ports:
+       - protocol: TCP
+         port: 5000
+         targetPort: 5000
+    selector:cat
         app: hello-cisco
 ```
 
