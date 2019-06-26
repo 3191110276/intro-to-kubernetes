@@ -57,11 +57,11 @@ Now, we know that we have created a Service, as well as a ReplicaSet. Thus, we s
 kubectl get nodes -o wide
 ```
 
+This will show you all the nodes, as well as the IP addresses that they have. We will need the external IP for access to our application. Now that we have a node IP, we can access our application using <IP>:30001. To access the main page, the path would be <IP>:30001/index.html. You should see a nice welcome page.
 
 
-* Get IP of Node for external access (does it matter which one?)
-* Try external access
-* Challenge
+
+
 
 
 
