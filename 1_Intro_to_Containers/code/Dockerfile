@@ -1,15 +1,19 @@
-FROM alpine:3.9
+# Use an official Python runtime as a parent image
+FROM python:3-alpine
 
-RUN apk add --no-cache python3
+MAINTAINER Michael Maurer "mimaurer@cisco.com"
 
-RUN pip3 install --upgrade pip
+# Copy the directory contents into the container at /app
+COPY ./app /app
 
-COPY /app/requirements.txt ./requirements.txt
-RUN pip3 install -r requirements.txt
+# Set the working directory to /app
+WORKDIR /app
 
-COPY /app/ ./
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
+# Make port 5000 available to the world outside this container
 EXPOSE 5000
 
-CMD ["python3", "app.py"]
-
+# Run app.py when the container launches
+CMD python app.py runserver -h 0.0.0.0

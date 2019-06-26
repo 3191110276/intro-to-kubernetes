@@ -1,13 +1,20 @@
-from flask import Flask, send_from_directory
+from flask import Flask, url_for, send_from_directory
 import os
-import socket
 
 app = Flask(__name__)
 
-@app.route("/<path:filename>")
-def serve_static(filename):
-    root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir, 'static'), filename)
+
+@app.route('/')
+@app.route('/index.html')
+def index():
+    return send_from_directory('static','index.html')
+
+
+with app.test_request_context():
+   url_for('static', filename='index.html')
+   url_for('static', filename='cisco.png')
+   url_for('static', filename='heart.png')
+   url_for('static', filename='k8s.png')
 
 
 if __name__ == "__main__":
