@@ -51,13 +51,13 @@ We can see that we created a service that forwards port 5000 from the Pod, to po
 kubectl get service
 ```
 
-Now, we know that we have created a Service, as well as a ReplicaSet. Thus, we should be all set to access our application. We are using a Service of type NodePort, which means that we can access our application on port 30001 on our nodes. Thus, we would need to find out what our node IP is, so that we can access the cluster via <IP>:30001. Let's have a look at all of our nodes, including their IPs:
+Now, we know that we have created a Service, as well as a ReplicaSet. Thus, we should be all set to access our application. We are using a Service of type NodePort, which means that we can access our application on port 30001 on our nodes. Thus, we would need to find out what our node IP is, so that we can access the cluster via &lt;IP&gt;:30001. Let's have a look at all of our nodes, including their IPs:
 
 ```
 kubectl get nodes -o wide
 ```
 
-This will show you all the nodes, as well as the IP addresses that they have. We will need the external IP for access to our application. Now that we have a node IP, we can access our application using <IP>:30001. To access the main page, the path would be <IP>:30001/index.html. You should see a nice welcome page.
+This will show you all the nodes, as well as the IP addresses that they have. We will need the external IP for access to our application. Now that we have a node IP, we can access our application using &lt;IP&gt;:30001. To access the main page, the path would be <IP>:30001/index.html. You should see a nice welcome page.
 
 
 
