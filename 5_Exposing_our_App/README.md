@@ -39,7 +39,11 @@ Now, let's go ahead and try this out in our Kubernetes cluster. We can use the f
 kubectl apply -f service.yml
 ```
 
-If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with 3 dashes (---). Let's have a look at the Kubernetes components we just created.
+If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with 3 dashes (---). Let's have a look at the Kubernetes components we just created. Let's first check the Service:
+
+```
+kubectl get service
+```
 
 
 * Check Service
