@@ -22,7 +22,7 @@ spec:
        - protocol: TCP
          port: 5000
          targetPort: 5000
-    selector:cat
+    selector:
         app: hello-cisco
 ```
 
