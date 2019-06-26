@@ -67,3 +67,4 @@ Now that we have used a Service to expose our application, let's have a closer l
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
 ## Cleaning up
+To end this chapter, we can remove the Service and the ReplicaSet used throughout this chapter. To do this, we can list the Services (kubectl get services), and the ReplicaSets (kubectl get rs), and then delete them all using the respective delete command. 
