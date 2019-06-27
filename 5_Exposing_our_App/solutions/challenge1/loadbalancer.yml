@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: svc-hello-cisco
+    labels:
+        app: hello-cisco
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 5000
+      protocol: TCP
+    selector:
+        app: hello-cisco
