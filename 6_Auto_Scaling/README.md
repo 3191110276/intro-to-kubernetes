@@ -1,7 +1,7 @@
+# Auto-scaling applications
 
-## Auto-scaling applications
-
-You should have a basic understanding of ReplicaSets now. Our ReplicaSets have one major issue so far though: we always need to scale them based on the maximum demand. Let's think about this with an example. We might have an application that is used by our employees when they log into their workstation. Thus, the application would likely experience a lot of traffic in the morning, and around lunch time. During the rest of the day, we are likely going to receive relatively few requests. We would still have to provide enough pods to handle the spikes though.
+You should have a basic understanding of deploying (Pod), scaling (ReplicaSet), and exposing (Service) applications now.
+ now. Our current way of scaling with ReplicaSets has one major issue though: we always need to scale based on the maximum demand. Let's think about this with an example. We might have an application that is used by our employees when they log into their workstation. Thus, the application would likely experience a lot of traffic in the morning, and around lunch time. During the rest of the day, we are likely going to receive relatively few requests. We would still have to provide enough pods to handle the spikes though.
 
 This means that for the majority of the time, we are running a lot more pods than would be needed. To accomodate for changes in demand, Kubernetes offers autoscaling capabilities. This can save us a lot of money, especially if we are running in a cloud environment.
 
@@ -13,7 +13,7 @@ We can scale our pods based on different metrics, such as CPU or memory. For exa
 
 One small note regarding CPU and memory metrics in Kubernetes. CPUs resources are measured in cpu units, which would correspond to one Hyperthread on a bare metal server, though the exact measurement varies between environments. 100m would correspond to 0.1 cpu units. Memory is measured in bytes.
 
-This could be quite dangerous, both due to application errors, as well as due to possible attacks. If our autoscaling had no limit, Kubernetes would continue creating more and more pods. In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
+We could then just scale the application depending on the requests that are coming in. This could be quite dangerous though, both due to application errors, as well as due to possible attacks. If our autoscaling had no limit, Kubernetes would continue creating more and more pods. In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
 
 Now that we have talked about how autoscaling works, let's look at an example:
 
@@ -38,7 +38,7 @@ spec:
            averageUtilization: 50
 ```
 
-As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics. In our case, we specified that we want to create a new copy if the average CPU utilization is larger than 50%.
+As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics. In our case, we want to create a new copy if the average CPU utilization is larger than 50%.
 
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
 
