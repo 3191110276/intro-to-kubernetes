@@ -31,7 +31,7 @@ spec:
            resources:
               requests:
                  cpu: 80m
-                 memory: 100Mi
+                 memory: 50Mi
 ```
 
 Our Service definition will remain unchanged. We can now apply this ReplicaSet to update our Pods by executing the following command from within the current folder:
