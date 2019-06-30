@@ -98,7 +98,21 @@ Our current utilization will likely be quite low though. We can increase the loa
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 ```
 
+We are now in the shell of our newly created container, and we can run a command to send requests to our Service:
 
+```
+while true; do wget -q -O- http://svc-hello-cisco.default.svc.cluster.local:5000; done
+```
+
+With all of these requests, our Pod will soon be overwhelmed. Our metrics server will notice that the utilization is much higher than it should be, and based on that, autoscaling will kick in and create new Pods. We can observe this using the following command:
+
+```
+kubectl get hpa
+```
+
+Keep in mind that it will take some time until our metrics server collects new metrics from the Pods. Thus, you can't really expect this to kick in for short burts of demand, but rather for a continued increase in load, such as in our example. After some time, autoscaling will create a few new Pods, and the load will be lower again. If we stop our requests to the Service, autoscaling will remove the Pods again after some time.
+
+You can now have a look at the following two examples to try this yourself.
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
