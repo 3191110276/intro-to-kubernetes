@@ -34,7 +34,7 @@ spec:
                  memory: 100Mi
 ```
 
-Our Service definition will remain unchanged. We can now apply this ReplicaSet to update our Pods:
+Our Service definition will remain unchanged. We can now apply this ReplicaSet to update our Pods by executing the following command from within the current folder:
 
 ```
 kubectl apply -f rs-limit-memory.yml
