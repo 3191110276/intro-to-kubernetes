@@ -52,7 +52,7 @@ Once we apply this, we can view the created object using
 kubectl get HorizontalPodAutoscaler
 ```
 
-We will see that the metric will be shown as '<unknown>/50%', which essentially means that our HorizontalPodAutoscaler does not know how many resources are used in the pods right now. By default, Kubernetes will not collec these metrics, thus we will need to set up a metrics server for collection. This is quite simple though. All the necessary yaml files for that are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder.
+We will see that the metric will be shown as '<unknown>/50%', which essentially means that our HorizontalPodAutoscaler does not know how many resources are used in the pods right now. By default, Kubernetes will not collec these metrics, thus we will need to set up a metrics server for collection. This is quite simple though. All the necessary yaml files for that are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder. You can have a look at the individual files, but we are just going to apply all yaml files by ececuting the following command from within the [/code](code/ "/code") folder:
 
 
 add resource limits to the pod
