@@ -95,16 +95,19 @@ Once we apply this, we can view the created object using
 kubectl get HorizontalPodAutoscaler
 ```
 
+You should see the defined HorizontalPodAutoscaler, as well as the metrics in the TARGETS column. If you are still seeing an <unknown> value in the TARGETS column, the metrics server did not have enough time to collect metrics yet, and you will have to wait a little bit more. Furthermore, you can also see the minimum and maximum amount of replicas, as well as the current replicas.
 
-
-
-
-
-Our current utilization will likely be quite low though. We can increase the load on our Service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Run the following command to get into the shell of a new container:
+Right now, our CPU utilization will likely be quite low. Thus, our HorizontalPodAutoscaler will have deployed the minimum of 2 replicas. We can increase the load on our service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Run the following command to start a new contaienr, and get into its shell:
 
 ```
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 ```
+
+
+
+
+
+
 
 We are now in the shell of our newly created container, and we can run a command to send requests to our Service:
 
