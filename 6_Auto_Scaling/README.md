@@ -13,7 +13,7 @@ We can scale our pods based on different metrics, such as CPU or memory, among o
 
 We just mentioned 100m and 200m CPU, what does that mean though? Let's have a quick look at how CPU and memory are measured in Kubernetes. CPUs resources are measured in cpu units, which would correspond to one Hyperthread on a bare metal server, though the exact measurement varies between environments. 100m would correspond to 0.1 cpu units. Memory is measured in bytes.
 
-Before we get started with deploying autoscaling, we first need to have metrics for deciding what to do. By default, Kubernetes will not collect these metrics though, thus we will need to set up a metrics server. This is quite a simple process. All the necessary yaml files for the rollout are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder. You can have a look at the individual files, but we are just going to apply all yaml files by ececuting the following command from within the [/code](code/ "/code") folder:
+Before we get started with deploying autoscaling, we first need to have metrics for deciding what to do. By default, most Kubernetes distributions will not collect these metrics though, thus we will need to set up a metrics server. Keep in mind that while it does not come pre-installed, it is part of Kubernetes, and not some hacky third party solution. The setup is quite a simple process. All the necessary yaml files for the rollout are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder. You can have a look at the individual files, but we are just going to apply all yaml files by ececuting the following command from within the [/code](code/ "/code") folder:
  
 ```
 kubectl apply -f ./metrics-server/
@@ -97,33 +97,45 @@ kubectl get HorizontalPodAutoscaler
 
 You should see the defined HorizontalPodAutoscaler, as well as the metrics in the TARGETS column. If you are still seeing an <unknown> value in the TARGETS column, the metrics server did not have enough time to collect metrics yet, and you will have to wait a little bit more. Furthermore, you can also see the minimum and maximum amount of replicas, as well as the current replicas.
 
-Right now, our CPU utilization will likely be quite low. Thus, our HorizontalPodAutoscaler will have deployed the minimum of 2 replicas. We can increase the load on our service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Run the following command to start a new contaienr, and get into its shell:
+Right now, our CPU utilization will likely be quite low. Thus, our HorizontalPodAutoscaler will have deployed the minimum of 2 replicas. We can increase the load on our service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Open a new terminal window, and then run the following command to start a new container that provides you shell access:
 
 ```
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 ```
 
-
-
-
-
-
-
-We are now in the shell of our newly created container, and we can run a command to send requests to our Service:
+Now that we are in the shell of our container, we can run the following command to send requests to our Service:
 
 ```
 while true; do wget -q -O- http://svc-hello-cisco.default.svc.cluster.local:5000; done
 ```
 
-With all of these requests, our Pod will soon be overwhelmed. Our metrics server will notice that the utilization is much higher than it should be, and based on that, autoscaling will kick in and create new Pods. We can observe this using the following command:
+This starts an infinite loop of requests or our application. With all of these requests, our Pods will soon be overwhelmed. Our metrics server will notice that the utilization is much higher than it should be, and based on that, autoscaling will kick in and create new Pods. We can observe this by looking at the HorizontalPodAutoscaler, short hpa:
 
 ```
 kubectl get hpa
 ```
 
-Keep in mind that it will take some time until our metrics server collects new metrics from the Pods. Thus, you can't really expect this to kick in for short burts of demand, but rather for a continued increase in load, such as in our example. After some time, autoscaling will create a few new Pods, and the load will be lower again. If we stop our requests to the Service, autoscaling will remove the Pods again after some time.
+Keep in mind that our metrics server only does periodic polling, thus it might take some time until our metrics are updated. Thus, you can't really expect this to kick in for short burts of demand, but rather for a continued increase in load, such as in our example. Soon, the metrics will be updated, and our HorizontalPodAutoscaler will notice that the Pod metrics are  higher than they should be. Due to this mismatch between metrics and target, autoscaling will  kick in and create a few new Pods. Once the new Pods are up and running, the metrics should be lower again. Again, keep in mind that this will take some time to update, due to the periodic polling of the metrics server.
 
-You can now have a look at the following two examples to try this yourself.
+Whie we are waiting for this to happen, we can look at a few other features of the metrics server to observe this process. You can run the following command to see the utilization of the current Pods:
+
+```
+kubectl top pod
+```
+
+If you want to see the information at a Node level, you can use another command:
+
+```
+kubectl top node
+```
+
+In the meantime, our HorizontalPodAutoscaler should have also been doing its job, and it should have created new Pods to handle the increased demand. Once we verified this, we can stop the requests from the second Pod. This means that the CPU utilization will be lower again, and that excess Pods will be removed. As before, you can observe this using the following command:
+
+```
+kubectl get hpa
+```
+
+Now that you have seen how the HorizontalPodAutoscaler works, you can have a look at the following two examples to try it yourself.
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
