@@ -37,7 +37,7 @@ spec:
            - containerPort: 5000
            resources:
               requests:
-                 cpu: 20m
+                 cpu: 80m
 ```
 
 We are going to create this ReplicaSet, alongside a Service that exposes it on NodePort 30001. We can create the ReplicaSet and the Service by running the following command from within the [/code](code/ "/code") folder:
