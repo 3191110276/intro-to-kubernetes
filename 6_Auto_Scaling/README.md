@@ -137,8 +137,8 @@ kubectl get hpa
 
 Now that you have seen how the HorizontalPodAutoscaler works, you can have a look at the following two examples to try it yourself.
 
-![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
-[Click here for the solution](./solutions/challenge4 "Click here for the solution")
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
-![Challenge 5](img/challenge5.png?raw=true "Challenge 5")
-[Click here for the solution](./solutions/challenge5 "Click here for the solution")
+![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
+[Click here for the solution](./solutions/challenge2 "Click here for the solution")
