@@ -9,11 +9,17 @@ How do we create this feature in our Kubernetes environment? ReplicaSets already
 
 ![Auto-scaling](img/autoscaler.png?raw=true "Auto-scaling")
 
-We can scale our pods based on different metrics, such as CPU or memory. For example, let's imagine that we would like our pods to use 100m CPU on average. If they are using 200m CPU on average, this would mean that we are double the desired metric. Thus, the Horizontal Pod Autoscaler would double the amount of copies that the ReplicaSet should produce.
+We can scale our pods based on different metrics, such as CPU or memory, among others. For example, let's imagine that we would like our pods to use 100m CPU on average. If they are using 200m CPU on average, this would mean that we are double the desired metric. Thus, the Horizontal Pod Autoscaler would double the amount of copies that the ReplicaSet should produce.
 
-One small note regarding CPU and memory metrics in Kubernetes. CPUs resources are measured in cpu units, which would correspond to one Hyperthread on a bare metal server, though the exact measurement varies between environments. 100m would correspond to 0.1 cpu units. Memory is measured in bytes.
+We just mentioned 100m and 200m CPU, what does that mean though? Let's have a quick look at how CPU and memory are measured in Kubernetes. CPUs resources are measured in cpu units, which would correspond to one Hyperthread on a bare metal server, though the exact measurement varies between environments. 100m would correspond to 0.1 cpu units. Memory is measured in bytes.
 
-If we want to scale our pod using CPU or memory, we will need to have a reference for how much memory the pod is supposed to consume. To do this, we can add a request for CPU resources to the pod template.
+Before we get started with deploying autoscaling, we first need to have metrics for deciding what to do. By default, Kubernetes will not collect these metrics though, thus we will need to set up a metrics server. This is quite a simple process. All the necessary yaml files for the rollout are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder. You can have a look at the individual files, but we are just going to apply all yaml files by ececuting the following command from within the [/code](code/ "/code") folder:
+ 
+```
+kubectl apply -f ./metrics-server/
+```
+
+Now our metrics server will be starting up, and it will periodically collect metrics from our cluster. To avoid wasting time while the metrics server is being set up, we can continue with creating the ReplicaSet that we will be using. Essentially, it will be the same ReplicaSet that we have been using previously, with one small difference. If we want to scale our pod count based on CPU or memory utilization, we will need to have a reference for how much memory the pod is supposed to consume. To do this, we can add a request for CPU resources to the pod template. This will tell Kubernetes what it will typically expect from the Pod.
 
 ```yaml
 apiVersion: apps/v1
@@ -46,7 +52,9 @@ We are going to create this ReplicaSet, alongside a Service that exposes it on N
 kubectl apply -f rs-limit.yml
 ```
 
-We could then just scale the application depending on the requests that are coming in. This could be quite dangerous though, both due to application errors, as well as due to possible attacks. If our autoscaling had no limit, Kubernetes would continue creating more and more pods. In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
+We can now create a Horizontal Pod Autoscaler that references this ReplicaSet, and modifies the scale number based on the current CPU utilization. Thus, if we receive more requests, more Pods will be created, and vice versa. This could be quite dangerous though, for example due to an attack on our application that sends a huge amount of requests. To keep up with the demand, autoscaling would create more and more Pods.
+
+In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Either way, we probably want to avoid this scenario. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
 
 Now that we have talked about how autoscaling works, let's look at an example:
 
@@ -71,6 +79,15 @@ spec:
            averageUtilization: 50
 ```
 
+
+
+
+
+
+
+
+
+
 As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics. In our case, we want to create a new copy if the average CPU utilization is larger than 50%.
 
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
@@ -83,13 +100,6 @@ Once we apply this, we can view the created object using
 
 ```
 kubectl get HorizontalPodAutoscaler
-```
-
-We will see that the metric will be shown as '<unknown>/50%', which essentially means that our HorizontalPodAutoscaler does not know how many resources are used in the pods right now. By default, Kubernetes will not collec these metrics, thus we will need to set up a metrics server for collection. This is quite simple though. All the necessary yaml files for that are prepared in the [/code/metrics-server](code/metrics-server "/code/metrics-server") folder. You can have a look at the individual files, but we are just going to apply all yaml files by ececuting the following command from within the [/code](code/ "/code") folder:
- 
- 
-```
-kubectl apply -f ./metrics-server/
 ```
 
 Our current utilization will likely be quite low though. We can increase the load on our Service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Run the following command to get into the shell of a new container:
