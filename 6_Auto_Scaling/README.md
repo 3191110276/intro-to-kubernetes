@@ -52,11 +52,11 @@ We are going to create this ReplicaSet, alongside a Service that exposes it on N
 kubectl apply -f rs-limit.yml
 ```
 
-We can now create a Horizontal Pod Autoscaler that references this ReplicaSet, and modifies the scale number based on the current CPU utilization. Thus, if we receive more requests, more Pods will be created, and vice versa. This could be quite dangerous though, for example due to an attack on our application that sends a huge amount of requests. To keep up with the demand, autoscaling would create more and more Pods.
+To add the autoscaling capabilitgies, we can now create a new element, the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned before, we are going to base the scaling of the Pod on CPU utilization. Thus, if we receive more requests and use more CPU, more Pods will be created. If less requests come in, less CPU will be consumed, and Pods will be removed again. This could be quite dangerous though, for example due to an attack on our application that sends a huge amount of requests. To keep up with the demand, autoscaling would create more and more Pods.
 
 In a private data center, this would simply mean that we might run out of other compute resources. In a public cloud, this could result in a huge bill. Either way, we probably want to avoid this scenario. Luckily, the Horizontal Pod Autoscaler also allows us to set minimum and maximum values for the amount of copies. The minimum copies should be able to deal with sudden spikes in demand, before new pods can be spun up, and the maximum copies assure us that we are never going to spin up too many copies.
 
-Now that we have talked about how autoscaling works, let's look at an example:
+Now that we have talked about how autoscaling works, let's look at an example of a Horizontal Pod Autoscaler:
 
 ```yaml
 apiVersion: autoscaling/v2beta2
@@ -79,16 +79,9 @@ spec:
            averageUtilization: 50
 ```
 
+First off, you can see that we are referencing our ReplicaSet to define the target element in which we are going to modify the scale value. Furthermore, you can also see the minReplicas and maxReplicas, which define the minimum (minReplicas) and maximum (maxReplicas) replicas that can be deployed through autoscaling.
 
-
-
-
-
-
-
-
-
-As you can see here, we have introduced a new element, aside from the Pod and the ReplicaSet. The HorizontalPodAutoscaler element allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned above, we can specify a minimum amount of copies (minReplicas), as well as a maximum amount of copies (maxReplicas). To change the scale, we can specify metrics. In our case, we want to create a new copy if the average CPU utilization is larger than 50%.
+Finally, we need to tell the autoscaler how it should decide the number of replicas. As mentioned before, we are going to base our decision on the current CPU utilization. With this configuration, our Horizontal Pod Autoscaler will want to create a new replica if the CPU utilization is larger than 50%.
 
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
 
@@ -101,6 +94,11 @@ Once we apply this, we can view the created object using
 ```
 kubectl get HorizontalPodAutoscaler
 ```
+
+
+
+
+
 
 Our current utilization will likely be quite low though. We can increase the load on our Service by hitting it with more requests. To do this, let's start another container, which we are going to use to send requests to our hello-cisco Service. Run the following command to get into the shell of a new container:
 
