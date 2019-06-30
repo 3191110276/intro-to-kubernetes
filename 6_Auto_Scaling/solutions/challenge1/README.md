@@ -40,3 +40,30 @@ Our Service definition will remain unchanged. We can now apply this ReplicaSet t
 kubectl apply -f rs-limit-memory.yml
 ```
 
+
+```yaml
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+   name: scaling-hello-cisco
+spec:
+   scaleTargetRef:
+      apiVersion: apps/v1
+      kind: ReplicaSet
+      name: rs-hello-cisco
+   minReplicas: 2
+   maxReplicas: 10
+   metrics:
+   - type: Resource
+     resource:
+        name: cpu
+        target:
+           type: Utilization
+           averageUtilization: 50
+   - type: Resource
+     resource:
+        name: memory
+        target:
+           type: Utilization
+           averageUtilization: 50
+```
