@@ -40,6 +40,7 @@ Our Service definition will remain unchanged. We can now apply this ReplicaSet t
 kubectl apply -f rs-limit-memory.yml
 ```
 
+We also need to adapt our HorizontanPodAutoscaler to also include scaling based on memory. We can simply do this by adding another entry in the metrics category:
 
 ```yaml
 apiVersion: autoscaling/v2beta2
