@@ -68,3 +68,9 @@ spec:
            type: Utilization
            averageUtilization: 50
 ```
+
+If you check the HorizontalPodAutoscaler now, you will see that it will be based on both metrics:
+
+```
+kubectl get hpa
+```
