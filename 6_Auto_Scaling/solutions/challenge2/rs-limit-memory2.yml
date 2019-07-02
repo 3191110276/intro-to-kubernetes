@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: rs-hello-cisco
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         app: hello-cisco
+   template:
+      metadata:
+         labels:
+            app: hello-cisco
+      spec:
+         containers:
+         - name: hello-cisco
+           image: mimaurer/hello-cisco:v1
+           ports:
+           - containerPort: 5000
+           resources:
+              requests:
+                 cpu: 80m
+                 memory: 40Mi
