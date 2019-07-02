@@ -84,7 +84,13 @@ We can see if the Deployment is ready, as well as how many replicas we have avai
 kubectl get rs
 ```
 
-This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. So far we haven't done anything that we couldn't have also done with a ReplicaSet though, so let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
+This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. We can look at the application in the browser using <worker-IP>:30001. If you don't know the IP address of the worker anymore, you can use the following command to find the the IP in the EXTERNAL-IP column:
+
+```
+kubectl get nodes -o wide
+```
+
+So far we haven't done anything that we couldn't have also done with a ReplicaSet though. Let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f deploy-v2.yml --record
