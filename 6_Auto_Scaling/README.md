@@ -144,3 +144,16 @@ Now that you have seen how the HorizontalPodAutoscaler works, you can have a loo
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
 ## Cleaning up
+We can now delete all components created in this chapter (ReplicaSet, Service, HorizontalPodAutoscaler). Try doing this on your own, but if you need some help, below are the three commands that you will need:
+
+```
+kubectl delete svc svc-hello-cisco
+```
+
+```
+kubectl delete rs rs-hello-cisco
+```
+
+```
+kubectl delete hpa scaling-hello-cisco
+```
