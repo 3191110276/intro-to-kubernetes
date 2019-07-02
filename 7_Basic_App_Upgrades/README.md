@@ -66,15 +66,27 @@ We can also provide some settings to specify how many Pods can be replaced at on
 
 We can use 'maxUnavailable' and 'maxSurge' exclusively, or we can combine them. For example, if we set 'maxSurge' to 1, we could set 'maxUnavailable' to 0. In that case, the Deployment would create one new Pod (more than what would be required), and once the Pod is ready, and old Pod will be killed. This continues until the upgrade is complete.
 
-Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1:
+Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1 by running the following command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f deployment-v1.yml
 ```
 
+This will create the Deployment, which we can look at using:
 
+```
+kubectl get deployments
+```
 
+We can see if the Deployment is ready, as well as how many replicas we have available currently. In the background, the Deployment will also have created a ReplicaSet, which was responsible for creating these replicas. Let's have a look:
 
+```
+kubectl get rs
+```
 
+This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. So far we haven't done anything that we couldn't have also done with a ReplicaSet though, so let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
 
+```
+kubectl apply -f deployment-v2.yml
+```
 
