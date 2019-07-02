@@ -14,8 +14,67 @@ Pods with the v1 image will be created. Once they are ready, we can change to ou
 kubectl apply -f rs-v2.yml
 ```
 
-You will notice that nothing actually happens. You might have also noticed this behavior during the previous chapter, when trying to update the ReplicaSet. To force our Pods to update, we can simply delete all old Pods, and new Pods will be created with the correct image. This is not a very practical approach though, especially if we have a larger amount of Pods to deal with. We could also delete the entire ReplicaSet and all of its Pods, and create a new ReplicaSet. While this is faster for the administrator, it means that our application will have some downtime.
+You will notice that nothing actually happens. You might have also noticed this behavior during the previous chapter, when trying to update the ReplicaSet. To force our Pods to update, we can simply delete all old Pods, and new Pods will be created with the correct image. This is not a very practical approach though, especially if we have a larger amount of Pods to deal with. We could also delete the entire ReplicaSet and all of its Pods, and create a new ReplicaSet. While this is faster for the administrator, it means that our application will have some downtime. Let's delete this ReplicaSet again:
+
+```
+kubectl delete rs rs-hello-cisco
+```
 
 Before we talk about how we can solve this problem, let's first think about what we would need. We would want a mechanism that will delete old Pods and create new Pods, if we change our Pod template. Furthermore, we probably don't want to delete all of our Pods at once, thus we will need some kind of method of upgrading without service interruption. We can achieve all of this by using Deployments.
 
 ![Deployments](img/deployment.png?raw=true "Deployments")
+
+Essentially, Deployments are an element that deals with the lifecycle of ReplicaSets. Initially, our Deployment would create a ReplicaSet for v1. If we want to upgrade our application to v2 later on, the Deployment would create a new ReplicaSet for v2 to replace the old one. One nice feature of Deployments is the ability to perform a simple rollback to an older version, for example in case of issues with the newer release. We will have a look at all of these features in the next sections.
+
+First, let's have a look at a very simple Deployment:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deploy-hello-cisco
+spec:
+    replicas: 4
+    selector:
+        matchLabels:
+            app: hello-cisco
+    minReadySeconds: 10
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 1
+            maxSurge: 1
+    template:
+        metadata:
+            labels:
+                app: hello-cisco
+        spec:
+            containers:
+            - name: hello-cisco
+              image: mimaurer/hello-cisco:v1
+              ports:
+              - containerPort: 5000
+```
+
+You will notice that the Deployment element looks very similar to a ReplicaSet. Deployments do just build on top of ReplicaSets. You will notice some new parts in the definition though, specifically the entries for 'minReadySeconds' and 'strategy'.
+
+The optional 'minReadySeconds' field specifies how many seconds a Pod should be ready without crashing, before it is considered available. This defaults to 0, thus the Pod would be considered available, as soon as it is ready. This field thus decides which Pods are considered available by the Deployment.
+
+The 'strategy' allows us to configure how Kubernetes will transition from one ReplicaSet to another. There are two types we can use right now: 'Recreate' and 'RollingUpgrade.' With 'Recreate', all existing Pods are killed before new ones are created, which is probably not what we want in many cases. With 'RollingUpgrade', Kubernetes gradually replaces the old Pods with new Pods.
+
+We can also provide some settings to specify how many Pods can be replaced at once (maxUnavailable), either as an absolute value, or as a percentage of total Pods. We don't necessarily need to have unavailable Pods though, as we can also allow our RollingUpgrade to provision more Pods than what would be needed (maxSurge). Again, this can be an absolute value, or a percentage of total Pods, and it will enable us to provision further new Pods during the Upgrade, to speed up the process.
+
+We can use 'maxUnavailable' and 'maxSurge' exclusively, or we can combine them. For example, if we set 'maxSurge' to 1, we could set 'maxUnavailable' to 0. In that case, the Deployment would create one new Pod (more than what would be required), and once the Pod is ready, and old Pod will be killed. This continues until the upgrade is complete.
+
+Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1:
+
+```
+kubectl apply -f deployment-v1.yml
+```
+
+
+
+
+
+
+
