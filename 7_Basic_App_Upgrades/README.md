@@ -90,3 +90,15 @@ This ReplicaSet then created the Pods in the background. Thus Deployments create
 kubectl apply -f deployment-v2.yml
 ```
 
+We can watch the upgrade using the following two commands:
+
+```
+kubectl get deploy
+```
+
+```
+kubectl get pods
+```
+
+You will see that the new Pods are being created (look at the AGE column to differentiate between new and old Pods easily). You will notice that right at the start two new Pods are created, while one of the old Pods starts terminating. This is because we are creating one new Pod via 'maxUnavailable' (which replaces an old Pod with a new Pod), and one Pod via 'maxSurge' (which creates one Pod in addition to the existing Pods). Once the first Pods are ready, more old Pods will be replaced with new Pods. This process will take a few seconds. In case you missed the changes, you can apply the v1 version of the deployment again to observe what the Deployment is doing. Make sure to upgrade to v2 again though, as we will need that version for our next steps.
+
