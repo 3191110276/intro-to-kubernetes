@@ -126,6 +126,8 @@ If you look at the rollout history now, you should see another revision being di
 kubectl rollout history deployment deploy-hello-cisco
 ```
 
+## Rollbacks
+
 Now that we learned how to do upgrades, let's say that we noticed some problem in v3 of our application, and we want to go back to v2 for now. This is actually quite simple, using the following command:
 
 ```
@@ -134,6 +136,21 @@ kubectl rollout undo deployment deploy-hello-cisco --to-revision=2
 
 The Deployment will now go back to the configuration in revision 2 of the rollout history. Keep in mind, that if you switched between versions multiple times, this revision might not be available anymore.
 
+## Cleaning up
+We can clean up our examples from this chapter by deleting the Deployment and the Service definition. Try doing this yourself, but if you need help, the following two commands should be used:
+
+```
+kubectl delete deployment deploy-hello-cisco
+```
+
+```
+kubectl delete svc svc-hello-cisco
+```
+
+
+
+
+
+
 * Better info about past versions
 * Service + view in Browser
-* Cleaning up
