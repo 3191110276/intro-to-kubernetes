@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: svc-hello-cisco
+    labels:
+        app: hello-cisco
+spec:
+    type: NodePort
+    ports:
+    - port: 5000
+      nodePort: 30001
+      protocol: TCP
+    selector:
+        app: hello-cisco
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deploy-hello-cisco
+spec:
+    replicas: 4
+    selector:
+        matchLabels:
+            app: hello-cisco
+    minReadySeconds: 10
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxUnavailable: 1
+            maxSurge: 1
+    template:
+        metadata:
+            labels:
+                app: hello-cisco
+        spec:
+            containers:
+            - name: hello-cisco
+              image: mimaurer/hello-cisco:v3
+              ports:
+              - containerPort: 5000
