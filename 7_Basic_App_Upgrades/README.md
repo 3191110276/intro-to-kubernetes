@@ -72,7 +72,7 @@ Let's have a look at all of that in a practical example. First, let's roll out t
 kubectl apply -f deploy-v1.yml --record
 ```
 
-This will create the Deployment. The '--record' option will be relevant later. For now, let's look at our Deployment using:
+This will create the Deployment and it will also create a Service that exposes it. The '--record' option will be relevant later. For now, let's look at our Deployment using:
 
 ```
 kubectl get deployments
@@ -154,11 +154,3 @@ kubectl delete deployment deploy-hello-cisco
 ```
 kubectl delete svc svc-hello-cisco
 ```
-
-
-
-
-
-
-* Better info about past versions
-* Service + view in Browser
