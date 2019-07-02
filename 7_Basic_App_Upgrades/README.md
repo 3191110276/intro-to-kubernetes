@@ -84,7 +84,7 @@ We can see if the Deployment is ready, as well as how many replicas we have avai
 kubectl get rs
 ```
 
-This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. We can look at the application in the browser using <worker-IP>:30001. If you don't know the IP address of the worker anymore, you can use the following command to find the the IP in the EXTERNAL-IP column:
+This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. We can look at the application in the browser using &lt;IP&gt;:30001. If you don't know the IP address of the worker anymore, you can use the following command to find the the IP in the EXTERNAL-IP column:
 
 ```
 kubectl get nodes -o wide
@@ -114,7 +114,7 @@ kubectl rollout status deployment deploy-hello-cisco
 
 In case you missed the changes, you can apply the v1 version of the deployment again to observe what the Deployment is doing. Make sure to upgrade to v2 again though, as we will need that version for our next steps.
 
-Now that we are on v2, let's have a look at what we did so far. We can see the history of our Deployment with this command:
+We can also confirm the upgrade in the browser by looking at &lt;IP&gt;:30001. The application should now look different and reference version 2. Now that we are on v2, let's have a look at what we did so far. We can see the history of our Deployment with this command:
 
 ```
 kubectl rollout history deployment deploy-hello-cisco
@@ -131,6 +131,8 @@ If you look at the rollout history now, you should see another revision being di
 ```
 kubectl rollout history deployment deploy-hello-cisco
 ```
+
+Again, you can also confirm this in the browser by looking at &lt;IP&gt;:30001.
 
 ## Rollbacks
 
