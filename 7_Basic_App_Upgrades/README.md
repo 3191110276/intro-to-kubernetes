@@ -135,6 +135,13 @@ kubectl rollout history deployment deploy-hello-cisco
 Again, you can also confirm this in the browser by looking at &lt;IP&gt;:30001.
 
 ## Rollbacks
+This updates so far have been faciliated by creating a new ReplicaSet and by switching to it from the previous ReplicaSet. The old ReplicaSets are not deleted though, they just don't have replicas anymore. You can see this using the following command:
+
+```
+kubectl get rs
+```
+
+We could thus just create new replicas of an old version of our application by incresing the number of desired replicas. That is exactly what we can do with rollbacks, which allow us to restore and old application version, without having to re-deploy the yaml file.
 
 Now that we learned how to do upgrades, let's say that we noticed some problem in v3 of our application, and we want to go back to v2 for now. This is actually quite simple, using the following command:
 
