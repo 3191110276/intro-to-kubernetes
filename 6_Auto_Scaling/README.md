@@ -142,3 +142,5 @@ Now that you have seen how the HorizontalPodAutoscaler works, you can have a loo
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
+
+## Cleaning up
