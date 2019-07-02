@@ -100,5 +100,30 @@ kubectl get deploy
 kubectl get pods
 ```
 
-You will see that the new Pods are being created (look at the AGE column to differentiate between new and old Pods easily). You will notice that right at the start two new Pods are created, while one of the old Pods starts terminating. This is because we are creating one new Pod via 'maxUnavailable' (which replaces an old Pod with a new Pod), and one Pod via 'maxSurge' (which creates one Pod in addition to the existing Pods). Once the first Pods are ready, more old Pods will be replaced with new Pods. This process will take a few seconds. In case you missed the changes, you can apply the v1 version of the deployment again to observe what the Deployment is doing. Make sure to upgrade to v2 again though, as we will need that version for our next steps.
+You will see that the new Pods are being created (look at the AGE column to differentiate between new and old Pods easily). You will notice that right at the start two new Pods are created, while one of the old Pods starts terminating. This is because we are creating one new Pod via 'maxUnavailable' (which replaces an old Pod with a new Pod), and one Pod via 'maxSurge' (which creates one Pod in addition to the existing Pods). Once the first Pods are ready, more old Pods will be replaced with new Pods. This process will take a few seconds. If you don't need all the details, you can just follow the upgrade using the following command:
 
+```
+kubectl rollout status deployment deploy-hello-cisco
+```
+
+In case you missed the changes, you can apply the v1 version of the deployment again to observe what the Deployment is doing. Make sure to upgrade to v2 again though, as we will need that version for our next steps.
+
+Now that we are on v2, let's have a look at what we did so far. We can see the history of our Deployment with this command:
+
+```
+kubectl rollout history deployment deploy-hello-cisco
+```
+
+You will see the revisions, as well as causes for the change, which will be empty in our case. Keep in mind that the revision will be a higher number if you switched between v1 and v2 again. Let's deploy another version, to see how our history will look at that point. You can run the following command from within the [/code](code/ "/code") folder to roll out v3 of our application:
+
+```
+kubectl apply -f deployment-v3.yml 
+```
+
+If you look at the rollout history now, you should see another revision being displayed:
+
+```
+kubectl rollout history deployment deploy-hello-cisco
+```
+
+Now that we learned how to do upgrades, let's say that we noticed some problem in v3 of our application, and we want to go back to v2 for now.
