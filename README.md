@@ -8,9 +8,9 @@
 5. [Exposing our application](/5_Exposing_our_App)
 6. [Auto-scaling applications](/6_Auto_Scaling)
 7. [Basic application upgrades](/7_Basic_App_Upgrades)
-8. Putting it all together
-9. Providing external access to the cluster
-10. Deploying an example application
+8. Providing external access to the cluster
+9. Putting it all together
+10. Challenge: Deploying an example application
 11. Persistent storage
 12. Service Meshes
 13. Advanced application upgrade
