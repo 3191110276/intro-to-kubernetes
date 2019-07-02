@@ -69,10 +69,10 @@ We can use 'maxUnavailable' and 'maxSurge' exclusively, or we can combine them. 
 Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1 by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deploy-v1.yml
+kubectl apply -f deploy-v1.yml --record
 ```
 
-This will create the Deployment, which we can look at using:
+This will create the Deployment. The '--record' option will be relevant later. For now, let's look at our Deployment using:
 
 ```
 kubectl get deployments
@@ -87,7 +87,7 @@ kubectl get rs
 This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. So far we haven't done anything that we couldn't have also done with a ReplicaSet though, so let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deploy-v2.yml
+kubectl apply -f deploy-v2.yml --record
 ```
 
 We can watch the upgrade using the following two commands:
@@ -114,10 +114,10 @@ Now that we are on v2, let's have a look at what we did so far. We can see the h
 kubectl rollout history deployment deploy-hello-cisco
 ```
 
-You will see the revisions, as well as causes for the change, which will be empty in our case. Keep in mind that the revision will be a higher number if you switched between v1 and v2 again. Let's deploy another version, to see how our history will look at that point. You can run the following command from within the [/code](code/ "/code") folder to roll out v3 of our application:
+You will see the revisions, as well as causes for the change, which will show the command we used to update the Deployment. This is where the '--record' option comes in. Had we not added that option, there would be no change causeavailable. Keep in mind that the revision will be a higher number if you switched between v1 and v2 again. Let's deploy another version, to see how our history will look at that point. You can run the following command from within the [/code](code/ "/code") folder to roll out v3 of our application:
 
 ```
-kubectl apply -f deploy-v3.yml 
+kubectl apply -f deploy-v3.yml --record
 ```
 
 If you look at the rollout history now, you should see another revision being displayed:
@@ -126,4 +126,10 @@ If you look at the rollout history now, you should see another revision being di
 kubectl rollout history deployment deploy-hello-cisco
 ```
 
-Now that we learned how to do upgrades, let's say that we noticed some problem in v3 of our application, and we want to go back to v2 for now.
+Now that we learned how to do upgrades, let's say that we noticed some problem in v3 of our application, and we want to go back to v2 for now. This is actually quite simple, using the following command:
+
+```
+kubectl rollout undo deployment deploy-hello-cisco --to-revision=2
+```
+
+The Deployment will now go back to the configuration in revision 2 of the rollout history. Keep in mind, that if you switched between versions multiple times, this revision might not be available anymore.
