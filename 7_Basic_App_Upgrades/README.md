@@ -133,3 +133,7 @@ kubectl rollout undo deployment deploy-hello-cisco --to-revision=2
 ```
 
 The Deployment will now go back to the configuration in revision 2 of the rollout history. Keep in mind, that if you switched between versions multiple times, this revision might not be available anymore.
+
+* Better info about past versions
+* Service + view in Browser
+* Cleaning up
