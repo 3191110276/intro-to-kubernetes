@@ -13,25 +13,29 @@ Let's have a look at this with a simple example. Our application is a simple HTM
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-hello-cisco
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    name: ingress-hello-cisco
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /hello-cisco
-        backend:
-          serviceName: svc-hello-cisco
-          servicePort: 5000
-
-```
+    rules:
+    - http:
+       paths:
+       - path: /hello-cisco
+          backend:
+              serviceName: svc-hello-cisco
+              servicePort: 5000
 
 
 ```
 
+In this definition, we define an Ingress that routes the path /hello-cisco to our Service 'svc-hello-cisco' on port 5000. We can create the Ingress (as well as the Deployment and Service) by running the following command from within the [/code](code/ "/code") folder:
+
+
+```
+kubectl apply –f ingress.yml
 ```
 
+Now, let's have a look at the Ingress we just created:
 
 
 
