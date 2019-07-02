@@ -37,5 +37,7 @@ kubectl apply –f ingress.yml
 
 Now, let's have a look at the Ingress we just created:
 
-
+```
+kubectl get ingress
+```
 
