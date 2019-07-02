@@ -39,3 +39,4 @@ Now, let's have a look at the Ingress we just created:
 kubectl get ingress
 ```
 
+We can see the Ingress we created, as well as IP addresses. You might be lead to believe that these are the IPs we can use to access our loadbalancer, but that is not the case. These IPs represent the worker nodes that are reachable through our Ingress. To get the IP address of the Ingress loadbalancer, we need to
