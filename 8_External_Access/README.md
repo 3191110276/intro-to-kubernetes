@@ -39,4 +39,12 @@ Now, let's have a look at the Ingress we just created:
 kubectl get ingress
 ```
 
-We can see the Ingress we created, as well as IP addresses. You might be lead to believe that these are the IPs we can use to access our loadbalancer, but that is not the case. These IPs represent the worker nodes that are reachable through our Ingress. To get the IP address of the Ingress loadbalancer, we need to
+We can see the Ingress we created, as well as IP addresses. You might be lead to believe that these are the IPs we can use to access our loadbalancer, but that is not the case. These IPs represent the worker nodes that are reachable through our Ingress. To get the IP address of the Ingress loadbalancer, we can execute the following command:
+
+```
+kubectl get service nginx-ingress-controller --namespace=ccp
+```
+
+The IP of the loadbalancer will be in the EXTERNAL-IP column. If you run a different environment with a different loadbalancer, this could be different. In our case, we are using an NGINX loadbalancer, which is running on our cluster. Thus, the loadbalancing actually happens through a Service of type LoadBalancer, which then forward to our NodePort Service. The advantage of this setup is that we can reuse the loadbalancer for multiple applications, which is especially useful in cloud environments, where each additional loadbalancer results in an additional charge.
+
+Now that we know the IP of our loadbalancer, we can connect to our application again using &lt;LB-IP&gt;/hello-cisco.
