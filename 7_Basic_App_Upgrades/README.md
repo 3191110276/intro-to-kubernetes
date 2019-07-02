@@ -69,7 +69,7 @@ We can use 'maxUnavailable' and 'maxSurge' exclusively, or we can combine them. 
 Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1 by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deployment-v1.yml
+kubectl apply -f deploy-v1.yml
 ```
 
 This will create the Deployment, which we can look at using:
@@ -87,7 +87,7 @@ kubectl get rs
 This ReplicaSet then created the Pods in the background. Thus Deployments create ReplicaSets, and ReplicaSets create Pods. So far we haven't done anything that we couldn't have also done with a ReplicaSet though, so let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deployment-v2.yml
+kubectl apply -f deploy-v2.yml
 ```
 
 We can watch the upgrade using the following two commands:
@@ -117,7 +117,7 @@ kubectl rollout history deployment deploy-hello-cisco
 You will see the revisions, as well as causes for the change, which will be empty in our case. Keep in mind that the revision will be a higher number if you switched between v1 and v2 again. Let's deploy another version, to see how our history will look at that point. You can run the following command from within the [/code](code/ "/code") folder to roll out v3 of our application:
 
 ```
-kubectl apply -f deployment-v3.yml 
+kubectl apply -f deploy-v3.yml 
 ```
 
 If you look at the rollout history now, you should see another revision being displayed:
