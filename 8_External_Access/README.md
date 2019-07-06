@@ -55,13 +55,13 @@ We can also add TLS to our Ingress, but that is a more advanced topic, which we 
 Now that we are done with this section, we can remove the artifacts we created. Specifically, we would have to remove the Ingress, the Service, and the Deployment. You should be able to do this on your own, but you can also use the commands below in case you have doubts:
 
 ```
-
+kubectl delete ingress ingress-hello-cisco
 ```
 
 ```
-
+kubectl delete svc svc-hello-cisco
 ```
 
 ```
-
+kubectl delete deploy deploy-hello-cisco
 ```
