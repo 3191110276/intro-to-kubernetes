@@ -48,3 +48,20 @@ kubectl get service nginx-ingress-controller --namespace=ccp
 The IP of the loadbalancer will be in the EXTERNAL-IP column. If you run a different environment with a different loadbalancer, this could be different. In our case, we are using an NGINX loadbalancer, which is running on our cluster. Thus, the loadbalancing actually happens through a Service of type LoadBalancer, which then forward to our NodePort Service. The advantage of this setup is that we can reuse the loadbalancer for multiple applications, which is especially useful in cloud environments, where each additional loadbalancer results in an additional charge.
 
 Now that we know the IP of our loadbalancer, we can connect to our application again using &lt;LB-IP&gt;/hello-cisco/. Make sure to include the trailing slash in the URL, otherwise other resources, such as pictures, are not going to load.
+
+We can also add TLS to our Ingress, but that is a more advanced topic, which we will not be doing for now.
+
+## Cleaning up
+Now that we are done with this section, we can remove the artifacts we created. Specifically, we would have to remove the Ingress, the Service, and the Deployment. You should be able to do this on your own, but you can also use the commands below in case you have doubts:
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
