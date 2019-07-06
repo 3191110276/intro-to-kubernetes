@@ -26,7 +26,7 @@ spec:
           servicePort: 5000
 ```
 
-In this definition, we define an Ingress that routes the path /hello-cisco to our Service 'svc-hello-cisco' on port 5000. We can create the Ingress (as well as the Deployment and Service) by running the following command from within the [/code](code/ "/code") folder:
+In this definition, we define an Ingress that routes the path /hello-cisco/ to our Service 'svc-hello-cisco' on port 5000. We also added some rewrite commands, so that other paths in our app will be adjusted to /hello-cisco/. We can create the Ingress (as well as the Deployment and Service) by running the following command from within the [/code](code/ "/code") folder:
 
 
 ```
@@ -47,4 +47,4 @@ kubectl get service nginx-ingress-controller --namespace=ccp
 
 The IP of the loadbalancer will be in the EXTERNAL-IP column. If you run a different environment with a different loadbalancer, this could be different. In our case, we are using an NGINX loadbalancer, which is running on our cluster. Thus, the loadbalancing actually happens through a Service of type LoadBalancer, which then forward to our NodePort Service. The advantage of this setup is that we can reuse the loadbalancer for multiple applications, which is especially useful in cloud environments, where each additional loadbalancer results in an additional charge.
 
-Now that we know the IP of our loadbalancer, we can connect to our application again using &lt;LB-IP&gt;/hello-cisco.
+Now that we know the IP of our loadbalancer, we can connect to our application again using &lt;LB-IP&gt;/hello-cisco/. Make sure to include the trailing slash in the URL, otherwise other resources, such as pictures, are not going to load.
