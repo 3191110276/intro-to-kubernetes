@@ -13,7 +13,7 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 
 
 
-![Challenge](img/challenge1.png?raw=true "Challenge")
+![Challenge](img/challenge.png?raw=true "Challenge")
 [Click here for the solution](./solutions/ "Click here for the solution")
 
 Once you think that you are done, you can try querying the application through the Ingress. The result of your query should look something like this:
