@@ -6,6 +6,9 @@ This is the solution for the following challenge:
 
 We will split the solution up into the various parts of the application. First, we will talk about creating the Ingress, followed by the implementation of the Services and Deployments.
 
+## Ingress
+
+First off, we want to create the Ingress. We know that it should be called 'ingress-example', and that it should route to '/example'. That alone is not enough to create the Ingress though. We also need to know where the Ingress redirects to. Thus, we will need to look at the information regarding the frontend application. We can see that the Service should be called 'frontend-svc', which we can then use in our application. In the spec for the frontend Deployment, we can also see that the application is using port 5000, which we can then use as servicePort in our Ingress definition. This should result in an Ingress definition like this:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -23,6 +26,12 @@ spec:
           serviceName: frontend-svc
           servicePort: 5000
 ```
+
+You can apply this Ingress by executing the following command from within the current folder:
+
+
+
+## Services
 
 ```yaml
 apiVersion: v1
@@ -66,7 +75,7 @@ spec:
 
 
 
-
+## Deployments
 
 
 ```yaml
