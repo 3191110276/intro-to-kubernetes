@@ -3,7 +3,7 @@ We have gone through many concepts together, but in this chapter, it is up to yo
 
 ![Application Design](img/app_design.png?raw=true "Application Design")
 
-As you can see, we will have an Ingress, which will be used for user access. Behind that, we will have to create 4 Services, alongside with the respective Deployments to deliver Pods. Below you will find detailed instructions for each individual component in this design, including the images that should be used. Please use the exact names for the Kubernetes components, otherwise you might face problem in this chapter or in the following chapters. With that said, let's go over the detailed description of all of our components.
+As you can see, we will have an Ingress, which will be used for user access. Behind that, we will have to create one Service for the frontend, and one service for the database. Both Services will have their respective Deployments to deliver Pods. Below you will find detailed instructions for each individual component in this design, including the images that should be used. Please use the exact names for the Kubernetes components, otherwise you might face problem in this chapter or in the following chapters. With that said, let's go over the detailed description of all of our components.
 
 
 
