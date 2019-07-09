@@ -6,9 +6,11 @@ We have gone through many concepts together, but in this chapter, it is up to yo
 As you can see, we will have an Ingress, which will be used for user access. Behind that, we will have to create one Service for the frontend, and one service for the database. Both Services will have their respective Deployments to deliver Pods. Below you will find detailed instructions for each individual component in this design, including the images that should be used. Please use the exact names for the Kubernetes components, otherwise you might face problem in this chapter or in the following chapters. With that said, let's go over the detailed description of all of our components.
 
 ## Ingress
-
+Our Ingress should be called 'ingress-example', and you have to set the path to '/example'.
 
 ## Services and Deployments
+For our Services and Deployments, you can use the information in the table below:
+
 |  | frontend | mysql |
 |-----------------|-----------------|--------------|
 | Service Name | frontend-svc | mysql-svc |
@@ -16,9 +18,35 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 | Labels | app: frontend | app: mysql |
 | Replicas | 4 | 1 |
 
+For the frontend Deployment, you will need the following spec:
 
+```yaml
+    spec:
+      containers:
+        - image: mimaurer/frontend:v1
+          name: frontend
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: C1sco123
+          ports:
+            - containerPort: 5000
+              name: frontend
+```
 
+For the mysql Deployment, the following spec should be used:
 
+```yaml
+    spec:
+      containers:
+        - image: mysql:5.6
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: C1sco123
+          ports:
+            - containerPort: 3306
+              name: mysql
+```
 
 ## Challenge
 
