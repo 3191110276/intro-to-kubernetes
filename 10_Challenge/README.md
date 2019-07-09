@@ -22,6 +22,8 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 
 ## Challenge
 
+Now that you have all the information needed, you are ready for the challenge. Try to do it on your own, but if you have any issues, you can have a look at the solution.
+
 ![Challenge](img/challenge.png?raw=true "Challenge")
 [Click here for the solution](./solutions/ "Click here for the solution")
 
