@@ -10,7 +10,7 @@
 7. [Basic application upgrades](/7_Basic_App_Upgrades)
 8. [Providing external access to the cluster](/8_External_Access)
 9. [Review: Putting it all together](9_Review)
-10. Challenge: Deploying an example application
+10. [Challenge: Deploying an example application](10_Challenge)
 11. Persistent storage
 12. Service Meshes
 13. Advanced application upgrade
