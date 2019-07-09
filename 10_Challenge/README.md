@@ -5,7 +5,16 @@ We have gone through many concepts together, but in this chapter, it is up to yo
 
 As you can see, we will have an Ingress, which will be used for user access. Behind that, we will have to create one Service for the frontend, and one service for the database. Both Services will have their respective Deployments to deliver Pods. Below you will find detailed instructions for each individual component in this design, including the images that should be used. Please use the exact names for the Kubernetes components, otherwise you might face problem in this chapter or in the following chapters. With that said, let's go over the detailed description of all of our components.
 
+## Ingress
 
+
+## Services and Deployments
+|  | frontend | mysql |
+|-----------------|-----------------|--------------|
+| Service Name | frontend-svc | mysql-svc |
+| Deployment Name | frontend-deploy | mysql-deploy |
+| Labels | app: frontend | app: mysql |
+| Replicas | 4 | 1 |
 
 
 
