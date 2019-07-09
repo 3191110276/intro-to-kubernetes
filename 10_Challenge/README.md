@@ -18,6 +18,6 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 
 Once you think that you are done, you can try querying the application through the Ingress. The result of your query should look something like this:
 
-![Challenge Result](img/challenge_result.png?raw=true "Challenge Result")
+![Challenge Result](img/result.png?raw=true "Challenge Result")
 
 You don't need to remove any of the deployed components this time. We will be using this application in the next chapter to show how persistent storage can be added.
