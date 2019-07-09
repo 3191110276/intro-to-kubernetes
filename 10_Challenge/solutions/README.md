@@ -29,7 +29,9 @@ spec:
 
 You can apply this Ingress by executing the following command from within the current folder:
 
-
+```
+kubectl apply -f ingress.yml
+```
 
 ## Services
 
