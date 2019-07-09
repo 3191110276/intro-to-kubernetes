@@ -78,6 +78,37 @@ We have combined the Services and Deployments into a single yaml file. You can a
 
 ## Deployments
 
+Finally, for the Deployments, we can combine the information of what we should deliver with the specs to create the yaml definition. This will result in the following defintion for the frontend Deployment:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  labels:
+    app: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: mimaurer/frontend:v1
+          name: frontend
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: C1sco123
+          ports:
+            - containerPort: 5000
+              name: frontend
+```
+
+For the mysql Deployment, the definition should look something like this:
 
 ```yaml
 apiVersion: apps/v1
@@ -107,30 +138,22 @@ spec:
               name: mysql
 ```
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend-deploy
-  labels:
-    app: frontend
-spec:
-  replicas: 4
-  selector:
-    matchLabels:
-      app: frontend
-  template:
-    metadata:
-      labels:
-        app: frontend
-    spec:
-      containers:
-        - image: mimaurer/frontend:v1
-          name: frontend
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: C1sco123
-          ports:
-            - containerPort: 5000
-              name: frontend
+Now that we have our Services and Deployments defined, we can apply them. First off, let's createe the database by using the following command from within the current folder:
+
 ```
+kubectl apply -f mysql.yml
+```
+
+After we did that, we can create the frontend Service and Deployment as well:
+
+```
+kubectl apply -f frontend.yml
+```
+
+Both of them will need some time to download the images and start the containers. After some time, we should be able to access the application by going to the IP of the loadbalancer, followed by a '/example'. Just a quick reminder, you can find the loadbalancer IP by running the following command:
+
+```
+kubectl get service nginx-ingress-controller --namespace=ccp
+```
+
+The IP of the loadbalancer will be in the EXTERNAL-IP column.
