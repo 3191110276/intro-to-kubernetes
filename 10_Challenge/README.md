@@ -25,10 +25,10 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 ![Challenge](img/challenge.png?raw=true "Challenge")
 [Click here for the solution](./solutions/ "Click here for the solution")
 
+## Result
+
 Once you think that you are done, you can try querying the application through the Ingress. The result of your query should look something like this:
 
 ![Challenge Result](img/result.png?raw=true "Challenge Result")
-
-## Result
 
 You can add some of your own entries to the database, and the page will update with the comments. In the next chapters, we will explore ways to improve this application design. You don't need to remove any of the deployed components this time. We will be using this application in the next chapter to show how persistent storage can be added. If you are unsure if you deployed everything correctly, there will be a way to clean up everything in the future chapters.
