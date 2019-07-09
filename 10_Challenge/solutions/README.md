@@ -35,6 +35,10 @@ kubectl apply -f ingress.yml
 
 ## Services
 
+Now let's create the Services, which will be the prerequisite for all application communication. You will find the service name, and labels in the definition. There are two things that we will have to think about: the port numbers, and the type of Service. Just like for the Ingress, we can again look at the spec of the Deployments, to find the port numbers used by the application. That will be port 5000 for the frontend, and port 3306 for mysql. The other thing we have to think about is the type of Service we need. As the frontend needs to communicate externally, it makes sense to use type NodePort. The mysql Service will be internal-only, thus we can use type ClusterIP.
+
+This will result in the following definition for the frontend Service:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -52,6 +56,8 @@ spec:
         app: frontend
 ```
 
+The mysql Service will need a definition similar to the following:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -68,14 +74,7 @@ spec:
         app: mysql
 ```
 
-
-
-
-
-
-
-
-
+We have combined the Services and Deployments into a single yaml file. You can already apply the Service defintions above, or you can wait until we apply everything in the next step.
 
 ## Deployments
 
