@@ -20,7 +20,7 @@ As you can see, we will have an Ingress, which will be used for user access. Beh
 
 
 
-
+## Challenge
 
 ![Challenge](img/challenge.png?raw=true "Challenge")
 [Click here for the solution](./solutions/ "Click here for the solution")
