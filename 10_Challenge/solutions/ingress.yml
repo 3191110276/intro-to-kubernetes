@@ -10,5 +10,5 @@ spec:
       paths:
       - path: /example(/|$)(.*)
         backend:
-          serviceName: svc-app1
+          serviceName: frontend-svc
           servicePort: 5000
