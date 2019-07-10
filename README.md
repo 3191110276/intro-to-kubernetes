@@ -24,6 +24,7 @@
 16. Package manager
 17. Logical separation of applications and users
 18. Kubernetes networking
+19. Cluster Federation and MultiCloud
 99. Notes and Acknowledgements
 
 
