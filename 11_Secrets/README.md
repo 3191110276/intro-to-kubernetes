@@ -50,5 +50,6 @@ We can now apply this Secret to our existing Deployment.
 
 - Make sure that the application from the previous chapter is running
 - Apply Secret to Deployment
+- Flask app should get password from env variable
 - Challenge
 - Other use cases
