@@ -90,6 +90,13 @@ As you can see, the 'secretKeyRef' contains a 'name', which is the name of the S
 kubectl apply -f frontend-new.yml 
 ```
 
-- Flask app should get password from env variable
-- Challenge
-- Other use cases
+If you did everything correctly, nothing should change. The application is still getting the same password, thus it will still work the same way as before. We could apply the same Secret to the database though, to reuse it. You can try this out yourself in the following challenge:
+
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
+
+Our application now properly utilizes Secrets. To finish this chapter, let's talk about some use cases for Secrets. We can provide any kind of information to the containers through environment variables. This is also useful if we have applications that move from testing to production. We can have a different Secret for each environment, which contains the correct information about each environment. It is also possible to mount Secrets to a container like a file. This opens up even more use cases.
+
+## Cleaning up
+
+We do not need to clean up the application so far. We will be using it for one more chapter. If you are unsure if your application is deployed correctly, we will offer you an opportunity to redeploy the application in the next chapter.
