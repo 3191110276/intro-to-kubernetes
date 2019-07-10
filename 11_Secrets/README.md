@@ -48,6 +48,7 @@ kubectl get secrets
 
 We can now apply this Secret to our existing Deployment.
 
+- Make sure that the application from the previous chapter is running
 - Apply Secret to Deployment
 - Challenge
 - Other use cases
