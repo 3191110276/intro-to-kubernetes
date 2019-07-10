@@ -11,13 +11,19 @@
 8. [Providing external access to the cluster](/8_External_Access)
 9. [Review: Putting it all together](9_Review)
 10. [Challenge: Deploying an example application](10_Challenge)
-11. Persistent storage
-12. Service Meshes
-13. Advanced application upgrade
-14. IT process changes due to Kubernetes
-15. Package manager
-16. Logical separation of applications and users
-17. Kubernetes networking
+11. Secrets for applying configuration
+
+<!--
+11. [Secrets for applying configuration](11_Secrets)
+-->
+
+12. Persistent storage
+13. Service Meshes
+14. Advanced application upgrade
+15. IT process changes due to Kubernetes
+16. Package manager
+17. Logical separation of applications and users
+18. Kubernetes networking
 99. Notes and Acknowledgements
 
 
