@@ -46,10 +46,50 @@ Our Secret should now be created, we can verify that by using the respective get
 kubectl get secrets 
 ```
 
-We can now apply this Secret to our existing Deployment.
+We can now apply this Secret to our existing Deployment. For this, you can use the existing Deployment from the previous chapter. If you do not have this, or if you are not sure if it is working correctly, you can use the following command from within the [/code](code/ "/code") folder to apply all components:
 
-- Make sure that the application from the previous chapter is running
-- Apply Secret to Deployment
+```
+kubectl apply -f existing.yml 
+```
+
+Now, we can create a new Deployment file for our frontend, which also contains a reference to the Secret. We can reuse almost all of our definitions from the previous chapter, but we will need to exchange the password for a reference to the Secret. To do this, we use 'valueFrom' in the environment variables, and then reference the Secret:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  labels:
+    app: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: mimaurer/frontend:v1
+          name: frontend
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                 secretKeyRef:
+                    name: example-secret
+                    key: password
+          ports:
+            - containerPort: 5000
+```
+
+As you can see, the 'secretKeyRef' contains a 'name', which is the name of the Secret, and a 'key', which is the specific value inside the Secret. You could have multiple values inside a Secret, all with their own key. Now, let's go ahead and apply this by running the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f frontend-new.yml 
+```
+
 - Flask app should get password from env variable
 - Challenge
 - Other use cases
