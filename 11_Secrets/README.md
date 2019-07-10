@@ -23,8 +23,31 @@ Additionally, having all of this information in plain text in the Deployment fil
 
 First off, Secrets will allow us to reuse the information in multiple places, but Secrets are also more secure compared to storing the information directly in the Deployment file. There are some security aspects that we would still have to consider, but this section will only focus on the basics of how to use a Secret.
 
+Secrets themselves are actually quite easy to create:
 
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+   name: example-secret
+data:
+   password: C1sco123
+```
 
-- How does it work
+As you can see here, all we need to specify is the name of the secret, and the data we want to store, in this case the password. We can then go ahead and create this object by running the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f secret.yml 
+```
+
+Our Secret should now be created, we can verify that by using the respective get command for Secrets:
+
+```
+kubectl get secrets 
+```
+
+We can now apply this Secret to our existing Deployment.
+
+- Apply Secret to Deployment
 - Challenge
 - Other use cases
