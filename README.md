@@ -11,11 +11,7 @@
 8. [Providing external access to the cluster](/8_External_Access)
 9. [Review: Putting it all together](9_Review)
 10. [Challenge: Deploying an example application](10_Challenge)
-11. Secrets for applying configuration
-
-<!--
 11. [Secrets for applying configuration](11_Secrets)
--->
 
 12. Persistent storage
 13. Service Meshes
