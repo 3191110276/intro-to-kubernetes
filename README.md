@@ -12,7 +12,6 @@
 9. [Review: Putting it all together](9_Review)
 10. [Challenge: Deploying an example application](10_Challenge)
 11. [Secrets for applying configuration](11_Secrets)
-
 12. Persistent storage
 13. Service Meshes
 14. Advanced application upgrade
