@@ -12,7 +12,7 @@ Either way, you will have to start the application after installing it. If you a
 ## Kubernetes
 There are many different options that you could use to set up Kubernetes. You could start it on your own local machine, run it from the cloud, or install it on a server. In our case, we are going to use a demo environment provided by Cisco DevNet. Go to the [DevNet Sandbox page](https://devnetsandbox.cisco.com) and log in. You will be shown a variety of available sandboxed that you can use for free. Select the 'Cloud' category, and then select the sandbox for Cisco Container Platform.
 
-IMG
+![DevNet sandbox](img/devnet_sandbox.png?raw=true "DevNet sandbox")
 
 You can then go ahead and reserve the sandbox for a certain amount of time. You can either start immediately, or you can reserve on a certain date. Make sure that the sandbox is reserved for the time you want to practice with it.
 
