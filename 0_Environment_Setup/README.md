@@ -10,9 +10,11 @@ We will be using Docker for playing with containers on your local machine. While
 Either way, you will have to start the application after installing it. If you are using Linux, you will have to install Docker through the respctive package manager of your distribution. Again, don't forget to make sure that the application is up and running.
 
 ## Kubernetes
+There are many different options that you could use to set up Kubernetes. You could start it on your own local machine, run it from the cloud, or install it on a server. In our case, we are going to use a demo environment provided by Cisco DevNet. Go to the [DevNet Sandbox page](https://devnetsandbox.cisco.com) and log in. You will be shown a variety of available sandboxed that you can use for free. Select the 'Cloud' category, and then select the sandbox for Cisco Container Platform.
 
+IMG
 
-
+You can then go ahead and reserve the sandbox for a certain amount of time. You can either start immediately, or you can reserve on a certain date. Make sure that the sandbox is reserved for the time you want to practice with it.
 
 ## Kubectl
 Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
