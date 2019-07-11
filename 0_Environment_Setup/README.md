@@ -20,7 +20,10 @@ Last, but not least, we need to install kubectl. Kubectl is the command line too
 ### Windows
 1. Download the software from here [here](https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/windows/amd64/kubectl.exe)
 2. Add the binary in your PATH
-3. Test to ensure that kubectl is working by entering 'kubectl version'
+3. Test to ensure that kubectl is working by entering the following command:
+```
+kubectl version
+```
 
 ### Mac
 1. Download the latest release:
@@ -38,7 +41,10 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-4. Test to ensure that kubectl is working by entering 'kubectl version'
+4. Test to ensure that kubectl is working by entering the following command:
+```
+kubectl version
+```
 
 ### Linux
 1. Download the latest release:
@@ -56,4 +62,7 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-4. Test to ensure that kubectl is working by entering 'kubectl version'
+4. Test to ensure that kubectl is working by entering the following command:
+```
+kubectl version
+```
