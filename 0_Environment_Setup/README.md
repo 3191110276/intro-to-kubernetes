@@ -18,7 +18,11 @@ On this screen you can select and reserve a sandbox for a certain amount of time
 
 ![Reservation](img/reservation.png?raw=true "Reservation")
 
-The sandbox will be prepared for the specific time you selected. If you opted to start the sandbox immediately, you will have to wait a bit while all components are being prepared. Either way, you should receive an E-Mail once your sandbox is ready.
+The sandbox will be prepared for the specific time you selected. If you opted to start the sandbox immediately, you will have to wait a bit while all components are being prepared. Either way, you should receive an E-Mail once your sandbox is ready. Follow the instructions in this E-Mail to connect to the VPN. After that, you can go back to the sandbox page, which will look something like this.
+
+![Sandbox](img/sandbox.png?raw=true "Sandbox")
+
+
 
 ## Kubectl
 Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
