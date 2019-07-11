@@ -67,6 +67,11 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version
 ```
 
+
+
+
+
+<!--
 ## Kubectl Auto-completion (optional)
 With the components above, we already have everything that we will need for the training. Additionally, we can set up auto-completion for the kubectl on Mac and Linux. See below how to install the feature on Linux and Mac.
 
@@ -83,7 +88,7 @@ If the command does not succeed, you first need to install bash-autocomplete via
 brew install bash-completion@2
 ```
 
-Now go to your '~/.bashrc' file, and add the following two lines to it:
+Now go to your '~/.bashrc' file, and add this entry it:
 
 ```
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
@@ -110,3 +115,4 @@ To enable this feature, you first need to check if you have bash autocompletion 
 ```
 type _init_completion
 ```
+-->
