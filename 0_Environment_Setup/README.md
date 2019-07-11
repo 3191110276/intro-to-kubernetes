@@ -22,6 +22,18 @@ The sandbox will be prepared for the specific time you selected. If you opted to
 
 ![Sandbox](img/sandbox.png?raw=true "Sandbox")
 
+On the left side of the page you will see some information that tells you how to connect to the CCP Web UI. Open this URL in a new tab. This will allow you to create your own Kubernetes cluster. Keep in mind that you need to be connected to the VPN to access this page. Once the page has loaded, log in using the provided credentials, you should be presented with a page similar to what you can see below.
+
+IMG of CCP main page
+
+SETUP OF CCP with IMG
+
+
+
+
+
+
+
 
 
 ## Kubectl
