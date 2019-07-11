@@ -15,3 +15,33 @@ Either way, you will have to start the application after installing it. If you a
 
 
 ## Kubectl
+Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
+
+### Windows
+1. Download the software from here [here](https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/windows/amd64/kubectl.exe)
+2. Add the binary in your PATH
+3. Test to ensure that kubectl is working by entering 'kubectl version'
+
+### Mac
+1. Download the latest release:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+
+2. Make the kubectl binary executable
+chmod +x ./kubectl
+
+3. Move the binary in your PATH
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+4. Test to ensure that kubectl is working by entering 'kubectl version'
+
+### Linux
+1. Download the latest release:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+2. Make the kubectl binary executable
+chmod +x ./kubectl
+
+3. Move the binary in your PATH
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+4. Test to ensure that kubectl is working by entering 'kubectl version'
