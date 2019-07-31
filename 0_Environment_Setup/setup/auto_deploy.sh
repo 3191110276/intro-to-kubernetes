@@ -156,7 +156,7 @@ fi
 # Stage 4) k8s - Setup a new Kubernetes Cluster
 # echo "Run kube_install.yaml"
 echo "Setting up a new Kubernetes Cluster on Kubernetes nodes."
-swapoff -a
+sudo swapoff -a
 ansible-playbook -i inventory/sbx${POD_NUM}-hosts \
   --extra-vars "POD_NUM=${POD_NUM}" \
   kube_install.yaml >> ~/auto_deploy.log 2>&1
