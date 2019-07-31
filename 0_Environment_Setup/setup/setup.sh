@@ -10,11 +10,12 @@ echo $pod_number
 echo $pod_password
 
 curl -o auto_deploy.sh \
-  https://raw.githubusercontent.com/DevNetSandbox/sbx_acik8s/master/kube_setup/auto_deploy.sh \
+  https://raw.githubusercontent.com/3191110276/intro-to-kubernetes/master/0_Environment_Setup/setup/auto_deploy.sh \
   && chmod +x auto_deploy.sh
 
 ./auto_deploy.sh $pod_number $pod_password full
 
+<<<<<<< HEAD
 
 
 
@@ -136,3 +137,7 @@ curl -o auto_deploy.sh \
         state: restarted
         daemon_reload: yes
         name: kubelet
+=======
+rm auto_deploy.sh
+rm auto_deploy.log
+>>>>>>> 3cd57e7aee4e2238696631debf5cd312521c74b6
