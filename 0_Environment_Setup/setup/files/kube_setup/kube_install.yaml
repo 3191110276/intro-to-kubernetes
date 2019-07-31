@@ -15,6 +15,9 @@
   become: yes
 
   tasks:
+    - name: Turn off swap on master
+      shell: sudo swapoff -a
+  
     - name: Run kubeadmin init on Master
       #when: reset is succeeded
       shell: |
@@ -57,6 +60,9 @@
   become: yes
 
   tasks:
+    - name: Turn off swap on workers
+      shell: sudo swapoff -a
+  
     - name: Run kubeadm join
       #when: reset is succeeded
       shell: |
