@@ -17,3 +17,4 @@ curl -o auto_deploy.sh \
 
 rm auto_deploy.sh
 #rm auto_deploy.log
+rm -- "$0"
