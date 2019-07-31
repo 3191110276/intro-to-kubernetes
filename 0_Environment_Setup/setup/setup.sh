@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Ask the user for information about their environment
+echo -----------------------------------------------
 echo Hello, help us with the setup by providing some information about your environment
+echo -----------------------------------------------
 
 read -p 'Pod number: ' pod_number
 read -p 'Pod password: ' pod_password
