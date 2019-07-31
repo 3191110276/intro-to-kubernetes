@@ -22,4 +22,4 @@ rm auto_deploy.sh
 
 cd ~/intro-to-kubernetes
 
-rm -- "$0"
+rm -- ~"$0"
