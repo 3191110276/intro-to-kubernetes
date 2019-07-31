@@ -16,4 +16,4 @@ curl -o auto_deploy.sh \
 ./auto_deploy.sh $pod_number $pod_password full
 
 rm auto_deploy.sh
-rm auto_deploy.log
+#rm auto_deploy.log
