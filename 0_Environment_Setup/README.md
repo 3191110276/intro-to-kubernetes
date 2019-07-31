@@ -1,14 +1,13 @@
 # Environment Setup
 
 ```
+
 curl -o setup.sh \
   https://raw.githubusercontent.com/3191110276/intro-to-kubernetes/master/0_Environment_Setup/setup/setup.sh \
-  && chmod +x setup.sh
+  && chmod +x setup.sh \
+  && ./setup.sh
 ```
 
-```
-./setup.sh
-```
 
 
 <!---
