@@ -16,7 +16,7 @@
 
     - name: Install Kubernetes tools
       with_items:
-        - kubectl-1.15
+        - kubectl-1.15.1
         #- kubectl-1.7.15-0
       yum:
         name: "{{ item }}"
