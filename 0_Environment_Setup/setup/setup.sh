@@ -17,4 +17,7 @@ curl -o auto_deploy.sh \
 
 rm auto_deploy.sh
 #rm auto_deploy.log
+
+cd ~/intro-to-kubernetes
+
 rm -- "$0"
