@@ -25,7 +25,7 @@
       with_items:
         - kubernetes-cni-0.5.1-1
         - kubelet-1.15.1
-        - kubelet-1.7.15-0
+        #- kubelet-1.7.15-0
         - kubeadm-1.15.1
         #- kubeadm-1.7.15-0
         - kubectl-1.15.1
