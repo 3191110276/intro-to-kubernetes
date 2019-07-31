@@ -68,6 +68,7 @@
       shell: |
         kubeadm join \
         --token {{token}} \
+        --discovery-token-unsafe-skip-ca-verification \
         {{ hostvars['kube01']['node']['ip'] }}:6443
       register: join_cluster
 
