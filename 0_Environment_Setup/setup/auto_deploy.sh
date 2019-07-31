@@ -176,7 +176,7 @@ fi
 
 # Stage 5) cni - Install ACI CNI plug-in for Kubernetes
 echo "Installing the ACI CNI plug-in for Kuberentes"
-cd cd ~/intro-to-kubernetes/0_Environment_Setup/setup/files/kube_setup/aci_setup/sbx${POD_NUM}
+cd ~/intro-to-kubernetes/0_Environment_Setup/setup/files/kube_setup/aci_setup/sbx${POD_NUM}
 kubectl apply -f aci-containers.yaml  >> ~/auto_deploy.log 2>&1
 if [ $? -ne 0 ]
 then
