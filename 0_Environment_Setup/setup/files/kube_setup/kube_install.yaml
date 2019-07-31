@@ -58,7 +58,7 @@
 
   tasks:
     - name: Run kubeadm join
-      when: reset is succeeded
+      #when: reset is succeeded
       shell: |
         kubeadm join \
         --token {{token}} \
