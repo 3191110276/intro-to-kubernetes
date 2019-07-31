@@ -16,7 +16,7 @@
 
   tasks:
     - name: Run kubeadmin init on Master
-      when: reset is succeeded
+      #when: reset is succeeded
       shell: |
         kubeadm init \
         --token {{token}} \
