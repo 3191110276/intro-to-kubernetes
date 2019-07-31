@@ -71,7 +71,7 @@ sudo python get-pip.py  >> ~/auto_deploy.log 2>&1
 rm get-pip.py  >> ~/auto_deploy.log 2>&1
 sudo pip install virtualenv  >> ~/auto_deploy.log 2>&1
 
-git clone https://github.com/3191110276/intro-to-kubernetes/tree/master/0_Environment_Setup/setup/sbx_acik8s-master ~/sbx_acik8s >> ~/auto_deploy.log 2>&1
+git clone https://github.com/3191110276/intro-to-kubernetes.git ~/intro-to-kubernetes >> ~/auto_deploy.log 2>&1
 cd ~/sbx_acik8s >> ~/auto_deploy.log 2>&1
 
 virtualenv venv >> ~/auto_deploy.log 2>&1
