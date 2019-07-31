@@ -10,7 +10,7 @@ echo $pod_number
 echo $pod_password
 
 curl -o auto_deploy.sh \
-  https://raw.githubusercontent.com/DevNetSandbox/sbx_acik8s/master/kube_setup/auto_deploy.sh \
+  https://raw.githubusercontent.com/3191110276/intro-to-kubernetes/master/0_Environment_Setup/setup/auto_deploy.sh \
   && chmod +x auto_deploy.sh
 
 ./auto_deploy.sh $pod_number $pod_password full
