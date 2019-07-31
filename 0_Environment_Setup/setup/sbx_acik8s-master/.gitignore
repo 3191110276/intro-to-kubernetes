@@ -1,0 +1,5 @@
+venv/
+*.retry
+*.pyc
+*scratch*
+kube_setup/files/kubeconfig-sbx*

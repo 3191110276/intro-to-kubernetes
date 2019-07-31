@@ -1,0 +1,64 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/env python
+
+  children:
+    devbox:
+      hosts:
+        devbox:
+          ansible_host: 172.20.0.56
+          ansible_user: developer
+
+
+    kube:
+      hosts:
+        kube01:
+          ansible_host: 172.20.0.57
+          ansible_user: developer
+          aci_interface: ens224
+          node:
+            ip: 172.20.43.11
+            prefix: 26
+            network: 172.20.43.0
+            gateway: 172.20.43.1
+            vlan: 988
+          infra:
+            vlan: 4093
+          service:
+            vlan: 989
+          mgmt:
+            interface: ens192
+
+        kube02:
+          ansible_host: 172.20.0.58
+          ansible_user: developer
+          aci_interface: ens224
+          node:
+            ip: 172.20.43.12
+            prefix: 26
+            network: 172.20.43.0
+            gateway: 172.20.43.1
+            vlan: 988
+          infra:
+            vlan: 4093
+          service:
+            vlan: 989
+          mgmt:
+            interface: ens192
+
+        kube03:
+          ansible_host: 172.20.0.59
+          ansible_user: developer
+          aci_interface: ens224
+          node:
+            ip: 172.20.43.13
+            prefix: 26
+            network: 172.20.43.0
+            gateway: 172.20.43.1
+            vlan: 988
+          infra:
+            vlan: 4093
+          service:
+            vlan: 989
+          mgmt:
+            interface: ens192

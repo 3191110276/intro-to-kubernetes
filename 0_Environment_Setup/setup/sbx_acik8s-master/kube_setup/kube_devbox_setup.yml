@@ -1,0 +1,22 @@
+---
+- name: Management Tools
+  hosts: devbox
+  become: yes
+
+  tasks:
+    - name: Add Kubernetes Repo to yum
+      yum_repository:
+        name: kubernetes
+        description: Kubernetes
+        baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+        gpgcheck: no
+        repo_gpgcheck: no
+        gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+
+    - name: Install Kubernetes tools
+      with_items:
+        - kubectl-1.7.15-0
+      yum:
+        name: "{{ item }}"
+        state: present
