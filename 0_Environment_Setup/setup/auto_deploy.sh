@@ -82,7 +82,7 @@ success
 echo " "
 
 echo "Create and deploy RSA keys for passwordless login to pod nodes from DevBox"
-cd ~/sbx_acik8s/kube_setup
+cd ~/intro-to-kubernetes/0_Environment_Setup/setup/files/kube_setup
 ansible-playbook -i inventory/sbx${POD_NUM}-hosts \
   -e "ansible_ssh_pass=${POD_PASS}" \
   ssh_authorized_key_setup.yaml  >> ~/auto_deploy.log 2>&1
