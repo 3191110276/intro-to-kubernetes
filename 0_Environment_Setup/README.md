@@ -7,7 +7,7 @@ curl -o setup.sh \
 ```
 
 ```
-./setup.sh POD_NUM POD_PASS full
+./setup.sh
 ```
 
 
