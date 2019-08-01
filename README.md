@@ -1,5 +1,6 @@
 # Introduction to Kubernetes
 
+## Basics
 0. Environment Setup
 1. [What are Containers?](/1_Intro_to_Containers)
 2. [Kubernetes for container orchestration](2_Kubernetes_for_Containers)
@@ -18,9 +19,11 @@
 15. IT process changes due to Kubernetes
 16. Package manager
 17. Logical separation of applications and users
+
+
+
+## Networking
 18. Kubernetes networking
 19. Cisco ACI Integration into Kubernetes
-99. Notes and Acknowledgements
 
-
-
+## Notes and Acknowledgements
