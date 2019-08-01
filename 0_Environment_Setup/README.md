@@ -121,7 +121,10 @@ kubectl version
 ```
 
 ## Kubeconfig
-We now need to copy the Kubeconfig we previously downloaded to the correct folder, so that kubectl will now what file to use for cluster access.
+We now need to copy the Kubeconfig we previously downloaded to the correct folder, so that kubectl will now what file to use for cluster access. After you have done this, you will be able to execute the following command to confirm that we can communicate with the server:
+```
+kubectl version
+```
 
 ### Mac
 On Mac, move the downloaded Kubeconfig to a new folder './kube'.
