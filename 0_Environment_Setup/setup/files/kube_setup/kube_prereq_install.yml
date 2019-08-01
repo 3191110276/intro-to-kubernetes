@@ -53,12 +53,12 @@
      - name: Fix cgroup driver
        command: sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
-    - name: Fix cgroup driver
-      replace:
-        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-        regexp: cgroup-driver=systemd
-        replace: cgroup-driver=cgroupfs
-        backup: no
+     - name: Fix cgroup driver
+       replace:
+         path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+         regexp: cgroup-driver=systemd
+         replace: cgroup-driver=cgroupfs
+         backup: no
 
     - name: Reload systemctl daemon
       command: systemctl daemon-reload
