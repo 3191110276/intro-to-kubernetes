@@ -24,12 +24,9 @@
     - name: Install Kubernetes tools
       with_items:
         - kubernetes-cni-0.5.1-1
-        - kubelet-1.15.1
-        #- kubelet-1.7.15-0
-        - kubeadm-1.15.1
-        #- kubeadm-1.7.15-0
-        - kubectl-1.15.1
-        #- kubectl-1.7.15-0
+        - kubelet-1.7.15-0
+        - kubeadm-1.7.15-0
+        - kubectl-1.7.15-0
       yum:
         name: "{{ item }}"
         state: present
@@ -53,15 +50,15 @@
         state: started
         enabled: yes
 
-    # - name: Fix cgroup driver
-    #   command: sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+     - name: Fix cgroup driver
+       command: sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
-    #- name: Fix cgroup driver
-    #  replace:
-    #    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    #    regexp: cgroup-driver=systemd
-    #    replace: cgroup-driver=cgroupfs
-    #    backup: no
+    - name: Fix cgroup driver
+      replace:
+        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+        regexp: cgroup-driver=systemd
+        replace: cgroup-driver=cgroupfs
+        backup: no
 
     - name: Reload systemctl daemon
       command: systemctl daemon-reload
