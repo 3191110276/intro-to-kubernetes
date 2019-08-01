@@ -25,6 +25,12 @@ On the left side of the page you will see some information that tells you how to
 
 IMG of CCP main page
 
+Once you are on this page, you can log in as user "admin" with the password "Cisco123". After the login, you should be seeing the following page:
+
+IMG of CCP overview page
+
+
+
 SETUP OF CCP with IMG
 
 
