@@ -1,25 +1,22 @@
 ---
-#- name: Reset Kubernetes
-#  hosts: kube
-#  become: yes
-#
-#  tasks:
-#  - shell: kubeadm reset
-#    register: reset
-#
-#  - debug:
-#      msg: "{{reset}}"
+- name: Reset Kubernetes
+  hosts: kube
+  become: yes
+
+  tasks:
+  - shell: kubeadm reset
+    register: reset
+
+  - debug:
+      msg: "{{reset}}"
 
 - name: Initialize on Kubernetes Master
   hosts: kube01
   become: yes
 
   tasks:
-    - name: Turn off swap on master
-      shell: sudo swapoff -a
-  
     - name: Run kubeadmin init on Master
-      #when: reset is succeeded
+      when: reset is succeeded
       shell: |
         kubeadm init \
         --token {{token}} \
@@ -64,11 +61,10 @@
       shell: sudo swapoff -a
   
     - name: Run kubeadm join
-      #when: reset is succeeded
+      when: reset is succeeded
       shell: |
         kubeadm join \
         --token {{token}} \
-        --discovery-token-unsafe-skip-ca-verification \
         {{ hostvars['kube01']['node']['ip'] }}:6443
       register: join_cluster
 
@@ -99,18 +95,18 @@
   become: yes
 
   tasks:
-    #- name: Remove incorrect line
-    #  lineinfile:
-    #    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    #    state: absent
-    #    line: Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local"
+    - name: Remove incorrect line
+      lineinfile:
+        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+        state: absent
+        line: Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local"
 
-    #- name: Add correct line
-    #  lineinfile:
-    #    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-    #    state: present
-    #    line: Environment="KUBELET_DNS_ARGS=--cluster-dns=192.168.2{{POD_NUM}}.10 --cluster-domain=cluster.local"
-    #    insertafter: 'Environment="KUBELET_NETWORK_ARGS'
+    - name: Add correct line
+      lineinfile:
+        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+        state: present
+        line: Environment="KUBELET_DNS_ARGS=--cluster-dns=192.168.2{{POD_NUM}}.10 --cluster-domain=cluster.local"
+        insertafter: 'Environment="KUBELET_NETWORK_ARGS'
 
     - name: Restart kubelet
       systemd:
