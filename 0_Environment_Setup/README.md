@@ -49,7 +49,11 @@ Finally, before you continue to the next page, make sure that Istio is enabled. 
 
 ![CCP harbor](img/ccpharbor.png?raw=true "CCP harbor")
 
+You do not have not change any settings for Harbor, and you can continue to the next page.
+
 ![CCP deploying](img/ccpmaindeploying.png?raw=true "CCP deploying")
+
+This page will summarize all of your settings. Again, make sure that Istio is enabled, and then start the cluster deployment.
 
 ![CCP finished](img/ccpmainfinished.png?raw=true "CCP finished")
 
