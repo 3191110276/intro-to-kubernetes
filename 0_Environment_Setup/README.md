@@ -1,16 +1,4 @@
 # Environment Setup
-
-```
-
-curl -o setup.sh \
-  https://raw.githubusercontent.com/3191110276/intro-to-kubernetes/master/0_Environment_Setup/setup/setup.sh \
-  && chmod +x setup.sh \
-  && ./setup.sh
-```
-
-
-
-<!---
 Welcome to this introduction to Kubernetes. This guide will start you off with the basics in container technology, all the way to deploying applications on Kubernetes using advanced features. This chapter should help you with the setup of your environment. We will be using your local machine for all further chapters. Below, we will go through the individual parts of the setup.
 
 ## Docker
