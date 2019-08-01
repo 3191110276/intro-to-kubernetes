@@ -29,6 +29,8 @@ Once you are on this page, you can log in as user "admin" with the password "Cis
 
 ![CCP main page](img/ccpmainstart.png?raw=true "CCP main page")
 
+You can see that we already have a cluster that could be used. For this workshop, we are going to create a new cluster though. To do that, go ahead and click on the "" button above the list of current clusters. This will take you to the following page:
+
 ![CCP setup](img/ccpsetup.png?raw=true "CCP setup")
 
 ![CCP provider](img/ccpprovider.png?raw=true "CCP provider")
