@@ -41,9 +41,11 @@ On this page, you can provid the settings for the infrastructure used by our clu
 
 ![CCP node](img/ccpnode.png?raw=true "CCP node")
 
-On this page, we will be able to configure the node settings, such as CPU and RAM. We will keep everything at the default settings, and we are only going to fill out the fields "VM Username" and "SSH Public Key". For the VM username, we are just going to use "admin". For hte SSH key, you can go ahead and use an existing key, or create a new one.
+On this page, we will be able to configure the node settings, such as CPU and RAM. We will keep everything at the default settings, and we are only going to fill out the fields "VM Username" and "SSH Public Key". For the VM username, we are just going to use "admin". For the SSH key, you can go ahead and use an existing key, or create a new one. You should use the Ed25519 or ECDSA format for the public key. Then, go ahead and select the subnet in the dropdown.
 
 ![CCP node2](img/ccpnode2.png?raw=true "CCP node2")
+
+Finally, before you continue to the next page, make sure that Istio is enabled. This will be required for some of the labs later on, so don't miss it!
 
 ![CCP harbor](img/ccpharbor.png?raw=true "CCP harbor")
 
