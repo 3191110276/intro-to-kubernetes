@@ -33,11 +33,15 @@ You can see that we already have a cluster that could be used. For this workshop
 
 ![CCP setup](img/ccpsetup.png?raw=true "CCP setup")
 
-Fill out the page as shown in the image, and then continue to the next page:
+Fill out the page as shown in the image, and then continue to the next page by clicking "Next":
 
 ![CCP provider](img/ccpprovider.png?raw=true "CCP provider")
 
+On this page, you can provid the settings for the infrastructure used by our cluster. In our case, we don't have much choice. Fill out all the fields as shown in the picture and continue by pressing "Next":
+
 ![CCP node](img/ccpnode.png?raw=true "CCP node")
+
+
 
 ![CCP node2](img/ccpnode2.png?raw=true "CCP node2")
 
