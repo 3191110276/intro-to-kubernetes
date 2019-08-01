@@ -99,6 +99,27 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 kubectl version
 ```
 
+## Kubeconfig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
