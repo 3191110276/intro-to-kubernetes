@@ -23,22 +23,27 @@ The sandbox will be prepared for the specific time you selected. If you opted to
 
 On the left side of the page you will see some information that tells you how to connect to the CCP Web UI. Open this URL in a new tab. This will allow you to create your own Kubernetes cluster. Keep in mind that you need to be connected to the VPN to access this page. Once the page has loaded, log in using the provided credentials, you should be presented with a page similar to what you can see below.
 
-IMG of CCP main page
+![CCP login](img/ccplogin.png?raw=true "CCP login")
 
 Once you are on this page, you can log in as user "admin" with the password "Cisco123". After the login, you should be seeing the following page:
 
-IMG of CCP overview page
+![CCP main page](img/ccpmainstart.png?raw=true "CCP main page")
 
+![CCP setup](img/ccpsetup.png?raw=true "CCP setup")
 
+![CCP provider](img/ccpprovider.png?raw=true "CCP provider")
 
-SETUP OF CCP with IMG
+![CCP node](img/ccpnode.png?raw=true "CCP node")
 
+![CCP node2](img/ccpnode2.png?raw=true "CCP node2")
 
+![CCP harbor](img/ccpharbor.png?raw=true "CCP harbor")
 
+![CCP deploying](img/ccpmaindeploying.png?raw=true "CCP deploying")
 
+![CCP finished](img/ccpmainfinished.png?raw=true "CCP finished")
 
-
-
+![CCP cluster detail](img/ccpclusterdetail.png?raw=true "CCP cluster detail")
 
 
 ## Kubectl
