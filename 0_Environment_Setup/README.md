@@ -41,7 +41,7 @@ On this page, you can provid the settings for the infrastructure used by our clu
 
 ![CCP node](img/ccpnode.png?raw=true "CCP node")
 
-On this page, we will be able to configure the node settings, such as CPU and RAM. We will keep everything at the default settings, and we are only going to fill out the fields
+On this page, we will be able to configure the node settings, such as CPU and RAM. We will keep everything at the default settings, and we are only going to fill out the fields "VM Username" and "SSH Public Key". For the VM username, we are just going to use "admin". For hte SSH key, you can go ahead and use an existing key, or create a new one.
 
 ![CCP node2](img/ccpnode2.png?raw=true "CCP node2")
 
