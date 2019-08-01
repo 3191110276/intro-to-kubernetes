@@ -20,7 +20,6 @@
 17. Logical separation of applications and users
 18. Kubernetes networking
 19. Cisco ACI Integration into Kubernetes
-20. Cluster Federation and MultiCloud
 99. Notes and Acknowledgements
 
 
