@@ -45,6 +45,8 @@ Once you are on this page, you can log in as user "admin" with the password "Cis
 
 ![CCP cluster detail](img/ccpclusterdetail.png?raw=true "CCP cluster detail")
 
+![CCP setup check](img/ccpsetupcheck.png?raw=true "CCP setup check")
+
 
 ## Kubectl
 Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
