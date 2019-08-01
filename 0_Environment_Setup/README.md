@@ -51,16 +51,21 @@ Finally, before you continue to the next page, make sure that Istio is enabled. 
 
 You do not have not change any settings for Harbor, and you can continue to the next page.
 
-![CCP deploying](img/ccpmaindeploying.png?raw=true "CCP deploying")
+![CCP setup check](img/ccpsetupcheck.png?raw=true "CCP setup check")
 
 This page will summarize all of your settings. Again, make sure that Istio is enabled, and then start the cluster deployment.
 
+![CCP deploying](img/ccpmaindeploying.png?raw=true "CCP deploying")
+
+You will now be returned to the main page, and you can see that the cluster has started deploying. Once it is finished, it should look something like the picture below.
+
 ![CCP finished](img/ccpmainfinished.png?raw=true "CCP finished")
+
+Now you can go ahead and click on the cluster to get to the detail view.
 
 ![CCP cluster detail](img/ccpclusterdetail.png?raw=true "CCP cluster detail")
 
-![CCP setup check](img/ccpsetupcheck.png?raw=true "CCP setup check")
-
+On this page, press the "" button to save the Kubeconfig to your computer. We will need it later.
 
 ## Kubectl
 Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
