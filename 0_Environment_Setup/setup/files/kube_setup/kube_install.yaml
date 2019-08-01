@@ -99,18 +99,18 @@
   become: yes
 
   tasks:
-    - name: Remove incorrect line
-      lineinfile:
-        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-        state: absent
-        line: Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local"
+    #- name: Remove incorrect line
+    #  lineinfile:
+    #    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    #    state: absent
+    #    line: Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local"
 
-    - name: Add correct line
-      lineinfile:
-        path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-        state: present
-        line: Environment="KUBELET_DNS_ARGS=--cluster-dns=192.168.2{{POD_NUM}}.10 --cluster-domain=cluster.local"
-        insertafter: 'Environment="KUBELET_NETWORK_ARGS'
+    #- name: Add correct line
+    #  lineinfile:
+    #    path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    #    state: present
+    #    line: Environment="KUBELET_DNS_ARGS=--cluster-dns=192.168.2{{POD_NUM}}.10 --cluster-domain=cluster.local"
+    #    insertafter: 'Environment="KUBELET_NETWORK_ARGS'
 
     - name: Restart kubelet
       systemd:
