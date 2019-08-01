@@ -1,4 +1,0 @@
-# main.yml
----
-
-- include: docker.yml
