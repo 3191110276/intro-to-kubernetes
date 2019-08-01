@@ -65,7 +65,7 @@ Now you can go ahead and click on the cluster to get to the detail view.
 
 ![CCP cluster detail](img/ccpclusterdetail.png?raw=true "CCP cluster detail")
 
-On this page, press the "" button to save the Kubeconfig to your computer. We will need it later.
+On this page, press the "Download Kubeconfig" button to save the Kubeconfig to your computer. We will need it later.
 
 ## Kubectl
 Last, but not least, we need to install kubectl. Kubectl is the command line tool, we can use to interact with a Kubernetes cluster. Depending on your operating system, the installation will be slightly different. See below for how to install on Windows, Mac, or Linux.
