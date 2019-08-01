@@ -121,10 +121,20 @@ kubectl version
 ```
 
 ## Kubeconfig
+We now need to copy the Kubeconfig we previously downloaded to the correct folder, so that kubectl will now what file to use for cluster access.
 
+### Mac
+On Mac, move the downloaded Kubeconfig to a new folder './kube'.
+```
+mkdir -p ~/.kube
+mv ~/Downloads/kubeconfig.yaml ~/.kube/config
+```
 
-
-
+### Windows
+On Windows, create a new folder '.kube', then drag and drop your Kubeconfigfile into that folder.
+```
+mkdir -p C:\Users\*name*\.kube
+```
 
 
 
