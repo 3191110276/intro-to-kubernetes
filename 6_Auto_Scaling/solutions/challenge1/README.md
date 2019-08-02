@@ -34,11 +34,19 @@ spec:
                  memory: 50Mi
 ```
 
-Our Service definition will remain unchanged. We can now apply this ReplicaSet to update our Pods by executing the following command from within the current folder:
+Our Service definition will remain unchanged. Before we can create the new ReplicaSet, we first need to delete the old ReplicaSet with the following command:
+
+```
+kubectl delete rs rs-hello-cisco --wait=false
+```
+
+We can now apply the new ReplicaSet to update our Pods by executing the following command from within the current folder:
 
 ```
 kubectl apply -f rs-limit-memory.yml
 ```
+
+Why did we need to delete the old ReplicaSet first? Our ReplicaSet already has a certain number of Pods associated with it. Newly created Pods would use the template with memory included, but existing Pods will not be updated. We will learn another technique soon, which will enable us to update Pods more easily.
 
 We also need to adapt our HorizontanPodAutoscaler to also include scaling based on memory. We can simply do this by adding another entry in the metrics category:
 
