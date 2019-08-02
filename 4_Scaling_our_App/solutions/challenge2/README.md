@@ -10,7 +10,7 @@ Let's first have a look at our existing pods and their labels using the followin
 kubectl get pods --show-labels
 ```
 
-The '--show-labels' modifier allows us to see the labels that have been assigned to a pod. If we didn't change anything in the ReplicaSet, we should have 2 pods up and running. We can now remove the label from one of them by using the followong command (remember to substitute 'pod_name' for the actual name of the pod):
+The '--show-labels' modifier allows us to see the labels that have been assigned to a pod. If we didn't change anything in the ReplicaSet, we should have 2 pods up and running. We can now remove the label from one of them by using the following command (remember to substitute 'pod_name' for the actual name of the pod):
 
 ```
 kubectl label pod pod_name app-
