@@ -107,7 +107,7 @@ By doing this, we are modifying our existing hello-cisco pod. If we run a 'kubec
 kubectl get pods -l app=getting-started,version=v1,env=prod
 ```
 
-You can try this yourself in the next challenge.
+Now you should only see one of the two Pods we have created so far. The other Pod does not have the labels, and should not be visibile anymore with this command. You can try this yourself in the next challenge.
 
 ![Challenge 3](img/challenge3.png?raw=true "Challenge 3")
 [Click here for the solution](./solutions/challenge3 "Click here for the solution")
