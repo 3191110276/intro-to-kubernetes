@@ -13,7 +13,7 @@ kubectl get pods
 We can copy the name of any of these pods, and use it for the delete command, for example:
 
 ```
-kubectl delete pod rs-hello-cisco-jh756
+kubectl delete pod rs-hello-cisco-jh756 --wait=false
 ```
 
 Please keep in mind that the name of your pod will be different, but other than that, the command structure will be the same. Now, let's run the 'kubectl get pods' command again. We will notice that our old pod is gone, but there are two pods again. This means that the ReplicaSet realized that it did not have enough copies of the pod, and created a new one. if we look at the 'age' column, we can also see that one of the pods will be much younger compared to the other one.
