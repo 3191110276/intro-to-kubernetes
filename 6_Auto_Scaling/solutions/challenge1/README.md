@@ -69,6 +69,12 @@ spec:
            averageUtilization: 50
 ```
 
+We can now apply this file with the following command from within the current folder:
+
+```
+kubectl apply -f autoscale-memory.yml
+```
+
 If you check the HorizontalPodAutoscaler now, you will see that it will be based on both metrics:
 
 ```
