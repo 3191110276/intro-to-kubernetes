@@ -153,7 +153,7 @@ kubectl get pods
 For each of these pods, we should now use a delete command, similar to this:
 
 ```
-kubectl delete pod hello-cisco
+kubectl delete pod hello-cisco --wait=false
 ```
 
 Once you are done deleting all pods, you can use the 'kubectl get pods' command again, to verify that they are not present anymore.
