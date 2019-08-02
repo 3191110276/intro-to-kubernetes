@@ -106,7 +106,7 @@ kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 Now that we are in the shell of our container, we can run the following command to send requests to our Service:
 
 ```
-while true; do wget -q -O- http://svc-hello-cisco.default.svc.cluster.local:5000; done
+while true; do wget http://svc-hello-cisco.default.svc.cluster.local:5000 -O index.html; done
 ```
 
 This starts an infinite loop of requests or our application. With all of these requests, our Pods will soon be overwhelmed. Our metrics server will notice that the utilization is much higher than it should be, and based on that, autoscaling will kick in and create new Pods. We can observe this by looking at the HorizontalPodAutoscaler, short hpa:
