@@ -137,7 +137,7 @@ We can change our existing pod with an annotation using this command from within
 ```
 kubectl apply -f pod1_annotation.yml
 ```
-Now you can go ahead and try this yourself in the challenge below.
+You can use a command such as 'kubectl describe pod hello-cisco' to view the annotation. Keep in mind that the system itself also populates some annotation by default. Now you can go ahead and try this yourself in the challenge below.
 
 ![Challenge 4](img/challenge4.png?raw=true "Challenge 4")
 [Click here for the solution](./solutions/challenge4 "Click here for the solution")
