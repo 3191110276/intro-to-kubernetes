@@ -31,6 +31,6 @@ Cluster isolation allows all communication inside a single Kubernetes cluster, a
 Finally, we can also do ACI segmentation based on Deployments. This means that one Deployment could only communicate with another Deployment, if the EPGs that represent them have a contract that allows the communication. This provides added security, but it is also quite intrusive. Ideally, this mode would already be used during development, to continually add the necessary networking rules between the applications.
 
 To get some hands-on with all of these, we have three examples that you can try. You can use the guides below:
-* CLUSTER ISOLATION
-* NAMESPACE ISOLATION
-* DEPLOYMENT ISOLATION
+* [Cluster isolation](https://developer.cisco.com/learning/modules/acik8s-apps/acik8s-cluster/step/1 "Cluster isolation")
+* [Namespace isolation](https://developer.cisco.com/learning/modules/acik8s-apps/acik8s-namespace/step/1 "Namespace isolation")
+* [Deployment isolation](https://developer.cisco.com/learning/modules/acik8s-apps/acik8s-deployment/step/1 "Deployment isolation")
