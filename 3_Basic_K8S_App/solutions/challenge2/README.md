@@ -22,7 +22,7 @@ spec:
 We can then apply this new pod using the following command from within the current folder folder of this solution:
 
 ```
-kubectl apply -f pod2.yml
+kubectl apply -f pod2.yaml
 ```
 
 If we now run a 'kubectl get pods', we should see two pods running.
