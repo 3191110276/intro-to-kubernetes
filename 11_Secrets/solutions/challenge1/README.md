@@ -40,7 +40,7 @@ spec:
 We can then apply this by running the following command from within the current folder:
 
 ```
-kubectl apply -f mysql-new.yml
+kubectl apply -f mysql-new.yaml
 ```
 
 This is it, it will take a bit to deploy our mysql container. Keep in mind that just because our frontend is available, our database will need some additional time to start up, thus you won't be able to enter new messages immediately. Once it is ready, it will use the password it receives to the Secret to configure the database.
