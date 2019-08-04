@@ -43,7 +43,7 @@ kubectl delete rs rs-hello-cisco --wait=false
 We can now apply the new ReplicaSet to update our Pods by executing the following command from within the current folder:
 
 ```
-kubectl apply -f rs-limit-memory.yml
+kubectl apply -f rs-limit-memory.yaml
 ```
 
 Why did we need to delete the old ReplicaSet first? Our ReplicaSet already has a certain number of Pods associated with it. Newly created Pods would use the template with memory included, but existing Pods will not be updated. We will learn another technique soon, which will enable us to update Pods more easily.
