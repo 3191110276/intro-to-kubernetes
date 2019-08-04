@@ -36,7 +36,7 @@ Pods are, again, selected based on a label. We could use the same label that we 
 Now, let's go ahead and try this out in our Kubernetes cluster. We can use the following command to roll out the Service from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f service.yml
+kubectl apply -f service.yaml
 ```
 
 If you look at the YAML file, you will notice that it does not only contain the Service, but also the ReplicaSet. We can specify multiple Kubernetes components in a single YAML file by separating them with 3 dashes (---). Let's have a look at the Kubernetes components we just created. Let's first check the Service:
