@@ -42,7 +42,7 @@ kubectl delete rs rs-hello-cisco
 We can then execute this change by running the following command from the current folder:
 
 ```
-kubectl apply -f rs-limit-memory2.yml
+kubectl apply -f rs-limit-memory2.yaml
 ```
 
 We can then confirm that everything worked via 'kubectl get rs' and 'kubectl get pods'. If we are looking at the HorizontalPodAutoscaler, we can also verify if our change in memory had an impact on the current situation:
