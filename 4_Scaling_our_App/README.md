@@ -45,7 +45,7 @@ This feature of the ReplicaSet has some consequences that we should be ware of. 
 Let's have a look at all of this in practice by creating our first ReplicaSet by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f rs.yml
+kubectl apply -f rs.yaml
 ```
 
 Let's have a look at the ReplicaSet we just created:
