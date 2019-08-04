@@ -37,7 +37,7 @@ data:
 As you can see here, all we need to specify is the name of the secret, and the data we want to store, in this case the password. We can then go ahead and create this object by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f secret.yml 
+kubectl apply -f secret.yaml 
 ```
 
 Our Secret should now be created, we can verify that by using the respective get command for Secrets:
@@ -49,7 +49,7 @@ kubectl get secrets
 We can now apply this Secret to our existing Deployment. For this, you can use the existing Deployment from the previous chapter. If you do not have this, or if you are not sure if it is working correctly, you can use the following command from within the [/code](code/ "/code") folder to apply all components:
 
 ```
-kubectl apply -f existing.yml 
+kubectl apply -f existing.yaml 
 ```
 
 Now, we can create a new Deployment file for our frontend, which also contains a reference to the Secret. We can reuse almost all of our definitions from the previous chapter, but we will need to exchange the password for a reference to the Secret. To do this, we use 'valueFrom' in the environment variables, and then reference the Secret:
@@ -87,7 +87,7 @@ spec:
 As you can see, the 'secretKeyRef' contains a 'name', which is the name of the Secret, and a 'key', which is the specific value inside the Secret. You could have multiple values inside a Secret, all with their own key. Now, let's go ahead and apply this by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f frontend-new.yml 
+kubectl apply -f frontend-new.yaml 
 ```
 
 If you did everything correctly, nothing should change. The application is still getting the same password, thus it will still work the same way as before. We could apply the same Secret to the database though, to reuse it. You can try this out yourself in the following challenge:
