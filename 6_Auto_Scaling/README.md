@@ -49,7 +49,7 @@ spec:
 We are going to create this ReplicaSet, alongside a Service that exposes it on NodePort 30001. We can create the ReplicaSet and the Service by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f rs-limit.yml
+kubectl apply -f rs-limit.yaml
 ```
 
 To add the autoscaling capabilitgies, we can now create a new element, the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler allows us to change the scale number in a different element, in this case a ReplicaSet. As mentioned before, we are going to base the scaling of the Pod on CPU utilization. Thus, if we receive more requests and use more CPU, more Pods will be created. If less requests come in, less CPU will be consumed, and Pods will be removed again. This could be quite dangerous though, for example due to an attack on our application that sends a huge amount of requests. To keep up with the demand, autoscaling would create more and more Pods.
@@ -86,7 +86,7 @@ Finally, we need to tell the autoscaler how it should decide the number of repli
 Let's roll this example out, by executing the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f autoscale.yml
+kubectl apply -f autoscale.yaml
 ```
 
 Once we apply this, we can view the created object using 
