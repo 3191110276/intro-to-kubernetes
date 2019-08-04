@@ -2,16 +2,16 @@
 
 So far we learned how to effectively create a scalable application that our end users can access. If we are developing our own applications, we will likely have to upgrade our replicas to a newer version though. This has always been the case, but the frequency of new application upgrades has been increasing over the last few years through microservices and similar techniques. Containers are a perfect vehicle for such applications, and we can thus expect application upgrades to happen relatively frequently.
 
-If we look at our ReplicaSets, we could simply change the specified image to update our application. Let's give that a try to see what is happening. In the [/code](code/ "/code") folder, you will find two files: 'rs-v1.yml' and 'rs-v2.yml'. Both of them are the same configurations we are used to from previous examples, and the only difference between them is that v1 includes 'image: mimaurer/hello-cisco:v1', while v2 includes 'image: mimaurer/hello-cisco:v2' in the image definition. Let's first roll out v1 of our ReplicaSet:
+If we look at our ReplicaSets, we could simply change the specified image to update our application. Let's give that a try to see what is happening. In the [/code](code/ "/code") folder, you will find two files: 'rs-v1.yaml' and 'rs-v2.yaml'. Both of them are the same configurations we are used to from previous examples, and the only difference between them is that v1 includes 'image: mimaurer/hello-cisco:v1', while v2 includes 'image: mimaurer/hello-cisco:v2' in the image definition. Let's first roll out v1 of our ReplicaSet:
 
 ```
-kubectl apply -f rs-v1.yml
+kubectl apply -f rs-v1.yaml
 ```
 
 Pods with the v1 image will be created. Once they are ready, we can change to our v2 ReplicaSet:
 
 ```
-kubectl apply -f rs-v2.yml
+kubectl apply -f rs-v2.yaml
 ```
 
 You will notice that nothing actually happens. You might have also noticed this behavior during the previous chapter, when trying to update the ReplicaSet. To force our Pods to update, we can simply delete all old Pods, and new Pods will be created with the correct image. This is not a very practical approach though, especially if we have a larger amount of Pods to deal with. We could also delete the entire ReplicaSet and all of its Pods, and create a new ReplicaSet. While this is faster for the administrator, it means that our application will have some downtime. Let's delete this ReplicaSet again:
@@ -69,7 +69,7 @@ We can use 'maxUnavailable' and 'maxSurge' exclusively, or we can combine them. 
 Let's have a look at all of that in a practical example. First, let's roll out the Deployment with v1 by running the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deploy-v1.yml --record
+kubectl apply -f deploy-v1.yaml --record
 ```
 
 This will create the Deployment and it will also create a Service that exposes it. The '--record' option will be relevant later. For now, let's look at our Deployment using:
@@ -93,7 +93,7 @@ kubectl get nodes -o wide
 So far we haven't done anything that we couldn't have also done with a ReplicaSet though. Let's have a look at an application upgrade from v1 to v2. We have a v2 file or our Deployment in the the [/code](code/ "/code") folder. The only difference to v1 is that the image is now set to 'mimaurer/hello-cisco:v2', instead of 'mimaurer/hello-cisco:v1'. Let's execute this command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f deploy-v2.yml --record
+kubectl apply -f deploy-v2.yaml --record
 ```
 
 We can watch the upgrade using the following two commands:
@@ -123,7 +123,7 @@ kubectl rollout history deployment deploy-hello-cisco
 You will see the revisions, as well as causes for the change, which will show the command we used to update the Deployment. This is where the '--record' option comes in. Had we not added that option, there would be no change causeavailable. Keep in mind that the revision will be a higher number if you switched between v1 and v2 again. Let's deploy another version, to see how our history will look at that point. You can run the following command from within the [/code](code/ "/code") folder to roll out v3 of our application:
 
 ```
-kubectl apply -f deploy-v3.yml --record
+kubectl apply -f deploy-v3.yaml --record
 ```
 
 If you look at the rollout history now, you should see another revision being displayed:
