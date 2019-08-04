@@ -141,13 +141,13 @@ spec:
 Now that we have our Services and Deployments defined, we can apply them. First off, let's createe the database by using the following command from within the current folder:
 
 ```
-kubectl apply -f mysql.yml
+kubectl apply -f mysql.yaml
 ```
 
 After we did that, we can create the frontend Service and Deployment as well:
 
 ```
-kubectl apply -f frontend.yml
+kubectl apply -f frontend.yaml
 ```
 
 Both of them will need some time to download the images and start the containers. After some time, we should be able to access the application by going to the IP of the loadbalancer, followed by a '/example'. Just a quick reminder, you can find the loadbalancer IP by running the following command:
