@@ -24,7 +24,7 @@ spec:
 We can apply the annotation to our pod, using the following command from within the current folder of this solution:
 
 ```
-kubectl apply -f pod2_annotation.yml
+kubectl apply -f pod2_annotation.yaml
 ```
 
 How can we verify this? We can't search for the annotation, but the annotation will be visibile if we look at the pod details. You can use the following command to verify that the label has been applied:
@@ -51,7 +51,7 @@ spec:
 You can apply this change using the following command from within the current folder of this solution:
 
 ```
-kubectl apply -f pod2.yml
+kubectl apply -f pod2.yaml
 ```
 
 If you look at the pod details again, the annotation should be gone again:
