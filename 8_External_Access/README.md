@@ -30,7 +30,7 @@ In this definition, we define an Ingress that routes the path /hello-cisco/ to o
 
 
 ```
-kubectl apply -f ingress.yml
+kubectl apply -f ingress.yaml
 ```
 
 Now, let's have a look at the Ingress we just created:
