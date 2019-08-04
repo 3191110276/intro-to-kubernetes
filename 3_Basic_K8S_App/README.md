@@ -27,7 +27,7 @@ As a side note: this container image will be pulled from Docker Hub, a public re
 
 Now that we have a finished definition, we need to apply it to our Kubernetes cluster, using the following command executed from within the [/code](code/ "/code") folder:
 ```
-kubectl apply -f pod1.yml
+kubectl apply -f pod1.yaml
 ```
 
 Now that we have created the pod, we can go ahead and check what Kubernetes is going. Let's have a look at the list of pods:
@@ -98,7 +98,7 @@ spec:
 We can update our existing pod by applying the config via the following command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f pod1_label.yml
+kubectl apply -f pod1_label.yaml
 ```
 
 By doing this, we are modifying our existing hello-cisco pod. If we run a 'kubectl get pod' command, we can see that our pod is still up and running from before. We can see that the labels have been applied with the 'kubectl describe pod hello-cisco' command. Now that the pod has these labels, we can use them for filtering. We can run the 'kubectl get pod' command again, but now we specify a few labels that we are filtering for:
@@ -135,7 +135,7 @@ spec:
 We can change our existing pod with an annotation using this command from within the [/code](code/ "/code") folder:
 
 ```
-kubectl apply -f pod1_annotation.yml
+kubectl apply -f pod1_annotation.yaml
 ```
 You can use a command such as 'kubectl describe pod hello-cisco' to view the annotation. Keep in mind that the system itself also populates some annotation by default. Now you can go ahead and try this yourself in the challenge below.
 
