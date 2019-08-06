@@ -41,7 +41,7 @@ spec:
 storageClassName: vsphere
 resources:
    requests:
-      storage: 300M
+      storage: 400M
 ```
 
 
