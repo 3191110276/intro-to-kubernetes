@@ -36,15 +36,15 @@ kind: PersistentVolumeClaim
 metadata:
    name: example-db-pvc
 spec:
+   storageClassName: vsphere
    accessModes:
       - ReadWriteOnce
-storageClassName: vsphere
-resources:
-   requests:
-      storage: 400M
+   resources:
+      requests:
+         storage: 400M
 ```
 
-This basic example includes a few basic parameters that we will need for the claim.
+This basic example includes a few basic parameters that we will need for the claim. The 'storageClassName' refers to the StorageClass we created before.
 
 
 
