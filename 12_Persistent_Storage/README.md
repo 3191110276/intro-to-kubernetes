@@ -9,3 +9,5 @@ A Persistent Volume will be backed by some type of storage that offers an interf
 
 In many cases, dynamic creation of Persistent Volumes can be advantageous, as we don't have to deal with creating the volume. If a devleoper needs some storage for their application, they can simply write a yaml file with the Persistent Volume Claim, and use that to provision their storage, without having to create it manually in the background. In this chapter, we are going to look at dynamic creation via Persistent Volume Claims, but static provisioning would also be a valid usage of Persistent Volumes.
 
+As you can see in the image above, there is one more intermediate step between the Persistent Volume Claim and the Storage system. Kubernetes uses the concept of a StorageClass to tell the PersistentVolumeClaim which storage system can be used. Then, once we know which storage system we will use, the volume plugin will be used for provisioning the volume, which will be exposed to the requestor as a Persistent Volume in Kubernetes.
+
