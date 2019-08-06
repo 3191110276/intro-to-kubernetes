@@ -28,5 +28,28 @@ The main structure of the yaml file is the same as always, with 'kind' defined a
 
 In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind them is different. This should make it easier to move an application from one environment to another, because we can just refer to the StorageClass, which abstracts the storage system behind it.
 
+Now that we have a StorageClass, we can use it for storage through a PersistentVolumeClaim.
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: hello-db-pvc
+spec:
+   accessModes:
+      - ReadWriteOnce
+storageClassName: vsphere
+resources:
+   requests:
+      storage: 300M
+```
 
 
+
+What we created so far is a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, to actually put it to use as a volume.
+
+
+
+
+
+Storage Object in use Protection
