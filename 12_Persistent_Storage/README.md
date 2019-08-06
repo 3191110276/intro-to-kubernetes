@@ -24,5 +24,9 @@ parameters:
    fsType: ext3
 ```
 
-The main structure of the yaml file is the same as always, with 'kind' defined as 'StorageClass'. The important part is the 'provisioner', which tells us what storage system this class will be using. Actually, it specifically tells us what volume plugin we will be using, but this does correspond to the storage system. In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind the StorageClass is different. This should make it easier to move an application from one environment to another.
+The main structure of the yaml file is the same as always, with 'kind' defined as 'StorageClass'. The important part is the 'provisioner', which tells us what storage system this class will be using. Actually, it specifically tells us what volume plugin we will be using, but this does correspond to the storage system.
+
+In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind them is different. This should make it easier to move an application from one environment to another, because we can just refer to the StorageClass, which abstracts the storage system behind it.
+
+
 
