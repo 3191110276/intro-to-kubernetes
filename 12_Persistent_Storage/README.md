@@ -11,7 +11,7 @@ In many cases, dynamic creation of Persistent Volumes can be advantageous, as we
 
 As you can see in the image above, there is one more intermediate step between the Persistent Volume Claim and the Storage system. Kubernetes uses the concept of a StorageClass to tell the PersistentVolumeClaim which storage system can be used. Then, once we know which storage system we will use, the volume plugin will be used for provisioning the volume, which will be exposed to the requestor as a Persistent Volume in Kubernetes.
 
-Let's go ahead and try to create this ourselves for our database example we have been using in the previous few chapters.
+Let's go ahead and try to create this ourselves for our database example we have been using in the previous few chapters. First, we need to define the StorageClass, which will define one of our available storage systems. In our case, we don't have an external storage system, thus we will just use VMware storage. This might not be useful for a production deployment, but will be good enough for us. Let's have a look:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -20,6 +20,9 @@ metadata:
    name: vsphere
 provisioner: kubernetes.io/vsphere-volume
 parameters:
-   diskformat: eagerzeroedthick
+   diskformat: thin
    fsType: ext3
 ```
+
+The main structure of the yaml file is the same as always, with 'kind' defined as 'StorageClass'. The important part is the 'provisioner', which tells us what storage system this class will be using. Actually, it specifically tells us what volume plugin we will be using, but this does correspond to the storage system. In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind the StorageClass is different. This should make it easier to move an application from one environment to another.
+
