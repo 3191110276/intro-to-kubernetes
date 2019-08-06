@@ -28,7 +28,7 @@ The main structure of the yaml file is the same as always, with 'kind' defined a
 
 In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind them is different. This should make it easier to move an application from one environment to another, because we can just refer to the StorageClass, which abstracts the storage system behind it.
 
-Now that we have a StorageClass, we can use it for storage through a PersistentVolumeClaim.
+Now that we have a StorageClass, we can use it for storage through a PersistentVolumeClaim. Let's have a look at an example for our database server:
 
 ```yaml
 apiVersion: v1
@@ -44,7 +44,11 @@ resources:
       storage: 400M
 ```
 
+This basic example includes a few basic parameters that we will need for the claim.
 
+
+
+Depending on your environment and the storage you use, you might need further parameters for both the StorageClass, as well as for the PersistentVolumeClaim. You can check out the documentation of the volume plugin for your storage system to get more information.
 
 What we created so far is a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, to actually put it to use as a volume.
 
