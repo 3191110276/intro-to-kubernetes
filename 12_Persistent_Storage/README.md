@@ -34,7 +34,7 @@ Now that we have a StorageClass, we can use it for storage through a PersistentV
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-   name: hello-db-pvc
+   name: example-db-pvc
 spec:
    accessModes:
       - ReadWriteOnce
