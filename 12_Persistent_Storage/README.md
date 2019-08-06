@@ -44,13 +44,16 @@ spec:
          storage: 400M
 ```
 
-This basic example includes a few basic parameters that we will need for the claim. The 'storageClassName' refers to the StorageClass we created before.
+This basic example includes a few basic parameters that we will need for the claim. The 'storageClassName' refers to the StorageClass we created before. Furthermore, we also need to provide an access mode. This can be one of the following:
+* ReadWriteOnce (RWO): the volume can be used for reading and writing by a single node
+* ReadOnlyMany (ROX): the volume can be used as read-only by multiple nodes
+* ReadWriteMany (RWX): the volume can be used as both read and write by multiple nodes
 
-
+Depending on your storage vendor, not all of these modes might be supported. In our case, we have a single database Pod, which means that ReadWriteOnce will be sufficient. Finally, the last part of our definition is a request for a specific storage amount. In this case, we are requesting '400M' of storage.
 
 Depending on your environment and the storage you use, you might need further parameters for both the StorageClass, as well as for the PersistentVolumeClaim. You can check out the documentation of the volume plugin for your storage system to get more information.
 
-What we created so far is a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, to actually put it to use as a volume.
+What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume.
 
 
 
