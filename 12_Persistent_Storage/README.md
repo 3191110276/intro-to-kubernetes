@@ -11,3 +11,4 @@ In many cases, dynamic creation of Persistent Volumes can be advantageous, as we
 
 As you can see in the image above, there is one more intermediate step between the Persistent Volume Claim and the Storage system. Kubernetes uses the concept of a StorageClass to tell the PersistentVolumeClaim which storage system can be used. Then, once we know which storage system we will use, the volume plugin will be used for provisioning the volume, which will be exposed to the requestor as a Persistent Volume in Kubernetes.
 
+Let's go ahead and try to create this ourselves for our database example we have been using in the previous few chapters.
