@@ -130,7 +130,7 @@ spec:
             claimName: example-db-pvc
 ```
 
-Apply new settings
+This is basically the same deployment we had before. The only difference are the last few lines, which relate to the volume and volume mount. As you can see in the definition, we added our PersistentVolumeClaim 'example-db-pvc' as a volume in this definition, and we refer to this volume as 'mysql-pv'. We then use this volume for the volume mount by providing it with a mount path, which corresponds to our mysql directory.
 
 Show that storage is now persistent
 
