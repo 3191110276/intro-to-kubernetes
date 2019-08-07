@@ -1,7 +1,19 @@
 # Persistent storage
 In the previous chapters, we have been building an application consisting of a web frontend and a database. When entering data into the form, it is saved into the database. What happens if we move the Pod? Or if the Pod dies? Or if we create a new version of it? Right now, our storage is coupled with our Pod, which means that if our Pod goes away, the storage will vanish along with it.
 
-You can have a look at this yourself by entering some information into the web interface, and then deleting the database Pod. If you refresh the website, you will see that all the information will be gone. Keep in mind that it will take a moment to restart the database, even if the Pod is already available.
+Let's try this. If you don't have the application from the previous chapter, you can quickly deploy it using the following command from within the /code folder:
+
+```
+kubectl apply -f existing.yaml
+```
+
+Let's have a look at the website. In case you don't have the URL anymore, you can use the following command where you will see the IP in the 'EXTERNAL-IP' column:
+
+```
+kubectl get service nginx-ingress-controller --namespace=ccp
+```
+
+You can have a look at the storage persistence yourself by entering some information into the web interface (<IP>/example), and then deleting the database Pod via 'kubectl delete pod <pod_name>'. If you refresh the website, you will see that all the information is gone. Keep in mind that it will take a moment to restart the database, even if the Pod is already available.
 
 Ok, thats not good. We shouldn't lose our data each time a Pod dies, that wouldn't work for a production system. So, we need a way to permanently store our data across Pod failures or moves. In Kubernetes we can can achieve this through Persistent Volumes (PV). Let's have a closer look at how this works.
 
