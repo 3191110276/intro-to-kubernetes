@@ -87,7 +87,13 @@ Now, let's go ahead and actually create this StorageClass by applying the follow
 kubectl apply -f pvc.yaml
 ```
 
-What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
+Let's have a look at what we just created:
+
+```
+kubectl get pvc
+```
+
+You will see that we created the PVC with our StorageClass 'vsphere' in 'RWO' mode. The status should be displayed as 'Bound', which means that the operation has been successful. What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
 
 Deployment with PVC
 
