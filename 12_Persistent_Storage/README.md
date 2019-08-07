@@ -95,7 +95,33 @@ kubectl get pvc
 
 You will see that we created the PVC with our StorageClass 'vsphere' in 'RWO' mode. The status should be displayed as 'Bound', which means that the operation has been successful. What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
 
-Deployment with PVC
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - image: mysql:5.6
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: C1sco123
+          ports:
+            - containerPort: 3306
+              name: mysql
+```
 
 Apply new settings
 
