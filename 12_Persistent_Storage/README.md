@@ -13,7 +13,7 @@ Let's have a look at the website. In case you don't have the URL anymore, you ca
 kubectl get service nginx-ingress-controller --namespace=ccp
 ```
 
-You can have a look at the storage persistence yourself by entering some information into the web interface (<IP>/example), and then deleting the database Pod via 'kubectl delete pod <pod_name>'. If you refresh the website, you will see that all the information is gone. Keep in mind that it will take a moment to restart the database, even if the Pod is already available.
+You can have a look at the storage persistence yourself by entering some information into the web interface (&lt;IP&gt;/example), and then deleting the database Pod via 'kubectl delete pod <pod_name>'. If you refresh the website, you will see that all the information is gone. Keep in mind that it will take a moment to restart the database, even if the Pod is already available.
 
 Ok, thats not good. We shouldn't lose our data each time a Pod dies, that wouldn't work for a production system. So, we need a way to permanently store our data across Pod failures or moves. In Kubernetes we can can achieve this through Persistent Volumes (PV). Let's have a closer look at how this works.
 
