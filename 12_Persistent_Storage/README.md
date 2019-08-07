@@ -127,7 +127,7 @@ spec:
       volumes:
         - name: example-db-pvc
           persistentVolumeClaim:
-          claimName: example-db-pvc
+            claimName: example-db-pvc
 ```
 
 Apply new settings
