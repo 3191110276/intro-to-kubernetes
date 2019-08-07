@@ -121,8 +121,11 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql
+          volumeMounts:
+            - name: mysql-pv
+              mountPath: /var/lib/mysql
       volumes:
-        - name: db-pv
+        - name: mysql-pv
           persistentVolumeClaim:
             claimName: example-db-pvc
 ```
