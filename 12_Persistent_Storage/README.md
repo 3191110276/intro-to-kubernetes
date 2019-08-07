@@ -121,6 +121,13 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql
+  volumeMounts:
+    - name:
+      restartPolicy: "Never“
+       volumes:
+         - name: example-db-pvc
+           persistentVolumeClaim:
+           claimName: example-db-pvc
 ```
 
 Apply new settings
