@@ -53,7 +53,7 @@ Depending on your storage vendor, not all of these modes might be supported. In 
 
 Depending on your environment and the storage you use, you might need further parameters for both the StorageClass, as well as for the PersistentVolumeClaim. You can check out the documentation of the volume plugin for your storage system to get more information.
 
-What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume.
+What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
 
 
 
