@@ -1,6 +1,8 @@
 # Persistent storage
 In the previous chapters, we have been building an application consisting of a web frontend and a database. When entering data into the form, it is saved into the database. What happens if we move the Pod? Or if the Pod dies? Or if we create a new version of it? Right now, our storage is coupled with our Pod, which means that if our Pod goes away, the storage will vanish along with it.
 
+You can have a look at this yourself by entering some information into the web interface, and then deleting the database Pod. If you refresh the website, you will see that all the information will be gone. Keep in mind that it will take a moment to restart the database, even if the Pod is already available.
+
 Ok, thats not good. We shouldn't lose our data each time a Pod dies, that wouldn't work for a production system. So, we need a way to permanently store our data across Pod failures or moves. In Kubernetes we can can achieve this through Persistent Volumes (PV). Let's have a closer look at how this works.
 
 ![Storage Design](img/storage_design.png?raw=true "Storage Design")
@@ -55,8 +57,10 @@ Depending on your environment and the storage you use, you might need further pa
 
 What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
 
+Deployment with PVC
 
+Apply new settings
 
-
+Show that storage is now persistent
 
 Storage Object in use Protection
