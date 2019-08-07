@@ -1,7 +1,7 @@
 # Persistent storage
 In the previous chapters, we have been building an application consisting of a web frontend and a database. When entering data into the form, it is saved into the database. What happens if we move the Pod? Or if the Pod dies? Or if we create a new version of it? Right now, our storage is coupled with our Pod, which means that if our Pod goes away, the storage will vanish along with it.
 
-Let's try this. If you don't have the application from the previous chapter, you can quickly deploy it using the following command from within the /code folder:
+Let's try this. If you don't have the application from the previous chapter, you can quickly deploy it using the following command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f existing.yaml
@@ -42,7 +42,7 @@ The main structure of the yaml file is the same as always, with 'kind' defined a
 
 In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind them is different. This should make it easier to move an application from one environment to another, because we can just refer to the StorageClass, which abstracts the storage system behind it.
 
-Let's go ahead and create this in our environment by applying the following command from within the /code folder:
+Let's go ahead and create this in our environment by applying the following command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f storageclass.yaml
@@ -81,7 +81,7 @@ Depending on your storage vendor, not all of these modes might be supported. In 
 
 You might need some further paramters for your environment for both the StorageClass, as well as for the PersistentVolumeClaim depending on your environment and the storage you use. You can check out the documentation of the volume plugin for your storage system to get more information.
 
-Now, let's go ahead and actually create this StorageClass by applying the following command from within the /code folder:
+Now, let's go ahead and actually create this StorageClass by applying the following command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f pvc.yaml
