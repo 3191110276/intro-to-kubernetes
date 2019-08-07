@@ -42,6 +42,20 @@ The main structure of the yaml file is the same as always, with 'kind' defined a
 
 In a real world deployment, we might have different storage classes based on different quality-of-service levels, or similar policies. If we have different environments, it might be good to have the same StorageClasses in each environment, even if the storage system behind them is different. This should make it easier to move an application from one environment to another, because we can just refer to the StorageClass, which abstracts the storage system behind it.
 
+Let's go ahead and create this in our environment by applying the following command from within the /code folder:
+
+```
+kubectl apply -f storageclass.yaml
+```
+
+We can confirm the cration of our StorageClass with the following command:
+
+```
+kubectl get storageclass
+```
+
+You might see that we already have another StorageClass, which is marked as 'default'. If you wanted to make your new StorageClass the default, you would have to change the annotation of the two StorageClasses. We don't need to do that for this example though. 
+
 Now that we have a StorageClass, we can use it for storage through a PersistentVolumeClaim. Let's have a look at an example for our database server:
 
 ```yaml
