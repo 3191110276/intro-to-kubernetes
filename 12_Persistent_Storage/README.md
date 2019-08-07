@@ -143,3 +143,7 @@ After the new pod is deployed (kubectl get pods), we can enter some information 
 
 
 Storage Object in use Protection
+
+## Cleaning up
+
+We do not need to clean up the application so far. We will be using it for one more chapter. If you are unsure if your application is deployed correctly, we will offer you an opportunity to redeploy the application in the next chapter.
