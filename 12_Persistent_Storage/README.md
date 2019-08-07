@@ -143,9 +143,7 @@ kubectl apply -f mysql_new.yaml
 
 After the new pod is deployed (kubectl get pods), we can enter some information into the web interface again. This information should now be persisted. Let's try that out by deleting the pod (kubectl delete pod <pod_name>. A new pod will start automatically. Once the database is ready, we should be seeing our previous messages again. Keep in mind that the database server will take some time to start up.
 
-
-
-Storage Object in use Protection
+Challenge: Storage Object in use Protection
 
 ## Cleaning up
 
