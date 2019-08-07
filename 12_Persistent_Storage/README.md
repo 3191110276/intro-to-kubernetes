@@ -79,7 +79,13 @@ This basic example includes a few basic parameters that we will need for the cla
 
 Depending on your storage vendor, not all of these modes might be supported. In our case, we have a single database Pod, which means that ReadWriteOnce will be sufficient. Finally, the last part of our definition is a request for a specific storage amount. In this case, we are requesting '400M' of storage.
 
-Depending on your environment and the storage you use, you might need further parameters for both the StorageClass, as well as for the PersistentVolumeClaim. You can check out the documentation of the volume plugin for your storage system to get more information.
+You might need some further paramters for your environment for both the StorageClass, as well as for the PersistentVolumeClaim depending on your environment and the storage you use. You can check out the documentation of the volume plugin for your storage system to get more information.
+
+Now, let's go ahead and actually create this StorageClass by applying the following command from within the /code folder:
+
+```
+kubectl apply -f pvc.yaml
+```
 
 What we created so far is only a claim on a StorageClass, which is backed by a real storage system. We still need to connect all of this to a Pod though, then it will finally be available as a volume. To do this, we basically need to add the PersistentVolumeClaim to the Pod.
 
