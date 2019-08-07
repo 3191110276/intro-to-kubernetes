@@ -124,10 +124,10 @@ spec:
   volumeMounts:
     - name:
       restartPolicy: "Never“
-       volumes:
-         - name: example-db-pvc
-           persistentVolumeClaim:
-           claimName: example-db-pvc
+      volumes:
+        - name: example-db-pvc
+          persistentVolumeClaim:
+          claimName: example-db-pvc
 ```
 
 Apply new settings
