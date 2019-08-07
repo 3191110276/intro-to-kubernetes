@@ -132,6 +132,14 @@ spec:
 
 This is basically the same deployment we had before. The only difference are the last few lines, which relate to the volume and volume mount. As you can see in the definition, we added our PersistentVolumeClaim 'example-db-pvc' as a volume in this definition, and we refer to this volume as 'mysql-pv'. We then use this volume for the volume mount by providing it with a mount path, which corresponds to our mysql directory.
 
-Show that storage is now persistent
+Let's create this new Deployment with the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f new_db.yaml 
+```
+
+After the new pod is deployed (kubectl get pods), we can enter some information into the web interface again. This information should now be persisted. Let's try that out by deleting the pod (kubectl delete pod <pod_name>. A new pod will start automatically. Once the database is ready, we should be seeing our previous messages again. Keep in mind that the database server will take some time to start up.
+
+
 
 Storage Object in use Protection
