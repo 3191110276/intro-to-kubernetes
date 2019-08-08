@@ -25,7 +25,7 @@
 3. Logical separation of applications and users
 
 ## Networking
-1. [Kubernetes networking](18_Networking)
-2. [Cisco ACI Integration into Kubernetes](19_ACI)
+1. [Kubernetes networking](D1_Networking)
+2. [Cisco ACI Integration into Kubernetes](D2_ACI)
 
 ## Notes and Acknowledgements
