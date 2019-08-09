@@ -3,7 +3,7 @@
 
 
 
-![Kubernetes Service](img/service.png?raw=true "Kubernetes Service")
+![Namespaces](img/namespaces_overview.png?raw=true "Namespaces")
 
 
 
