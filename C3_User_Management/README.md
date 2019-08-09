@@ -37,15 +37,31 @@ As you can see, there is not a lot to the definition of a Namespace. We just nee
 kubectl apply -f namespace.yaml
 ```
 
+We can easily confirm that our new Namespace was created:
 
+```
+kubectl get namespaces
+```
 
+Now, let's switch into our new Namespace. There are some more sophisticated methods to do this, but for now, we will just override our current contect:
 
+```
+kubectl config set-context --current --namespace=ciscok8s
+```
 
-Resources are only visible inside the namespace
-Unique resources/constraints per namespace
+We are now in a different virtual cluster, so all of our previous resources will not be accessible anymore, as they have all been created in the 'default' Namespace. We can confirm this by running a 'kubectl get pods' command. You will see that there are no Pods in our current Namespace. We can switch back to our 'default' Namespace with the following command:
+
+```
+kubectl config set-context --current --namespace=default
+```
+
+There is much more that you can do with Namespaces, such as setting resource limits. Let's finish this chapter with some challenges for you.
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
+
+![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
+[Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
 ## User management
 
