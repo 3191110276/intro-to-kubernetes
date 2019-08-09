@@ -13,6 +13,13 @@ spec:
   restartPolicy: Always
 ---
 apiVersion: v1
+kind: Namespace
+metadata: 
+   name: challenge
+   labels:
+      name: challenge
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: busybox
