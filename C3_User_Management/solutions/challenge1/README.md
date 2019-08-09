@@ -43,12 +43,20 @@ Now, let's have a look at what we just did. If you try to look for the Pod with 
 kubectl config set-context --current --namespace=challenge
 ```
 
-You can run the 'kubectl get pods hello-cisco' command again, and this time you should see the Pod. Perfect! Everything has been created as intended, so let's go ahead and delete the Namespace again.
+You can run the 'kubectl get pods hello-cisco' command again, and this time you should see the Pod. Perfect! Everything has been created as intended, so let's go ahead and delete the Namespace again using the following command:
 
+```
 kubectl delete ns challenge --wait=false
+```
 
+If we check the list of Namespaces now, we will see that it is either 'Terminating' or already gone:
+
+```
 kubectl get ns
+```
 
-kubectl get pods
+We are still in the correct context though. So, what happens if we execute a 'kubectl get pods'? You will see that all the Pods will be deleted. Deleting a Namespace will delete every object attached to it! Be careful when deleting a Namspace, or you might take down a lot of applications unintentionally. Now that we are done, let's switch back to our original Namespace:
 
+```
 kubectl config set-context --current --namespace=default
+```
