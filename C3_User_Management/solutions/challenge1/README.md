@@ -55,7 +55,7 @@ If we check the list of Namespaces now, we will see that it is either 'Terminati
 kubectl get ns
 ```
 
-We are still in the correct context though. So, what happens if we execute a 'kubectl get pods'? You will see that all the Pods will be deleted. Deleting a Namespace will delete every object attached to it! Be careful when deleting a Namspace, or you might take down a lot of applications unintentionally. Now that we are done, let's switch back to our original Namespace:
+We are still in the correct context though. So, what happens if we execute a 'kubectl get pods'? You will see that all the Pods will be deleted. Deleting a Namespace will delete every object attached to it! Be careful when deleting a Namspace, or you might take down a lot of applications unintentionally. Now that we are done, let's switch back to our 'default' Namespace:
 
 ```
 kubectl config set-context --current --namespace=default
