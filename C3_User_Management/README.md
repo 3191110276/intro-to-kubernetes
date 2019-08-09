@@ -2,6 +2,9 @@
 
 So far, we usually only deployed a single application - maybe two versions of the same application at most. In the real world, a Kubernetes cluster can host hundres or thousands of applications from many different users. We might want to give each of them their own separate environment to work in, without having to create multiple clusters.
 
+
+## Namespaces
+
 Namespaces allow us to do exactly that. We can create a virtual cluster inside our Kubernetes cluster, which basically means that we have the ability to create tenants.
 
 ![Namespaces](img/namespaces_overview.png?raw=true "Namespaces")
