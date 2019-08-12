@@ -25,5 +25,5 @@ We first pull the latest list of charts with the 'update' command, and then we i
 helm create ciscoapp
 ```
 
-Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart. There should be four basic components. The 'Charts.yaml' file contains a high-level description of the chart.
+Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart. There should be four basic components. The 'Charts.yaml' file contains high-level metadata about the chart, such as chart name or version. Our yaml files will then be placed inside the 'templates' directory. As the name suggests, these yaml files can contain variables. We can set default values for our variables with the help of the 'values.yaml' file. Finally, we can manually add dependencies in the 'charts' directory, or we could also create a 'requirements.yaml' file to dynamically manage dependencies.
 
