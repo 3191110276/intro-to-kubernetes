@@ -14,7 +14,9 @@ Security is not the only concern though. We also want to make sure that our appl
 
 At some point we will experience applicatin failures that we can't simply recover from though. How will we handle those? Service Meshes can use circuit breakers to automatically close the connection to Pods that are experiencing issues. Thus, only healthy Pods will be serving requests, which should improve the overall application health.
 
-These are only some of the featues that a Service Mesh might have. There are many choices out there today. Below, you can find some popular options, but this is not a comprehensive list.
+These are only some of the featues that a Service Mesh might have. On top of that, Service Meshes will usually also offer metrics and tracing for all of the requests flowing through it. All of this is achieved through some form of control plane, and usually a sidecar proxy that handles the forwarding of requests. We will look at this in more detail with a specific Service Mesh example later on.
+
+There are many choices for Service Meshes out there today. Below, you can find some popular options, but this is not a comprehensive list.
 
 ![Options](img/options.png?raw=true "Options")
 
