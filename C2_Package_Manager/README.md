@@ -27,4 +27,8 @@ helm create ciscoapp
 
 Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart. There should be four basic components. The 'Charts.yaml' file contains high-level metadata about the chart, such as chart name or version. Our yaml files will then be placed inside the 'templates' directory. As the name suggests, these yaml files can contain variables. We can set default values for our variables with the help of the 'values.yaml' file. Finally, we can manually add dependencies in the 'charts' directory, or we could also create a 'requirements.yaml' file to dynamically manage dependencies.
 
-To start off, let's just copy all of our yaml files into the 'templates' directory. You can find them in the [/code/yaml_files](code/yaml_files "/code/yaml_files") directory.
+To start off, let's just copy all of our yaml files into the 'templates' directory. You can find them in the [/code/yaml_files](code/yaml_files "/code/yaml_files") directory. With that, our chart is actually already usable. We can apply it to our Kubernetes cluster with the following command:
+
+```
+
+```
