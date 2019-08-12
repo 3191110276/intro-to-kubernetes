@@ -19,7 +19,10 @@ spec:
           name: frontend
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: C1sco123
+              valueFrom:
+                 secretKeyRef:
+                    name: example-secret
+                    key: password
           ports:
             - containerPort: 5000
               name: frontend
