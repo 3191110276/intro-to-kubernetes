@@ -58,6 +58,18 @@ Now, one more thing before we finish. Let's add a default value for this variabl
 
 ```
 
-Package chart
-Install with variables
-Challenge: add variable for path and upgrade the current chart
+We could install the chart the same way we did before by installing the contents of the folder. We can also package all of it into a single file if we want to make our application more portable. You can use this command to package the folder into a single file:
+
+```
+
+```
+
+Now, let's install this packaged chart with the following command:
+
+```
+
+```
+
+Ok, great. You can verify the application again. As a last thing, you can try all of this again with a challenge.
+
+**Challenge: add variable for path and upgrade the current chart**
