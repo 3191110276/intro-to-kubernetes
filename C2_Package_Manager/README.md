@@ -49,10 +49,15 @@ kind: Secret
 metadata:
    name: example-secret
 data:
-   password: C1sco123
+   password: {{.Values.dbpassword}}
 ```
 
-Add variable for password
+Now, one more thing before we finish. Let's add a default value for this variable in our 'values.yaml' file. You can append the following line to achieve this:
+
+```yaml
+
+```
+
 Package chart
 Install with variables
 Challenge: add variable for path and upgrade the current chart
