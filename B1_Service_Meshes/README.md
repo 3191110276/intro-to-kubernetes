@@ -23,3 +23,6 @@ There are many choices for Service Meshes out there today. Below, you can find s
 Out of all of these options, Istio is the most popular Service Mesh today. Thus, our focus will be on this project, but you can also look at any of the other Service Meshes, if they offer features that are interesting for you.
 
 ![Istio](img/istio.png?raw=true "Istio")
+
+Istio basically consists of two components. First, the data plane, which is based on proxy containers (Envoy) that are deployed alongside the primary application Pod. This pattern is known as sidecar. The proxies then take care of all the network communication for the main container. Mixer then takes care of access control for all of these communications, as well as providing telemetry. The second part of Istio is the control plane, which manages and configure thes proxies to route the traffic, and it also configures Mixer to enforce policies and collect telemetry.
+
