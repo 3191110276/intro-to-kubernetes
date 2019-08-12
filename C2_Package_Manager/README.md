@@ -34,7 +34,19 @@ helm install --name ciscoapp ./ciscoapp
 ```
 
 Check Install
-Uninstall chart
+
+OK, great, that worked. Let's use some more features of Helm though. First, let's delete the existing application using the following command:
+
+```
+helm delete ciscoapp
+```
+
+As you can see, we deleted the entire application with a single command. We don't need to track down individual components to make sure that everything is gone. Now, let's improve upon our existing Helm chart by using some variables. If you remember, in one of our previous chapters, we used a Secret to store the database password of this application. Right now, it is hardcoded in the yaml file. That does not sound all too great from a security perspective. Let's have a look at how our Secret could look like with an added variable for Helm:
+
+```yaml
+
+```
+
 Add variable for password
 Package chart
 Install with variables
