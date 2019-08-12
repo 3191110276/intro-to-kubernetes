@@ -25,5 +25,5 @@ We first pull the latest list of charts with the 'update' command, and then we i
 helm create ciscoapp
 ```
 
-Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart.
+Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart. There should be four basic components. The 'Charts.yaml' file contains a high-level description of the chart.
 
