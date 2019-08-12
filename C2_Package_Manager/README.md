@@ -30,5 +30,12 @@ Helm created a directory, which contains all the necessary files for this chart.
 To start off, let's just copy all of our yaml files into the 'templates' directory. You can find them in the [/code/yaml_files](code/yaml_files "/code/yaml_files") directory. With that, our chart is actually already usable. We can apply it to our Kubernetes cluster with the following command:
 
 ```
-
+helm install --name ciscoapp ./ciscoapp
 ```
+
+Check Install
+Uninstall chart
+Add variable for password
+Package chart
+Install with variables
+Challenge: add variable for path and upgrade the current chart
