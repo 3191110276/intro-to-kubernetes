@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: example-db-pvc
+spec:
+   storageClassName: vsphere
+   accessModes:
+      - ReadWriteOnce
+   resources:
+      requests:
+         storage: 400M
