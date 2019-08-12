@@ -10,12 +10,20 @@ Helm allows us to define applications as so-called Helm charts. These Helm chart
 
 That all sounds well and good, but let's try this out with a practical example. We already had simple web applications in previous chapters. We will use one of those as an example for Helm and explore all basic features of Helm using this example.
 
+The first thing we will need to do is installing the Helm client. You can find installation options here: https://helm.sh/docs/using_helm/#installing-helm. Tiller is already isntalled on our Kubernetes cluster, thus the setup is complete once Helm is up and running on our PC.
 
-
-
-
-
-
-```yaml
+We got Helm running now, let's try it out by installing a first example chart on our Kubernetes cluster:
 
 ```
+helm repo update
+helm install stable/mysql
+```
+
+We first pull the latest list of charts with the 'update' command, and then we install a Helm chart from the official stable repository. In many cases, we want to build our own charts though, and a pre-made chart is not good enough for us. We can create a new Helm chart with the following command:
+
+```
+helm create ciscoapp
+```
+
+Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart.
+
