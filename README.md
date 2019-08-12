@@ -16,7 +16,7 @@
 12. [Persistent storage](A12_Persistent_Storage)
 
 ## Service Meshes
-1. Basics of Service Meshes
+1. [Basics of Service Meshes](B1_Service_Meshes)
 2. Advanced application upgrade
 
 ## Kubernetes impact on IT
