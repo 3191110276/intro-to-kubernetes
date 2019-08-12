@@ -72,4 +72,5 @@ Now, let's install this packaged chart with the following command:
 
 Ok, great. You can verify the application again. As a last thing, you can try all of this again with a challenge.
 
-**Challenge: add variable for path and upgrade the current chart**
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
