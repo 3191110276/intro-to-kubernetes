@@ -77,19 +77,19 @@ data:
 Now, one more thing before we finish. Let's add a default value for this variable in our 'values.yaml' file. You can append the following line to achieve this:
 
 ```yaml
-
+dbpassword: C1sco123
 ```
 
-We could install the chart the same way we did before by installing the contents of the folder. We can also package all of it into a single file if we want to make our application more portable. You can use this command to package the folder into a single file:
+Of course you could replace the password with your own password if you want to. We could install the chart the same way we did before by installing the contents of the folder. We can also package all of it into a single file if we want to make our application more portable. You can use this command to package the folder into a single file:
 
 ```
-
+helm package ./ciscoapp
 ```
 
 Now, let's install this packaged chart with the following command:
 
 ```
-
+helm install --name ciscoapp.v2 ciscoapp-0.1.0.tgz --set dbpassword=C1sco123
 ```
 
 Ok, great. You can verify the application again. As a last thing, you can try all of this again with a challenge.
