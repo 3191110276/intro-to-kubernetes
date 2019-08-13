@@ -16,10 +16,22 @@ We got Helm running now, let's try it out by installing a first example chart on
 
 ```
 helm repo update
-helm install stable/mysql
+helm install stable/mysql --name helm-mysql
 ```
 
-We first pull the latest list of charts with the 'update' command, and then we install a Helm chart from the official stable repository. In many cases, we want to build our own charts though, and a pre-made chart is not good enough for us. We can create a new Helm chart with the following command:
+We first pull the latest list of charts with the 'update' command, and then we install a Helm chart from the official stable repository. If you get an error about a mismatch between client and server version, you can upgrade the server via the following command:
+
+```
+helm init --upgrade
+```
+
+Let's check out this rollout. You can verify yourself that this created a Deployment and a Service on your cluster. Thus, we can easily install multiple Kubernetes components with a single command. There are also some further customizations that we can do for MySQL. Let's not go into that for now. We can delete the application again with the following command:
+
+```
+helm delete helm-mysql
+```
+
+As you can see here, we are referring to the name we used when creating the app in the first place. In many cases, we want to build our own charts though, and a pre-made chart is not good enough for us. We can create a new Helm chart with the following command:
 
 ```
 helm create ciscoapp
@@ -27,13 +39,23 @@ helm create ciscoapp
 
 Helm created a directory, which contains all the necessary files for this chart. You can have a look into this directory to see the basic structure of a Helm chart. There should be four basic components. The 'Charts.yaml' file contains high-level metadata about the chart, such as chart name or version. Our yaml files will then be placed inside the 'templates' directory. As the name suggests, these yaml files can contain variables. We can set default values for our variables with the help of the 'values.yaml' file. Finally, we can manually add dependencies in the 'charts' directory, or we could also create a 'requirements.yaml' file to dynamically manage dependencies.
 
-To start off, let's just copy all of our yaml files into the 'templates' directory. You can find them in the [/code/yaml_files](code/yaml_files "/code/yaml_files") directory. With that, our chart is actually already usable. We can apply it to our Kubernetes cluster with the following command:
+To start off, let's just copy all of our yaml files into the 'templates' directory. You can find them in the [/code/yaml_files](code/yaml_files "/code/yaml_files") directory. With that, our chart is actually already usable. Before we continue with creating this chart, let's first delete all application components that might still be on our Kubernetes cluster:
+* Deployments
+* Services (except for Kubernetes)
+* Storage Class 'vsphere'
+* Secret 'example-secret'
+
+We can apply it to our Kubernetes cluster with the following command:
 
 ```
 helm install --name ciscoapp ./ciscoapp
 ```
 
-Check Install
+This will create all of the components again through Helm. Great! You can check out the deployments, services, and so on yourself. You can also use the following Helm command to inspect your application:
+
+```
+helm status ciscoapp
+```
 
 OK, great, that worked. Let's use some more features of Helm though. First, let's delete the existing application using the following command:
 
