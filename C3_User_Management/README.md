@@ -65,8 +65,14 @@ There is much more that you can do with Namespaces, such as setting resource lim
 
 ## User management
 
-While Namespaces can separate applications from different users, our account still has access to all Namespaces. Thus, if we wanted, we could just deploy to a different Namespace. We can create new user accounts to restrict the access to certain resources.
+While Namespaces can separate applications from different users, our account still has access to all Namespaces. Let's have a look at how accounts work in Kubernetes, to see what restrictions will be possible.
 
 ![User Accounts](img/user_accounts.png?raw=true "User Accounts")
 
-In Kubernetes, there are two types of user accounts: human users and service accounts.
+In Kubernetes, there are two types of user accounts: User Accounts and Service Accounts. As the name suggests, user accounts are for human users, while service accounts are for processes running in Pods. A user account is global by default and must be unique across all Namespaces. Service Accounts are namespaced. While we might create user accounts with some form of directory integration, Service Accounts are created directly in Kubernetes.
+
+Either way, if an account wants to access the Kubernetes API, they will have to go through authentication, authorization, and admission control.
+
+Service Account creation
+
+Use Service Account for Pod
