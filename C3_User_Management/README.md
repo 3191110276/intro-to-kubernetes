@@ -73,6 +73,9 @@ In Kubernetes, there are two types of user accounts: User Accounts and Service A
 
 Either way, if an account wants to access the Kubernetes API, they will have to go through authentication, authorization, and admission control. Authentication deals with making sure that the user is who they say they are by means of client certificates, passwords, or various tokens. After being authenticted, the request is authorized based on the usernamme of the requester and the requested action against a specific object. Finally, the last step would be admission control, which are software modules that can modify or reject requests. You can have several admission controllers, which would be called in order. They can even access the contents of the object that is being created, updated, or deleted. Admission control is not available for reads.
 
+Let's look at Service Accounts and how they work.
+Service Account overview
+
 Service Account creation
 
 Use Service Account for Pod
