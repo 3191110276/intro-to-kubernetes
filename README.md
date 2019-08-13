@@ -20,7 +20,7 @@
 2. Advanced application upgrade
 
 ## Kubernetes impact on IT
-1. IT process changes due to Kubernetes
+1. [IT process changes due to Kubernetes](C1_IT_Process_Changes)
 2. Package manager
 3. Logical separation of applications and users
 
