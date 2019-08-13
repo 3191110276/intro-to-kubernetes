@@ -65,3 +65,4 @@ There is much more that you can do with Namespaces, such as setting resource lim
 
 ## User management
 
+![User Accounts](img/user_accounts.png?raw=true "User Accounts")
