@@ -13,5 +13,6 @@ With Pods being re-started all the time, we can't communicate with individual Po
 
 This is just a short overview of how the Kubernetes world is different from the VM world. Let's have a look at how this can affect IT processes by looking at an example of how Kubernetes could be run in an organization.
 
-
 ![K8s process](img/process.png?raw=true "K8s process")
+
+Developers will still be writing the code for applications, but we also need to create Kubernetes manifests that support these applications. This can be done by the K8s admin, by the developer, or by a combination of both.
