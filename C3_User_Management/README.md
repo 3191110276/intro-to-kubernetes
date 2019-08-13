@@ -65,4 +65,8 @@ There is much more that you can do with Namespaces, such as setting resource lim
 
 ## User management
 
+While Namespaces can separate applications from different users, our account still has access to all Namespaces. Thus, if we wanted, we could just deploy to a different Namespace. We can create new user accounts to restrict the access to certain resources.
+
 ![User Accounts](img/user_accounts.png?raw=true "User Accounts")
+
+In Kubernetes, there are two types of user accounts: human users and service accounts.
