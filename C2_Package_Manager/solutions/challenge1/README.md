@@ -30,3 +30,6 @@ path: example
 ```
 
 That's it actually! Nothing else required. Now, we should take these changes and apply them to our existing application. Ideally, we don't want to delete one version and install a new one, but we rather want to upgrade the existing application.
+
+Upgrade version of chart in Charts.yaml
+helm upgrade ciscoapp ciscoapp
