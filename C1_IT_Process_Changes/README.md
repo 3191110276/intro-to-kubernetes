@@ -15,4 +15,8 @@ This is just a short overview of how the Kubernetes world is different from the 
 
 ![K8s process](img/process.png?raw=true "K8s process")
 
-Developers will still be writing the code for applications, but we also need to create Kubernetes manifests that support these applications. This can be done by the K8s admin, by the developer, or by a combination of both.
+Developers will still be writing the code for applications, but we also need to create Kubernetes manifests that support these applications. This can be done by the K8s admin, by the developer, or by a combination of both. The code and the manifests can then be store in a repository (usually Git). This means that we can easily version the entire application, including the K8s components of it. If we want to jump back to a previous version we don't need to search for the K8s files and app files, because they are all together in a single location.
+
+When we do a new commit to Git, our CI/CD tool can pick up those changes and trigger all necessary steps. This will likely include tests of the application code, but also building a container that can be deployed, and storing it in our local container registry. Finally, we can then deploy our application on a Kubernetes cluster for testing.
+
+Once we are satisfied with our application, we can promote a specific version/branch of it to staging, and later on to production. This makes managing multiple releases relatively easy, because most parts of the process are automarted, and the developers only need to decice when they want to move an application version from one tier to the next.
