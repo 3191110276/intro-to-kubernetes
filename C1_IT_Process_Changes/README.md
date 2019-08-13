@@ -12,3 +12,6 @@ Almost 70% of containers are updated every week, which goes to show that applica
 With Pods being re-started all the time, we can't communicate with individual Pods though, which is why Services are a very popular concept. Services tend to live more than a week, and they provide the long-term endpoint that other application components can communicate with. Usually you don't want to change Services too often, only the Deployments that are taking advantage of them.
 
 This is just a short overview of how the Kubernetes world is different from the VM world. Let's have a look at how this can affect IT processes by looking at an example of how Kubernetes could be run in an organization.
+
+
+![K8s process](img/process.png?raw=true "K8s process")
