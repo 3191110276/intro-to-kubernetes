@@ -125,6 +125,12 @@ Let's go and create all of these by running the following command from within th
 kubectl apply -f service_account.yaml
 ```
 
-Now that we have created the Service Account, we can go ahead and create a Pod that uses this account. First, let's create a Pod the normal way though.
+Let's have a look at what we just did. We can verify our ServiceAccount:
+
+```
+kubectl get serviceaccount
+```
+
+As you can see, there is already a 'default' Service Account. This account is used if no other Service Account is specified in our Pod definition. You can also verify the Role and the RoleBinding for our newly created account. Now that we have made sure that our Service Account was created, we can go ahead and create a Pod that uses this account. First, let's create a Pod the normal way though.
 
 Use Service Account for Pod
