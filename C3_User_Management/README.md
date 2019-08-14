@@ -131,6 +131,76 @@ Let's have a look at what we just did. We can verify our ServiceAccount:
 kubectl get serviceaccount
 ```
 
-As you can see, there is already a 'default' Service Account. This account is used if no other Service Account is specified in our Pod definition. You can also verify the Role and the RoleBinding for our newly created account. Now that we have made sure that our Service Account was created, we can go ahead and create a Pod that uses this account. First, let's create a Pod the normal way though.
+As you can see, there is already a 'default' Service Account. This account is used if no other Service Account is specified in our Pod definition. You can also verify the Role and the RoleBinding for our newly created account. If you do that, you will also see that the default account does not have a Role associated with it. This will be important later on!
 
-Use Service Account for Pod
+Now that we have made sure that our Service Account was created, we can go ahead and create a Pod that uses this account. First, let's create a Pod the normal way though.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-no-sa
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-no-sa
+    spec:
+      containers:
+      - name: k8s-no-sa
+        imagePullPolicy: Always
+        image: mimaurer/cisco-kubectl
+        command:
+        - sleep
+        - "3600"
+        ports:
+        - name: app
+          containerPort: 3000
+```
+
+Let's also create the same Pod with our new ServiceAccount:
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-with-sa
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s-with-sa
+    spec:
+      serviceAccountName: myaccount
+      containers:
+      - name: k8s-with-sa
+        imagePullPolicy: Always
+        image: mimaurer/cisco-kubectl
+        command:
+        - sleep
+        - "3600"
+        ports:
+        - name: app
+          containerPort: 3000
+```
+
+If you do a 'kubectl get pods' now, you should see the two Pods that are created from the Deployments. Let's inspect both of them first by looking at the specific Pod with the following command:
+
+```
+kubectl get pods <POD_NAME> -o yaml
+```
+
+You can confirm that our Pod without Service Account uses the 'default' Service Account. What will this mean though? This specific Pod has kubectl installed on it, thus we can try to use kubectl commands directly from the Pod. Let's try it on our Pod without Service Account first:
+
+```
+kubectl exec <POD_NAME> kubectl get pods
+```
+
+You should get an error that tells you that the access has been denied. This is because we haven't given this Service Account permissions to access Kubernetes. Let's try the same command with our other Pod. You will see that you can get a response! Awesome! Our Role Binding worked. You can also verify that all the rules are enforced properly by running commands like 'kubectl get nodes', which we didn't allow for our Role. This should result in another error.
+
+In this chapter, you should have learned some basics of user accounts. There is, of course, much more to this topic, but we can't cover everything right now.
+
+## Cleaning up
+You can delete all elements created throughout this chapter. They will not be needed for any further chapters.
