@@ -19,7 +19,7 @@ helm repo update
 helm install stable/mysql --name helm-mysql
 ```
 
-We first pull the latest list of charts with the 'update' command, and then we install a Helm chart from the official stable repository. If you get an error about a mismatch between client and server version, you can upgrade the server via the following command:
+We first pull the latest list of charts with the 'update' command, and then we install a Helm chart from the official stable repository. If you get an error about a mismatch between client and server version, you can upgrade the server via the following command (you will need to wait a moment until it is ready again!):
 
 ```
 helm init --upgrade
