@@ -22,7 +22,7 @@
 ## Kubernetes impact on IT
 1. [IT process changes due to Kubernetes](C1_IT_Process_Changes)
 2. Package manager
-3. Logical separation of applications and users
+3. [Logical separation of applications and users](C3_User_Management)
 
 ## Networking
 1. [Kubernetes networking](D1_Networking)
