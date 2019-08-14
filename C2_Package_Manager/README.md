@@ -57,7 +57,7 @@ This will create all of the components again through Helm. Great! You can check 
 helm status ciscoapp
 ```
 
-OK, great, that worked. Let's use some more features of Helm though. First, let's delete the existing application using the following command:
+OK, great, that worked. You can also view your application in the browser. Remember to use 'kubectl get service nginx-ingress-controller --namespace=ccp' to get the IP, and then append '/example/' as the path for the app. Let's explore some more features of Helm. First, let's delete the existing application using the following command:
 
 ```
 helm delete ciscoapp
