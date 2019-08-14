@@ -78,4 +78,6 @@ Service Account overview
 
 Service Account creation
 
+![Service Accounts](img/service_account.png?raw=true "Service Accounts")
+
 Use Service Account for Pod
