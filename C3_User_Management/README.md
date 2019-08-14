@@ -90,15 +90,15 @@ metadata:
 We can then also go ahead and create a Role with read permissions on the Kubernetes cluster:
 
 ```yaml
-apliVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
    name: pod-reader
    namespace: default
 rules:
    - apiGroups: [""]
-      resources: ["pods"]
-      verbs: ["get", "list"]
+     resources: ["pods"]
+     verbs: ["get", "list"]
 ```
 
 Finally, we will bind that Role to the Service Account via a Role Binding:
@@ -111,8 +111,8 @@ metadata:
    namespace: default
 subjects:
    - kind: ServiceAccount
-      name: myaccount
-      apiGroup: ""
+     name: myaccount
+     apiGroup: ""
 roleRef:
    kind: Role
    name: pod-reader
