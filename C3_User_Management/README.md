@@ -119,8 +119,12 @@ roleRef:
    apiGroup: rbac.authorization.k8s.io
 ```
 
-Let's go and create all of these by applying the following command
+Let's go and create all of these by running the following command from within the [/code](code/ "/code") folder:
 
-CODE
+```
+kubectl apply -f service_account.yaml
+```
+
+Now that we have created the Service Account, we can go ahead and create a Pod that uses this account. First, let's create a Pod the normal way though.
 
 Use Service Account for Pod
