@@ -73,11 +73,54 @@ In Kubernetes, there are two types of user accounts: User Accounts and Service A
 
 Either way, if an account wants to access the Kubernetes API, they will have to go through authentication, authorization, and admission control. Authentication deals with making sure that the user is who they say they are by means of client certificates, passwords, or various tokens. After being authenticted, the request is authorized based on the usernamme of the requester and the requested action against a specific object. Finally, the last step would be admission control, which are software modules that can modify or reject requests. You can have several admission controllers, which would be called in order. They can even access the contents of the object that is being created, updated, or deleted. Admission control is not available for reads.
 
-Let's look at Service Accounts and how they work.
-Service Account overview
-
-Service Account creation
+Let's look at Service Accounts and how they work. Service Accounts can be created per Namespace, but they are not all that useful on their own. We will also need to add a Role, which gives some permissions to the Service Account. Roles are generic and can be re-used. To connect a Role to a Service Account, we need to use a Role Binding. Thus, to properly create a Service Account, we need the following elements:
 
 ![Service Accounts](img/service_account.png?raw=true "Service Accounts")
+
+Let's have a look at this in pratice with the definition of a Service Account:
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+   name: myaccount
+   namespace: default
+```
+
+We can then also go ahead and create a Role with read permissions on the Kubernetes cluster:
+
+```yaml
+apliVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+   name: pod-reader
+   namespace: default
+rules:
+   - apiGroups: [""]
+      resources: ["pods"]
+      verbs: ["get", "list"]
+```
+
+Finally, we will bind that Role to the Service Account via a Role Binding:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+   name: pod-reader-rolebinding
+   namespace: default
+subjects:
+   - kind: ServiceAccount
+      name: myaccount
+      apiGroup: ""
+roleRef:
+   kind: Role
+   name: pod-reader
+   apiGroup: rbac.authorization.k8s.io
+```
+
+Let's go and create all of these by applying the following command
+
+CODE
 
 Use Service Account for Pod
