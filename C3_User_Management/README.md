@@ -186,6 +186,16 @@ spec:
           containerPort: 3000
 ```
 
+You can create these Pods by executing the following commands from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f pod.yaml
+```
+
+```
+kubectl apply -f pod_sa.yaml
+```
+
 If you do a 'kubectl get pods' now, you should see the two Pods that are created from the Deployments. Let's inspect both of them first by looking at the specific Pod with the following command:
 
 ```
