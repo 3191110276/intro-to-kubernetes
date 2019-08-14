@@ -31,5 +31,10 @@ path: example
 
 That's it actually! Nothing else required. Now, we should take these changes and apply them to our existing application. Ideally, we don't want to delete one version and install a new one, but we rather want to upgrade the existing application.
 
-Upgrade version of chart in Charts.yaml
-helm upgrade ciscoapp ciscoapp
+Execute the following command from within the 'ciscoapp' directory to update your application:
+
+```
+helm upgrade ciscoapp.v2 . --set path=newpath
+```
+
+Now, you can reach your application at '/newpath/' with the same IP as before. Nice! You can also modify this with your own path if you want to try it out.
