@@ -199,24 +199,24 @@ spec:
   - match:
     - headers:
         end-user:
-          exact: your_username_here
+          exact: your_username
     route:
     - destination:
         host: reviews
-        subset: v2
+        subset: v3
   - route:
     - destination:
         host: reviews
-        subset: v1
+        subset: v2
 ```
 
-As you can see here, we added a second route to 'v3', in addition to our route to 'v2'. If the username matches whatever we specify, then the user will be served v3, otherwise they will be served v2. You can replace your own username for the match in this file and then apply with this command from within the [/code](code/ "/code") folder:
+As you can see here, we added a second route to 'v3', in addition to our route to 'v2'. If the username matches whatever we specify, then the user will be served v3, otherwise they will be served v2. You can replace the placeholder with your own username in this file and then apply with this command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f vs_user.yaml
 ```
 
-Let's go back to the browser now. If you refresh the page a few times, you should see that the reviews are using black stars (v2). If you log in with the specified username now (no password required), you should see red stars (v3).
+Let's go back to the browser now. If you refresh the page a few times, you should see that the reviews are using black stars (v2). If you log in with the specified username now (no password required), you should see red stars (v3). This allows us to easly allow specific users to access a new version ahead of time. Of course, we can use other methods aside from usernames as well.
 
 TODO: shift traffic 80:20
 
