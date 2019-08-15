@@ -55,17 +55,61 @@ Ok, now we have a rough overview of our application. We can't access it yet thou
 
 ![Istio Flow](img/istio_flow.png?raw=true "Istio Flow")
 
-TODO: gateway
-```yaml
+The Istio Gateway configures a load balancer for our application. It defines what hosts can access our load balancer with what protocol.
 
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: bookinfo-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
 ```
 
-TODO: virtual service
-```yaml
+We also need to define a Virtual Service, which determines how the requests are routed within the mesh. As you can see, certain paths are mapped to certain Services.
 
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bookinfo
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - bookinfo-gateway
+  http:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        host: productpage
+        port:
+          number: 9080
 ```
 
-TODO: apply
+The Isto Gateawy and Istio Virtual Service together are roughly equivalent to a native Kubernetes Ingress. We can apply both of them by running the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f bookinfo_gateway.yaml
+```
 
 TODO: result of config
 
