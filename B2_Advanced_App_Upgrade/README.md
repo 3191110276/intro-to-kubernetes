@@ -141,13 +141,36 @@ spec:
       version: v3
 ```
 
-As you can see here, we have three subsets that we want to route to, each representing one of the versions of our reviews application. You can apply this and the other Destination Rules via the following command from within the [/code](code/ "/code") folder:
+As you can see here, we have three subsets that we want to route to, each representing one of the versions of our reviews application. The Pods are selected based on their label, thus we could combine different types of Pods through labels. You can apply this and the other Destination Rules via the following command from within the [/code](code/ "/code") folder:
 
 ```
 kubectl apply -f destination-rule-all.yaml
 ```
 
-TODO: route request to v1
+To route the requests to one specific version, we need to create Virtual Services that specify which version our service mesh should be routing to. Let's look at the reviews as an example again:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
+```
+
+As you can see here, we specify the subset 'v1' of our reviews. If we apply this, we should always get the same version of our reviews. Let's try it out by applying the Istio Virtual Services from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f virtual-service-all-v1.yaml
+```
+
+This will create all the necessary Virtual Services. Let's referesh our web page a few times. It should not change anymore!
 
 TODO: challenge route request to v2
 
