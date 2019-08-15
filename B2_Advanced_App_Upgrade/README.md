@@ -194,20 +194,20 @@ metadata:
   name: reviews
 spec:
   hosts:
-  - reviews
+    - reviews
   http:
   - match:
     - headers:
-        end user:
+        end-user:
           exact: your_username_here
-      route:
-      - destination:
-          host: reviews
-          subset: v3
-  - route:
+    route:
     - destination:
         host: reviews
         subset: v2
+  - route:
+    - destination:
+        host: reviews
+        subset: v1
 ```
 
 As you can see here, we added a second route to 'v3', in addition to our route to 'v2'. If the username matches whatever we specify, then the user will be served v3, otherwise they will be served v2. You can replace your own username for the match in this file and then apply with this command from within the [/code](code/ "/code") folder:
