@@ -16426,10 +16426,11 @@ metadata:
     heritage: Tiller
     release: istio
 spec:
+  type: NodePort
   ports:
-  - name: http-kiali
+  - port: 20001
     protocol: TCP
-    port: 20001
+    nodePort: 30025
   selector:
     app: kiali
 
