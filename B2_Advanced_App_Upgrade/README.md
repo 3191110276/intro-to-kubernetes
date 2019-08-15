@@ -111,7 +111,13 @@ The Isto Gateawy and Istio Virtual Service together are roughly equivalent to a 
 kubectl apply -f bookinfo_gateway.yaml
 ```
 
-TODO: result of config
+To have a look at the application, we first need to get the external IP address of the load balancer. Let's make it simple. The following command should retrieve the IP for you:
+
+```
+kubectl get service istio-ingressgateway -n istio-system | tail -1 | awk '{ print $4 }'
+```
+
+You can now open this page in your web browser of choice. Don't forget to append '/productpage' at the end of the IP address. This is based on the rules for the paths we created with the Virtual Service. If you reload the page a few times, you will notice that the reviews will be different each time. You will either see no stars, red stars, or black stars, This all depends on the version of the reviews Service that is being used to serve this request. We haven't configured anything to choose a specific version yet, thus it will load balance across the various versions.
 
 ## Traffic steering between different versions
 TODO
