@@ -120,7 +120,41 @@ kubectl get service istio-ingressgateway -n istio-system | tail -1 | awk '{ prin
 You can now open this page in your web browser of choice. Don't forget to append '/productpage' at the end of the IP address. This is based on the rules for the paths we created with the Virtual Service. If you reload the page a few times, you will notice that the reviews will be different each time. You will either see no stars, red stars, or black stars, This all depends on the version of the reviews Service that is being used to serve this request. We haven't configured anything to choose a specific version yet, thus it will load balance across the various versions.
 
 ## Traffic steering between different versions
-TODO
+Now, let's try to route traffic only to v1 of our reviews Service. This can be done via Istio Destination Rules. Let's have a look at an example for the reviews:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v3
+    labels:
+      version: v3
+```
+
+As you can see here, we have three subsets that we want to route to, each representing one of the versions of our reviews application. You can apply this and the other Destination Rules via the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f destination-rule-all.yaml
+```
+
+TODO: route request to v1
+
+TODO: challenge route request to v2
+
+TODO: shift traffic 80:20
+
+TODO challenge shift traffic 20:80
+
 
 ## Monitoring with Istio
 TODO
