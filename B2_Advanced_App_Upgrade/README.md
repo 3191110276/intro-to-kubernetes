@@ -258,7 +258,7 @@ Istio allowed us to do some fancy routing that we can use for application upgrad
 echo http://$(kubectl get nodes -o wide | tail -1 | awk '{ print $7 }'):30025/kiali
 ```
 
-Please open this page in Firefox, as the Chrome security policies will not allow Kiali to work.
+You can now open the page. The recommended browser for this would be Firefox, because Chrome does have some issues with Kiali.
 
 ## Cleanup
 You can remove all artifcats created during this chapter, as none of them will be needed later on. It would be recommended to remove the label from the Namespace:
