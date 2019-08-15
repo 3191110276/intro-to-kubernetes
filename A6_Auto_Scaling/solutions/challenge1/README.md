@@ -6,7 +6,7 @@ This is the solution for the following challenge:
 
 Our existing application is already being scaled based on CPU, but we can also add memory scaling. To add auto-scaling based on memory as well, we would need to change two things. First, our Pod template would need some information about the memory we are requesting. Second, we need to modify our HorizontalPodAutoscaler to include scaling based on memory.
 
-Let's start by adding a memory request to our ReplicaSet. As mentioned in the instructions, we should add a memory request of 100Mi. This will result in the following ReplicaSet definition:
+Let's start by adding a memory request to our ReplicaSet. As mentioned in the instructions, we should add a memory request of 50Mi. This will result in the following ReplicaSet definition:
 
 ```yaml
 apiVersion: apps/v1
