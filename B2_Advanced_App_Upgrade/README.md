@@ -218,7 +218,33 @@ kubectl apply -f vs_user.yaml
 
 Let's go back to the browser now. If you refresh the page a few times, you should see that the reviews are using black stars (v2). If you log in with the specified username now (no password required), you should see red stars (v3). This allows us to easly allow specific users to access a new version ahead of time. Of course, we can use other methods aside from usernames as well.
 
-TODO: shift traffic 80:20
+We are going to do one more thing. We want to do a gradual release where only a certain percentage of requests are served with the new version. To achieve that, we can update our Virtual Service for reviews with weights:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v2
+      weight: 80
+    - destination:
+        host: reviews
+        subset: v3
+      weight: 20
+```
+
+This means that 80% of our requests are served by v2, and 20% of our requests are served by v3. We could, of course, also use a specific group of users that corresponds to 20% and only serve to these users. In our case, it is random who will get the new version and who will get the old version. Let's apply this with the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f virtual-service-reviews-v2-v3.yaml
+```
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
