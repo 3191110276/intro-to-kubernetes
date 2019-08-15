@@ -31,12 +31,43 @@ Let's deploy a small application, so that we can explore Istio. Use the followin
 kubectl apply -f bookinfo.yaml
 ```
 
-Before we continue, let's look at what created just now.
+Before we continue, let's look at what created just now. Let's look at our Deployments first:
+
+```
+kubectl get deployments
+```
+
+As you can see, we have five different Deployments, with three of them covering the reviews aspect of our application, but all in different versions. We also have Services for our application:
+
+```
+kubectl get svc
+```
+
+As you can see, all of our Services are of type 'ClusterIP' though, which means that they will only be accessible from inside the cluster. Right now, we can't access our application! Finally, let's look at our Pods:
+
+```
+kubectl get pods
+```
+
+In the 'READY' column, you will see that all of our Pods consist of two containers. Once the Pods are ready, you should see a '2/2' in that column. If you use 'kubectl describe pod <POD_NAME>' with one of the Pods, you can see that there is a second container called 'istio-proxy'. If you look in the original yaml file, this container is not present. It was injected through Istio when the Pod was created!
+
+Ok, now we have a rough overview of our application. We can't access it yet though, so let's use Istio to expose our application. To do this, we will need an Istio Gateway, and an Istio Virtual Service. Later on, we are also going to make use of Destination Rules, but for now, we will just set up our cluster access with those two components.
 
 ![Istio Flow](img/istio_flow.png?raw=true "Istio Flow")
 
+TODO: gateway
+```yaml
 
+```
 
+TODO: virtual service
+```yaml
+
+```
+
+TODO: apply
+
+TODO: result of config
 
 ## Traffic steering between different versions
 TODO
