@@ -200,10 +200,10 @@ spec:
     - headers:
         end user:
           exact: your_username_here
-    route:
-    - destination:
-        host: reviews
-        subset: v3
+      route:
+      - destination:
+          host: reviews
+          subset: v3
   - route:
     - destination:
         host: reviews
