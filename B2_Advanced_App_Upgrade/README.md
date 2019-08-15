@@ -187,6 +187,29 @@ Ramped/Canary upgrades will mean that a new version is first rolled out for a se
 
 TODO: shift only a single user to a new version
 
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - match:
+    - headers:
+        end user:
+          exact: your_username_here
+    route:
+    - destination:
+        host: reviews
+        subset: v3
+  - route:
+    - destination:
+        host: reviews
+        subset: v2
+```
+
 TODO: shift traffic 80:20
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
