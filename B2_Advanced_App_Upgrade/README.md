@@ -172,15 +172,17 @@ kubectl apply -f virtual-service-all-v1.yaml
 
 This will create all the necessary Virtual Services. Let's referesh our web page a few times. It should not change anymore!
 
-TODO: challenge route request to v2
+![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
+[Click here for the solution](./solutions/challenge1 "Click here for the solution")
+
+TODO: explain versioning options in K8s
 
 TODO: shift traffic 80:20
 
-TODO challenge shift traffic 20:80
+![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
+[Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
 ![Versioning](img/versioning.png?raw=true "Versioning")
-
-TODO: explain versioning options in K8s
 
 ## Monitoring with Istio
 TODO
