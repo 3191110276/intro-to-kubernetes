@@ -15,6 +15,8 @@ The service then allows us to access the logical set of pods using a single inte
 Now, let's try to access our own application. To do that, we would need to expose it externally, for example using a NodePort:
 
 ```yaml
+apiVersion: v1
+kind: Service
 metadata:
     name: svc-hello-cisco
     labels:
