@@ -155,6 +155,9 @@ TODO: shift traffic 80:20
 
 TODO challenge shift traffic 20:80
 
+![Versioning](img/versioning.png?raw=true "Versioning")
+
+TODO: explain versioning options in K8s
 
 ## Monitoring with Istio
 TODO
