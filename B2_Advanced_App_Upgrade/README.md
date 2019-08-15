@@ -22,6 +22,12 @@ spec:
   - kubernetes
 ```
 
+Apply this via the following command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f ns.yaml
+```
+
 The label we added tells Istio to inject a sidecar Pod, which makes the Pod part of the Istio data plane. That's all for now, let's create an application using Istio.
 
 ## Deploying a basic Istio application
