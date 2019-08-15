@@ -185,7 +185,7 @@ A/B testing means that we only switch some users to the new version while all th
 
 Ramped/Canary upgrades will mean that a new version is first rolled out for a select few requests, and then over time more and more requests are serverd with the new version. If there are issues, we can find out with only a few users affected by it. We can add more users over time if everything is ok.
 
-TODO: shift only a single user to a new version
+Our application sends back the username of logged in users. We can use that to determine if a user should be served the newest version or not. Let's have a look at our Virtual Service, and how we can modify it.
 
 ```yaml
 apiVersion: networking.istio.io/v1alpha3
@@ -209,6 +209,14 @@ spec:
         host: reviews
         subset: v2
 ```
+
+As you can see here, we added a second route to 'v3', in addition to our route to 'v2'. If the username matches whatever we specify, then the user will be served v3, otherwise they will be served v2. You can replace your own username for the match in this file and then apply with this command from within the [/code](code/ "/code") folder:
+
+```
+kubectl apply -f vs_user.yaml
+```
+
+Let's go back to the browser now. If you refresh the page a few times, you should see that the reviews are using black stars (v2). If you log in with the specified username now (no password required), you should see red stars (v3).
 
 TODO: shift traffic 80:20
 
