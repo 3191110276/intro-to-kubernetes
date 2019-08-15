@@ -175,8 +175,15 @@ This will create all the necessary Virtual Services. Let's referesh our web page
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
-TODO: explain versioning options in K8s
+Right now, we are just routing to one version. This is not much different to what we did before. One advantage of the upgrade with the Service Mesh is that we can bring up the new version completely before we switch to it. We can do some more fancy things with upgrades though. Let's explore some common upgrade methods.
+
 ![Versioning](img/versioning.png?raw=true "Versioning")
+
+What we did just now would be a Blue/Green Upgrade, which means that we are switching from one version to the other instantly. We will look at two more examples: A/B testing and ramped/canary updates.
+
+A/B testing means that we only switch some users to the new version while all the other users stay on the previous version.  This allows us to test the release in a real world environment.
+
+Ramped/Canary upgrades will mean that a new version is first rolled out for a select few requests, and then over time more and more requests are serverd with the new version. If there are issues, we can find out with only a few users affected by it. We can add more users over time if everything is ok.
 
 TODO: shift only a single user to a new version
 
