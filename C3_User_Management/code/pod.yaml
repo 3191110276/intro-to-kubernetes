@@ -1,21 +1,15 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: k8s-no-sa
 spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: k8s-no-sa
-    spec:
-      containers:
-      - name: k8s-no-sa
-        imagePullPolicy: Always
-        image: mimaurer/cisco-kubectl
-        command:
-        - sleep
-        - "3600"
-        ports:
-        - name: app
-          containerPort: 3000
+  containers:
+  - name: k8s-no-sa
+    imagePullPolicy: Always
+    image: mimaurer/cisco-kubectl
+    command:
+    - sleep
+    - "3600"
+    ports:
+    - name: app
+      containerPort: 3000
