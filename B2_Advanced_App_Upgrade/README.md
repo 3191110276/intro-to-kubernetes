@@ -1,5 +1,5 @@
 # Advanced application upgrade
-TODO
+In this chapter we will apply the Istio service mesh to do more advanced application upgrades. First, we will install Istio, then we will create a simple application with a service mesh. Then, we will use Istio to create forwarding rules that will allow us to transition from one application version to another. Then, to finish the chapter, we will look at monitoring of our forwarding policies.
 
 ## Installing Istio
 TODO
