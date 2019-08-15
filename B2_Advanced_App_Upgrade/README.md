@@ -176,13 +176,14 @@ This will create all the necessary Virtual Services. Let's referesh our web page
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
 
 TODO: explain versioning options in K8s
+![Versioning](img/versioning.png?raw=true "Versioning")
+
+TODO: shift only a single user to a new version
 
 TODO: shift traffic 80:20
 
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
-
-![Versioning](img/versioning.png?raw=true "Versioning")
 
 ## Monitoring with Istio
 TODO
