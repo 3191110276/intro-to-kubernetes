@@ -246,6 +246,8 @@ This means that 80% of our requests are served by v2, and 20% of our requests ar
 kubectl apply -f virtual-service-reviews-v2-v3.yaml
 ```
 
+You can go back to the browser to try this out yourself. 80:20 is a quite uneven split, thus you will only see v3 very rarely. You can definitely see that this is working though. After we have this running for some time without issues, we probably want to transition to having more users on the newer version. You can try this yourself in the following challenge.
+
 ![Challenge 2](img/challenge2.png?raw=true "Challenge 2")
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
