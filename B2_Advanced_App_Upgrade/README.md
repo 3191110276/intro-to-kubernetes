@@ -252,7 +252,7 @@ You can go back to the browser to try this out yourself. 80:20 is a quite uneven
 [Click here for the solution](./solutions/challenge2 "Click here for the solution")
 
 ## Monitoring with Istio
-TODO
+Istio allowed us to do some fancy routing that we can use for application upgrades. Of course, we can also use these features outside of upgrades! It can be difficult to understand where requests are going though. Luckily, there are monitoring options for Istio. We will have a look at Kiali to monitor our current setup.
 
 ## Cleanup
 You can remove all artifcats created during this chapter, as none of them will be needed later on. It would be recommended to remove the label from the Namespace:
