@@ -170,7 +170,7 @@ As you can see here, we specify the subset 'v1' of our reviews. If we apply this
 kubectl apply -f virtual-service-all-v1.yaml
 ```
 
-This will create all the necessary Virtual Services. Let's referesh our web page a few times. It should not change anymore!
+This will create all the necessary Virtual Services. Let's referesh our web page a few times. It should not change anymore! You can try to change the service mesh in such a way that all traffic will go to v2 yourself with the following challenge.
 
 ![Challenge 1](img/challenge1.png?raw=true "Challenge 1")
 [Click here for the solution](./solutions/challenge1 "Click here for the solution")
