@@ -17,7 +17,7 @@
 
 ## Service Meshes
 1. [Basics of Service Meshes](B1_Service_Meshes)
-2. Advanced application upgrade
+2. [Advanced application upgrade](B2_Advanced_App_Upgrade)
 
 ## Kubernetes impact on IT
 1. [IT process changes due to Kubernetes](C1_IT_Process_Changes)
