@@ -4,6 +4,3 @@ metadata:
   name: default
   labels:
     istio-injection: enabled
-spec:
-  finalizers:
-  - kubernetes
