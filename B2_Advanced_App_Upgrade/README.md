@@ -258,7 +258,7 @@ Istio allowed us to do some fancy routing that we can use for application upgrad
 echo http://$(kubectl get nodes -o wide | tail -1 | awk '{ print $7 }'):30025/kiali
 ```
 
-You can now open the page. The recommended browser for this would be Firefox, because Chrome does have some issues with Kiali.
+You can now open the page. The recommended browser for this would be Firefox, because Chrome does have some issues with Kiali. Login with 'admin' as username and password. Then go to the graph page, and select the Namespace 'default'. If Kiali can't render the graph yet, you should send a few request to your app so that Kiali can record some traffic. Go ahead and explore Kiali on your own!
 
 ## Cleanup
 You can remove all artifcats created during this chapter, as none of them will be needed later on. It would be recommended to remove the label from the Namespace:
