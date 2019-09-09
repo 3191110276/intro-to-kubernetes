@@ -28,7 +28,7 @@ On the left side of the page you will see some information that tells you how to
 Once you are on this page, you can log in as user "admin" with the password "Cisco123". After the login, you should be seeing the following page:
 
 ![CCP main page](img/ccpmainstart.png?raw=true "CCP main page")
-
+<!--
 You can see that we already have a cluster that could be used. For this workshop, we are going to create a new cluster though. To do that, go ahead and click on the "New Cluster" button above the list of current clusters. This will take you to the following page:
 
 ![CCP setup](img/ccpsetup.png?raw=true "CCP setup")
@@ -60,6 +60,7 @@ This page will summarize all of your settings. Again, make sure that Istio is en
 You will now be returned to the main page, and you can see that the cluster has started deploying. Once it is finished, it should look something like the picture below.
 
 ![CCP finished](img/ccpmainfinished.png?raw=true "CCP finished")
+-->
 
 Now you can go ahead and click on the cluster to get to the detail view.
 
