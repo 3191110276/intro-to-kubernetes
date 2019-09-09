@@ -19,10 +19,7 @@ Kubernetes will support you with rolling out production applications at scale. C
 
 Creating and maintaining a Kubernetes cluster is not a trivial task. Installations can be tricky, and clusters will usually use a range of plugins, which all need to be verified when upgrading from one version to another. Due to these problems, Kubernetes users often tend to go with a ready-made solution, either an on-premises container platform, or a Kubernetes service offered by a cloud provider.
 
-For this example, we are going to use Cisco's Container Platform (CCP), to quickly roll out a cluster. While this does simplify the rollout, this platform is using 100% standard Kubernetes and open-source plugins. Thus, everything that we learn in this workshop can be transferred to other Kubernetes solutions.
-
-## Rolling out a cluster using CCP
-**TODO**
+For this example, we are going to use Cisco's Container Platform (CCP), to quickly roll out a cluster. While this does simplify the rollout, this platform is using 100% standard Kubernetes and open-source plugins. Thus, everything that we learn in this workshop can be transferred to other Kubernetes solutions. If you haven't set up your cluster so far, you can go to the Environment Setup chapter to do that.
 
 ## Kubernetes concepts
 As a system, Kubernetes consists of one or more masters and regular non-master nodes. Masters are tasked with coordinating the cluster, and making sure that the desired state is reached. In practice, this means that the master would intelligently place container workloads on different nodes. If a node should fail, the master will redeploy the containers on a different node.
