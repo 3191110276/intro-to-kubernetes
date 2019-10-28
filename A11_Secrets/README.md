@@ -5,7 +5,7 @@ In the previous chapter we created quite a big application. We want to improve a
 ```yaml
     spec:
       containers:
-        - image: mimaurer/frontend:v1
+        - image: mimaurer/frontend:v2
           name: frontend
           env:
             - name: MYSQL_ROOT_PASSWORD
