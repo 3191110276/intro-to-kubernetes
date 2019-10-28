@@ -72,7 +72,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: mimaurer/frontend:v1
+        - image: mimaurer/frontend:v2
           name: frontend
           env:
             - name: MYSQL_ROOT_PASSWORD
