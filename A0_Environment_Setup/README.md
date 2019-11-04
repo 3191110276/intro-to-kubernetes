@@ -136,7 +136,7 @@ mv ~/Downloads/kubeconfig.yaml ~/.kube/config
 ```
 
 ### Windows
-On Windows, create a new folder '.kube', then drag and drop your Kubeconfigfile into that folder.
+On Windows, create a new folder '.kube', then drag and drop your Kubeconfigfile into that folder and rename the file to 'config' (no file ending).
 ```
 mkdir -p C:\Users\*name*\.kube
 ```
