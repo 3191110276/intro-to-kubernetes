@@ -6,18 +6,24 @@
 ## Containers <sub><sup><sub>15 minutes</sub></sup></sub>
 1. [What are Containers?](/B1_Intro_to_Containers)
 
-## Kubernetes Basics
+## Kubernetes Clusters
 1. [Kubernetes for container orchestration](/C1_Kubernetes_for_Containers)
-2. [Creating a basic application with Kubernetes](/C2_Basic_K8S_App)
-3. [Scaling our application](/C3_Scaling_our_App)
-4. [Exposing our application](/C4_Exposing_our_App)
-5. [Auto-scaling applications](/C5_Auto_Scaling)
-6. [Basic application upgrades](/C6_Basic_App_Upgrades)
-7. [Providing external access to the cluster](/C7_External_Access)
-8. [Review: Putting it all together](C8_Review)
-9. [Challenge: Deploying an example application](C9_Challenge)
-10. [Secrets for applying configuration](C10_Secrets)
-11. [Persistent storage](C11_Persistent_Storage)
+2. Creating a Kubernetes Cluster
+
+## Kubernetes Basics
+1. [Creating a basic application with Kubernetes](/C2_Basic_K8S_App)
+2. [Scaling our application](/C3_Scaling_our_App)
+3. [Exposing our application](/C4_Exposing_our_App)
+4. [Basic application upgrades](/C6_Basic_App_Upgrades)
+5. [Providing external access to the cluster](/C7_External_Access)
+6. [Review: Putting it all together](C8_Review)
+7. [Challenge: Deploying an example application](C9_Challenge)
+8. [Secrets for applying configuration](C10_Secrets)
+9. [Persistent storage](C11_Persistent_Storage)
+
+## Auto-scaling magic
+1. [Auto-scaling applications](/C5_Auto_Scaling)
+2. Working with CWOM to automate scaling decisions
 
 ## Service Meshes
 1. [Basics of Service Meshes](D1_Service_Meshes)
@@ -31,5 +37,8 @@
 ## Networking
 1. [Kubernetes networking](F1_Networking)
 2. [Cisco ACI Integration into Kubernetes](F2_ACI)
+
+## Security
+tbd
 
 ## Notes and Acknowledgements
