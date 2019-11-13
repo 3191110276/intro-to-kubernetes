@@ -3,7 +3,7 @@
 ## Environment Setup
 0. [Environment Setup](/A0_Environment_Setup)
 
-## Basics
+## Kubernetes Basics
 1. [What are Containers?](/A1_Intro_to_Containers)
 2. [Kubernetes for container orchestration](A2_Kubernetes_for_Containers)
 3. [Creating a basic application with Kubernetes](A3_Basic_K8S_App)
