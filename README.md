@@ -7,7 +7,7 @@
 1. [What are Containers?](/B1_Intro_to_Containers)
 
 ## Kubernetes Basics
-1. [Kubernetes for container orchestration](A2_Kubernetes_for_Containers)
+1. [Kubernetes for container orchestration](C1_Kubernetes_for_Containers)
 2. [Creating a basic application with Kubernetes](A3_Basic_K8S_App)
 3. [Scaling our application](/A4_Scaling_our_App)
 4. [Exposing our application](/A5_Exposing_our_App)
