@@ -3,19 +3,21 @@
 ## Environment Setup
 0. [Environment Setup](/A0_Environment_Setup)
 
-## Kubernetes Basics
+## Containers
 1. [What are Containers?](/A1_Intro_to_Containers)
-2. [Kubernetes for container orchestration](A2_Kubernetes_for_Containers)
-3. [Creating a basic application with Kubernetes](A3_Basic_K8S_App)
-4. [Scaling our application](/A4_Scaling_our_App)
-5. [Exposing our application](/A5_Exposing_our_App)
-6. [Auto-scaling applications](/A6_Auto_Scaling)
-7. [Basic application upgrades](/A7_Basic_App_Upgrades)
-8. [Providing external access to the cluster](/A8_External_Access)
-9. [Review: Putting it all together](A9_Review)
-10. [Challenge: Deploying an example application](A10_Challenge)
-11. [Secrets for applying configuration](A11_Secrets)
-12. [Persistent storage](A12_Persistent_Storage)
+
+## Kubernetes Basics
+1. [Kubernetes for container orchestration](A2_Kubernetes_for_Containers)
+2. [Creating a basic application with Kubernetes](A3_Basic_K8S_App)
+3. [Scaling our application](/A4_Scaling_our_App)
+4. [Exposing our application](/A5_Exposing_our_App)
+5. [Auto-scaling applications](/A6_Auto_Scaling)
+6. [Basic application upgrades](/A7_Basic_App_Upgrades)
+7. [Providing external access to the cluster](/A8_External_Access)
+8. [Review: Putting it all together](A9_Review)
+9. [Challenge: Deploying an example application](A10_Challenge)
+10. [Secrets for applying configuration](A11_Secrets)
+11. [Persistent storage](A12_Persistent_Storage)
 
 ## Service Meshes
 1. [Basics of Service Meshes](B1_Service_Meshes)
