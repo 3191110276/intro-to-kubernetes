@@ -20,16 +20,16 @@
 11. [Persistent storage](C11_Persistent_Storage)
 
 ## Service Meshes
-1. [Basics of Service Meshes](B1_Service_Meshes)
-2. [Advanced application upgrade](B2_Advanced_App_Upgrade)
+1. [Basics of Service Meshes](D1_Service_Meshes)
+2. [Advanced application upgrade](D2_Advanced_App_Upgrade)
 
 ## Kubernetes impact on IT
-1. [IT process changes due to Kubernetes](C1_IT_Process_Changes)
-2. [Package manager](C2_Package_Manager)
-3. [Logical separation of applications and users](C3_User_Management)
+1. [IT process changes due to Kubernetes](E1_IT_Process_Changes)
+2. [Package manager](E2_Package_Manager)
+3. [Logical separation of applications and users](E3_User_Management)
 
 ## Networking
-1. [Kubernetes networking](D1_Networking)
-2. [Cisco ACI Integration into Kubernetes](D2_ACI)
+1. [Kubernetes networking](F1_Networking)
+2. [Cisco ACI Integration into Kubernetes](F2_ACI)
 
 ## Notes and Acknowledgements
