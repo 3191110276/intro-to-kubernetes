@@ -7,17 +7,17 @@
 1. [What are Containers?](/B1_Intro_to_Containers)
 
 ## Kubernetes Basics
-1. [Kubernetes for container orchestration](C1_Kubernetes_for_Containers)
-2. [Creating a basic application with Kubernetes](A3_Basic_K8S_App)
-3. [Scaling our application](/A4_Scaling_our_App)
-4. [Exposing our application](/A5_Exposing_our_App)
-5. [Auto-scaling applications](/A6_Auto_Scaling)
-6. [Basic application upgrades](/A7_Basic_App_Upgrades)
-7. [Providing external access to the cluster](/A8_External_Access)
-8. [Review: Putting it all together](A9_Review)
-9. [Challenge: Deploying an example application](A10_Challenge)
-10. [Secrets for applying configuration](A11_Secrets)
-11. [Persistent storage](A12_Persistent_Storage)
+1. [Kubernetes for container orchestration](/C1_Kubernetes_for_Containers)
+2. [Creating a basic application with Kubernetes](/C2_Basic_K8S_App)
+3. [Scaling our application](/C3_Scaling_our_App)
+4. [Exposing our application](/C4_Exposing_our_App)
+5. [Auto-scaling applications](/C5_Auto_Scaling)
+6. [Basic application upgrades](/C6_Basic_App_Upgrades)
+7. [Providing external access to the cluster](/C7_External_Access)
+8. [Review: Putting it all together](C8_Review)
+9. [Challenge: Deploying an example application](C9_Challenge)
+10. [Secrets for applying configuration](C10_Secrets)
+11. [Persistent storage](C11_Persistent_Storage)
 
 ## Service Meshes
 1. [Basics of Service Meshes](B1_Service_Meshes)
