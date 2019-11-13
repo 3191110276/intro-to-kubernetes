@@ -1,6 +1,6 @@
 # Introduction to Kubernetes
 
-## Environment Setup
+## Environment Setup ######60 minutes
 0. [Environment Setup](/A0_Environment_Setup)
 
 ## Containers
