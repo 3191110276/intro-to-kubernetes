@@ -1,10 +1,10 @@
 # Introduction to Kubernetes
 
 ## Environment Setup <sub><sup><sub>60 minutes</sub></sup></sub>
-0. [Environment Setup](/A0_Environment_Setup)
+1. [Environment Setup](/A1_Environment_Setup)
 
 ## Containers <sub><sup><sub>15 minutes</sub></sup></sub>
-1. [What are Containers?](/A1_Intro_to_Containers)
+1. [What are Containers?](/B1_Intro_to_Containers)
 
 ## Kubernetes Basics
 1. [Kubernetes for container orchestration](A2_Kubernetes_for_Containers)
