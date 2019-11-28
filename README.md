@@ -1,17 +1,8 @@
 # Introduction to Kubernetes
 
 <pre>
-<div>
-  <button>1.Environment Setup</button>
-  
-  <DIV CLASS="foo">
-    <p><em>Markdown</em></p>
-  </DIV>
-
-<div><a href="bar">*foo*</a></div>
-
-<style>p{color:red;}</style>
-<p><em>foo</em></p>
+<div style="background-color: red;">
+test
 </div>
 </pre>
 
